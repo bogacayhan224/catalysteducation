@@ -11,7 +11,18 @@ export async function FAQ() {
   const items =
     sanityFaqs.length > 0
       ? sanityFaqs.map((f) => ({ question: f.question, answer: f.answer }))
-      : (t.raw("items") as { question: string; answer: string }[]);
+      : (t.raw("items") as { question: string; answer: string }[]).map((item, i) => ({
+          question: item.question,
+          answer: [
+            {
+              _type: "block" as const,
+              _key: `fallback-${i}`,
+              style: "normal" as const,
+              markDefs: [],
+              children: [{ _type: "span", _key: `span-${i}`, text: item.answer, marks: [] }],
+            },
+          ],
+        }));
 
   return (
     <section id="faqs" className="w-full py-24 md:py-32 bg-warm-200 border-t border-warm-300">
