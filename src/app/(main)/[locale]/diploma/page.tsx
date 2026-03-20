@@ -130,7 +130,7 @@ export default async function DiplomaPage() {
                   { label: "glanceLabel4", value: "glanceValue4", sub: "glanceSub4" },
                   { label: "glanceLabel5", value: "glanceValue5", highlight: true },
                   { label: "glanceLabel6", value: "glanceValue6" },
-                ] as const).map(({ label, value, sub, highlight }) => (
+                ] as { label: string; value: string; sub?: string; highlight?: boolean }[]).map(({ label, value, sub, highlight }) => (
                   highlight ? (
                     <div key={label} className="flex flex-col gap-1 py-3 border-b border-warm-300 last:border-0 bg-trust-50 -mx-2 px-2 rounded-xl">
                       <span className="text-xs font-semibold text-trust-600 uppercase tracking-wide">{t(label)}</span>
