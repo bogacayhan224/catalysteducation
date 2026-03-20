@@ -25,7 +25,7 @@ export async function FAQ() {
         }));
 
   return (
-    <section id="faqs" className="w-full py-24 md:py-32 bg-warm-200 border-t border-warm-300">
+    <section id="faqs" className="w-full py-16 md:py-24 bg-warm-200 border-t border-warm-300">
       <div className="container mx-auto px-4 md:px-6 max-w-3xl">
         <div className="flex flex-col items-center justify-center text-center mb-16 space-y-4">
           <h2 className="text-3xl md:text-5xl font-bold tracking-tight text-warm-800">
@@ -41,7 +41,7 @@ export async function FAQ() {
         <div className="mt-14 text-center bg-white p-8 rounded-3xl border border-warm-300 shadow-[0_2px_12px_rgba(31,29,26,0.05)]">
           <h3 className="text-xl font-bold text-warm-800 mb-2">{t("stillHaveQuestions")}</h3>
           <p className="text-warm-700 mb-6 max-w-lg mx-auto">{t("contactPrompt")}</p>
-          <a href="#consultation" className="inline-flex h-12 items-center justify-center rounded-full bg-brand-500 px-8 text-sm font-semibold text-white shadow-sm transition-colors hover:bg-brand-600">
+          <a href={`/${locale}/contact`} className="inline-flex h-12 items-center justify-center rounded-full bg-brand-500 px-8 text-sm font-semibold text-white shadow-sm transition-colors hover:bg-brand-600">
             {t("contactButton")}
           </a>
         </div>

@@ -21,7 +21,7 @@ export function FinalCTA() {
   const whatsappUrl = `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(whatsapp("message"))}`;
 
   return (
-    <section id="consultation" className="w-full py-20 md:py-28 bg-warm-800">
+    <section id="consultation" className="w-full py-20 md:py-28 bg-[#3A6EA5]">
       <div className="container mx-auto px-4 md:px-6 max-w-[1280px]">
         <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
 

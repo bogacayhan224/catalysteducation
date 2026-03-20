@@ -4,19 +4,30 @@ import { useState } from "react";
 import { useTranslations, useLocale } from "next-intl";
 import { CheckCircle, MessageCircle, AlertCircle } from "lucide-react";
 
-interface FormData {
-  parentName: string;
-  phone: string;
-  email: string;
-  grade: string;
-  privacyConsent: boolean;
-  whatsappConsent: boolean;
+const COUNTRY_CODES = [
+  { code: "+90", flag: "🇹🇷" },
+  { code: "+1",  flag: "🇺🇸" },
+  { code: "+44", flag: "🇬🇧" },
+  { code: "+49", flag: "🇩🇪" },
+  { code: "+31", flag: "🇳🇱" },
+  { code: "+32", flag: "🇧🇪" },
+  { code: "+33", flag: "🇫🇷" },
+  { code: "+41", flag: "🇨🇭" },
+  { code: "+43", flag: "🇦🇹" },
+  { code: "+61", flag: "🇦🇺" },
+  { code: "+971", flag: "🇦🇪" },
+  { code: "+966", flag: "🇸🇦" },
+];
+
+function normalizePhone(countryCode: string, localPhone: string): string {
+  const digits = localPhone.replace(/\D/g, "");
+  const stripped = digits.startsWith("0") ? digits.slice(1) : digits;
+  return `${countryCode}${stripped}`;
 }
 
-interface FormErrors {
-  parentName?: string;
-  phone?: string;
-  privacyConsent?: string;
+function isValidEmail(email: string): boolean {
+  // Domain parts must be non-empty alphanumeric segments — rejects consecutive dots
+  return /^[^\s@]+@(?:[a-zA-Z0-9-]+\.)+[a-zA-Z]{2,}$/.test(email);
 }
 
 function trackEvent(name: string, properties?: Record<string, unknown>) {
@@ -28,6 +39,25 @@ function trackEvent(name: string, properties?: Record<string, unknown>) {
   console.log("[track]", name, properties);
 }
 
+interface FormData {
+  parentName: string;
+  countryCode: string;
+  phone: string;
+  programType: string;
+  email: string;
+  grade: string;
+  privacyConsent: boolean;
+  whatsappConsent: boolean;
+}
+
+interface FormErrors {
+  parentName?: string;
+  phone?: string;
+  programType?: string;
+  email?: string;
+  privacyConsent?: string;
+}
+
 export function LeadForm({ compact = false }: { compact?: boolean }) {
   const t = useTranslations("leadForm");
   const locale = useLocale();
@@ -35,7 +65,9 @@ export function LeadForm({ compact = false }: { compact?: boolean }) {
 
   const [formData, setFormData] = useState<FormData>({
     parentName: "",
+    countryCode: "+90",
     phone: "",
+    programType: "",
     email: "",
     grade: "",
     privacyConsent: false,
@@ -50,11 +82,20 @@ export function LeadForm({ compact = false }: { compact?: boolean }) {
   function validate(): FormErrors {
     const errs: FormErrors = {};
     if (!formData.parentName.trim()) errs.parentName = t("required");
+
     if (!formData.phone.trim()) {
-      errs.phone = t("required");
-    } else if (!/^[\d\s+\-()]{7,}$/.test(formData.phone.trim())) {
-      errs.phone = t("phoneInvalid");
+      errs.phone = t("phoneRequired");
+    } else {
+      const digits = formData.phone.replace(/\D/g, "").replace(/^0/, "");
+      if (digits.length < 7) errs.phone = t("phoneInvalid");
     }
+
+    if (!formData.programType) errs.programType = t("programRequired");
+
+    if (formData.email.trim() && !isValidEmail(formData.email.trim())) {
+      errs.email = t("emailInvalid");
+    }
+
     if (!formData.privacyConsent) errs.privacyConsent = t("privacyRequired");
     return errs;
   }
@@ -71,13 +112,23 @@ export function LeadForm({ compact = false }: { compact?: boolean }) {
       const res = await fetch("/api/leads", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ ...formData, locale }),
+        body: JSON.stringify({
+          parentName: formData.parentName.trim(),
+          phone: normalizePhone(formData.countryCode, formData.phone),
+          program_type: formData.programType,
+          email: formData.email.trim() || undefined,
+          grade: formData.grade || undefined,
+          privacyConsent: formData.privacyConsent,
+          whatsappConsent: formData.whatsappConsent,
+          locale,
+        }),
       });
 
       if (!res.ok) throw new Error("submission_failed");
 
       trackEvent("lead_form_submit", {
         locale,
+        program_type: formData.programType,
         grade: formData.grade,
         whatsapp_consent: formData.whatsappConsent,
       });
@@ -135,19 +186,48 @@ export function LeadForm({ compact = false }: { compact?: boolean }) {
           {errors.parentName && <p className="text-xs text-brand-600 mt-1">{errors.parentName}</p>}
         </div>
 
-        {/* Phone */}
+        {/* Phone with country code */}
         <div>
           <label className="block text-sm font-medium text-warm-700 mb-1">
             {t("phone")} <span className="text-brand-500">*</span>
           </label>
-          <input
-            type="tel"
-            placeholder={t("phonePlaceholder")}
-            value={formData.phone}
-            onChange={(e) => setFormData((f) => ({ ...f, phone: e.target.value }))}
-            className={`w-full h-11 rounded-xl border px-4 text-sm text-warm-800 placeholder:text-warm-500 focus:outline-none focus:ring-2 focus:ring-brand-300 focus:border-brand-400 transition ${errors.phone ? "border-brand-300 bg-brand-50/50" : "border-warm-300 bg-warm-100/80"}`}
-          />
+          <div className={`flex h-11 rounded-xl border overflow-hidden focus-within:ring-2 focus-within:ring-brand-300 focus-within:border-brand-400 transition ${errors.phone ? "border-brand-300 bg-brand-50/50" : "border-warm-300"}`}>
+            <select
+              value={formData.countryCode}
+              onChange={(e) => setFormData((f) => ({ ...f, countryCode: e.target.value }))}
+              className="bg-warm-200/70 border-r border-warm-300 pl-3 pr-1 text-sm text-warm-800 focus:outline-none flex-shrink-0"
+            >
+              {COUNTRY_CODES.map(({ code, flag }) => (
+                <option key={code} value={code}>{flag} {code}</option>
+              ))}
+            </select>
+            <input
+              type="tel"
+              placeholder={t("phonePlaceholder")}
+              value={formData.phone}
+              onChange={(e) => setFormData((f) => ({ ...f, phone: e.target.value }))}
+              className="flex-1 bg-warm-100/80 px-4 text-sm text-warm-800 placeholder:text-warm-500 focus:outline-none"
+            />
+          </div>
           {errors.phone && <p className="text-xs text-brand-600 mt-1">{errors.phone}</p>}
+        </div>
+
+        {/* Program Type */}
+        <div>
+          <label className="block text-sm font-medium text-warm-700 mb-1">
+            {t("programType")} <span className="text-brand-500">*</span>
+          </label>
+          <select
+            value={formData.programType}
+            onChange={(e) => setFormData((f) => ({ ...f, programType: e.target.value }))}
+            className={`w-full h-11 rounded-xl border px-4 text-sm text-warm-800 focus:outline-none focus:ring-2 focus:ring-brand-300 focus:border-brand-400 transition ${errors.programType ? "border-brand-300 bg-brand-50/50" : "border-warm-300 bg-warm-100/80"}`}
+          >
+            <option value="">{t("programTypePlaceholder")}</option>
+            <option value="diploma">{t("programTypeDiploma")}</option>
+            <option value="certificates">{t("programTypeCertificates")}</option>
+            <option value="undecided">{t("programTypeUndecided")}</option>
+          </select>
+          {errors.programType && <p className="text-xs text-brand-600 mt-1">{errors.programType}</p>}
         </div>
 
         {/* Email */}
@@ -158,8 +238,9 @@ export function LeadForm({ compact = false }: { compact?: boolean }) {
             placeholder={t("emailPlaceholder")}
             value={formData.email}
             onChange={(e) => setFormData((f) => ({ ...f, email: e.target.value }))}
-            className="w-full h-11 rounded-xl border border-warm-300 bg-warm-100/80 px-4 text-sm text-warm-800 placeholder:text-warm-500 focus:outline-none focus:ring-2 focus:ring-brand-300 focus:border-brand-400 transition"
+            className={`w-full h-11 rounded-xl border px-4 text-sm text-warm-800 placeholder:text-warm-500 focus:outline-none focus:ring-2 focus:ring-brand-300 focus:border-brand-400 transition ${errors.email ? "border-brand-300 bg-brand-50/50" : "border-warm-300 bg-warm-100/80"}`}
           />
+          {errors.email && <p className="text-xs text-brand-600 mt-1">{errors.email}</p>}
         </div>
 
         {/* Grade */}

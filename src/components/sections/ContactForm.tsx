@@ -8,6 +8,7 @@ interface ContactFormData {
   fullName: string;
   phone: string;
   email: string;
+  programType: string;
   subject: string;
   grade: string;
   message: string;
@@ -18,17 +19,20 @@ interface ContactFormData {
 interface FormErrors {
   fullName?: string;
   phone?: string;
+  programType?: string;
   privacyConsent?: string;
 }
 
 export function ContactForm() {
   const t = useTranslations("contact");
+  const tLead = useTranslations("leadForm");
   const locale = useLocale();
 
   const [formData, setFormData] = useState<ContactFormData>({
     fullName: "",
     phone: "",
     email: "",
+    programType: "",
     subject: "",
     grade: "",
     message: "",
@@ -46,6 +50,7 @@ export function ContactForm() {
     } else if (!/^[\d\s+\-()]{7,}$/.test(formData.phone.trim())) {
       errs.phone = t("phoneInvalid");
     }
+    if (!formData.programType) errs.programType = t("requiredField");
     if (!formData.privacyConsent) errs.privacyConsent = t("privacyRequired");
     return errs;
   }
@@ -66,6 +71,7 @@ export function ContactForm() {
           parentName: formData.fullName,
           phone: formData.phone,
           email: formData.email || undefined,
+          program_type: formData.programType,
           grade: formData.grade || undefined,
           privacyConsent: formData.privacyConsent,
           whatsappConsent: formData.whatsappConsent,
@@ -140,6 +146,24 @@ export function ContactForm() {
               className="w-full h-11 rounded-xl border border-warm-300 bg-warm-100/80 px-4 text-sm text-warm-800 placeholder:text-warm-500 focus:outline-none focus:ring-2 focus:ring-brand-300 focus:border-brand-400 transition"
             />
           </div>
+        </div>
+
+        {/* Program Type */}
+        <div>
+          <label className="block text-sm font-medium text-warm-700 mb-1">
+            {tLead("programType")} <span className="text-brand-500">*</span>
+          </label>
+          <select
+            value={formData.programType}
+            onChange={(e) => setFormData((f) => ({ ...f, programType: e.target.value }))}
+            className={`w-full h-11 rounded-xl border px-4 text-sm text-warm-800 focus:outline-none focus:ring-2 focus:ring-brand-300 focus:border-brand-400 transition ${errors.programType ? "border-brand-300 bg-brand-50/50" : "border-warm-300 bg-warm-100/80"}`}
+          >
+            <option value="">{tLead("programTypePlaceholder")}</option>
+            <option value="diploma">{tLead("programTypeDiploma")}</option>
+            <option value="certificates">{tLead("programTypeCertificates")}</option>
+            <option value="undecided">{tLead("programTypeUndecided")}</option>
+          </select>
+          {errors.programType && <p className="text-xs text-brand-600 mt-1">{errors.programType}</p>}
         </div>
 
         {/* Subject + Grade */}

@@ -6,6 +6,7 @@ import { Montserrat, Geist_Mono } from "next/font/google";
 import "../../globals.css";
 import { Navbar } from "@/components/layout/Navbar";
 import { Footer } from "@/components/layout/Footer";
+import { WhatsAppFloat } from "@/components/ui/WhatsAppFloat";
 import { SanityLive } from "@/sanity/lib/live";
 import type { Metadata } from "next";
 
@@ -23,6 +24,10 @@ export const metadata: Metadata = {
   title: "Catalyst Education | Canadian High School Diploma in Türkiye",
   description:
     "A structured pathway to obtain a Canadian Ontario Secondary School Diploma (OSSD) remotely, with local guidance.",
+  icons: {
+    icon: "/minilogo.png",
+    apple: "/minilogo.png",
+  },
 };
 
 export default async function LocaleLayout({
@@ -50,6 +55,7 @@ export default async function LocaleLayout({
           <Navbar />
           {children}
           <Footer />
+          <WhatsAppFloat />
           <SanityLive />
         </NextIntlClientProvider>
       </body>

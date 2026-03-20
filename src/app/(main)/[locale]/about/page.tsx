@@ -1,6 +1,6 @@
 "use client";
 import Link from "next/link";
-import { ArrowRight } from "lucide-react";
+import { ArrowRight, Calendar, Users, MapPin, Quote, Check } from "lucide-react";
 import { useTranslations, useLocale } from "next-intl";
 
 export default function AboutPage() {
@@ -10,81 +10,146 @@ export default function AboutPage() {
   return (
     <div className="flex flex-col min-h-screen">
       <main className="flex-1">
-        {/* About Hero */}
-        <section className="bg-brand-900 text-white py-20 lg:py-28 text-center relative overflow-hidden">
-          <div className="absolute inset-0 bg-[#162a66] opacity-50 bg-[linear-gradient(to_right,#1b327b_1px,transparent_1px),linear-gradient(to_bottom,#1b327b_1px,transparent_1px)] bg-[size:4rem_4rem] [mask-image:radial-gradient(ellipse_60%_50%_at_50%_0%,#000_70%,transparent_100%)]"></div>
-          <div className="container relative z-10 px-4 md:px-6 mx-auto">
-            <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight mb-6">{t("heroTitle")}</h1>
-            <p className="max-w-[700px] mx-auto text-brand-100 text-lg md:text-xl leading-relaxed">
+
+        {/* ── HERO ── */}
+        <section className="text-white py-20 lg:py-28 text-center relative overflow-hidden" style={{ background: 'linear-gradient(135deg, #5A0F1A 0%, #8B1E2D 60%, #B33A4A 100%)' }}>
+          <div className="absolute inset-0 bg-[linear-gradient(to_right,#3D0D14_1px,transparent_1px),linear-gradient(to_bottom,#3D0D14_1px,transparent_1px)] bg-[size:4rem_4rem] opacity-30 [mask-image:radial-gradient(ellipse_60%_50%_at_50%_0%,#000_70%,transparent_100%)]" />
+          <div className="container relative z-10 px-4 md:px-6 mx-auto max-w-4xl">
+            <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight mb-6">
+              {t("heroTitle")}
+            </h1>
+            <p className="text-white/75 text-lg md:text-xl leading-relaxed mb-10 max-w-2xl mx-auto">
               {t("heroSubtitle")}
             </p>
+            <div className="flex flex-wrap items-center justify-center gap-4">
+              <span className="inline-flex items-center gap-2 bg-white/10 border border-white/20 rounded-full px-5 py-2 text-sm text-white/90">
+                <Check className="h-4 w-4 text-trust-400 flex-shrink-0" />
+                {t("heroCredential1")}
+              </span>
+              <span className="inline-flex items-center gap-2 bg-white/10 border border-white/20 rounded-full px-5 py-2 text-sm text-white/90">
+                <Check className="h-4 w-4 text-trust-400 flex-shrink-0" />
+                {t("heroCredential2")}
+              </span>
+            </div>
           </div>
         </section>
 
-        {/* Mission */}
-        <section className="py-20 bg-white">
-          <div className="container px-4 md:px-6 mx-auto max-w-5xl">
-            <div className="grid md:grid-cols-2 gap-12 lg:gap-20 items-center">
+        {/* ── MISSION + CATALYST FARKI ── */}
+        <section className="py-20 bg-white border-b border-warm-200">
+          <div className="container px-4 md:px-6 mx-auto max-w-[1280px]">
+            <div className="grid md:grid-cols-2 gap-12 lg:gap-20 items-start">
               <div>
-                <h2 className="text-3xl font-bold text-zinc-900 mb-6">{t("missionTitle")}</h2>
-                <div className="space-y-6 text-lg text-zinc-600 leading-relaxed">
+                <h2 className="text-3xl font-bold text-warm-800 mb-6">{t("missionTitle")}</h2>
+                <div className="space-y-5 text-warm-700 leading-relaxed">
                   <p>{t("mission1")}</p>
                   <p>{t("mission2")}</p>
                   <p>{t("mission3")}</p>
+                  <p>{t("mission4")}</p>
                 </div>
               </div>
-              <div className="bg-zinc-50 border border-zinc-100 p-8 rounded-2xl relative">
-                <div className="absolute top-0 right-0 -mt-4 -mr-4 bg-accent-500 text-white p-3 rounded-full shadow-lg">
-                  <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>
-                </div>
-                <h3 className="text-xl font-bold text-brand-900 mb-4">{t("differenceTitle")}</h3>
-                <ul className="space-y-4 text-zinc-600">
-                  {(t.raw("differenceItems") as string[]).map((item: string, i: number) => (
-                    <li key={i} className="flex items-start">
-                      <span className="h-6 w-6 rounded-full bg-brand-100 text-brand-600 flex items-center justify-center mr-3 mt-0.5 shrink-0 text-sm font-bold">{i + 1}</span>
-                      <span>{item}</span>
-                    </li>
-                  ))}
-                </ul>
-              </div>
-            </div>
-          </div>
-        </section>
-
-        {/* Leadership */}
-        <section className="py-20 bg-zinc-50 border-t border-zinc-200">
-          <div className="container px-4 md:px-6 mx-auto max-w-4xl">
-            <h2 className="text-3xl font-bold text-zinc-900 mb-12 text-center">{t("leadershipTitle")}</h2>
-            <div className="bg-white p-8 md:p-12 rounded-2xl shadow-sm border border-zinc-100 flex flex-col md:flex-row gap-8">
-              <div className="md:w-1/3">
-                <div className="aspect-square bg-zinc-200 rounded-xl overflow-hidden relative">
-                  <div className="absolute inset-0 flex items-center justify-center text-zinc-400 font-medium bg-zinc-100">
-                    {t("photoPlaceholder")}
+              <div className="bg-warm-100 border border-warm-300 rounded-3xl p-8">
+                <h3 className="text-xl font-bold text-warm-800 mb-6">{t("differenceTitle")}</h3>
+                <div className="space-y-5">
+                  <div className="flex items-start gap-4">
+                    <span className="h-8 w-8 rounded-full bg-brand-500 text-white flex items-center justify-center flex-shrink-0 text-sm font-bold">1</span>
+                    <div>
+                      <p className="font-semibold text-warm-800 mb-1">{t("diff1Title")}</p>
+                      <p className="text-sm text-warm-600 leading-relaxed">{t("diff1Desc")}</p>
+                    </div>
+                  </div>
+                  <div className="flex items-start gap-4">
+                    <span className="h-8 w-8 rounded-full bg-brand-500 text-white flex items-center justify-center flex-shrink-0 text-sm font-bold">2</span>
+                    <div>
+                      <p className="font-semibold text-warm-800 mb-1">{t("diff2Title")}</p>
+                      <p className="text-sm text-warm-600 leading-relaxed">{t("diff2Desc")}</p>
+                    </div>
+                  </div>
+                  <div className="flex items-start gap-4">
+                    <span className="h-8 w-8 rounded-full bg-brand-500 text-white flex items-center justify-center flex-shrink-0 text-sm font-bold">3</span>
+                    <div>
+                      <p className="font-semibold text-warm-800 mb-1">{t("diff3Title")}</p>
+                      <p className="text-sm text-warm-600 leading-relaxed">{t("diff3Desc")}</p>
+                    </div>
                   </div>
                 </div>
               </div>
-              <div className="md:w-2/3 flex flex-col justify-center">
-                <h3 className="text-2xl font-bold text-zinc-900">{t("leaderName")}</h3>
-                <p className="text-brand-600 font-medium mb-4">{t("leaderRole")}</p>
-                <div className="space-y-4 text-zinc-600 leading-relaxed text-base">
-                  <p>{t("leaderBio1")}</p>
-                  <p>{t("leaderBio2")}</p>
-                  <p>{t("leaderBio3")}</p>
-                </div>
-              </div>
-            </div>
-
-            <div className="mt-16 text-center">
-              <Link
-                href={`/${locale}/#consultation`}
-                className="inline-flex h-12 items-center justify-center rounded-md bg-brand-600 px-8 text-base font-bold text-white shadow-sm transition-transform hover:bg-brand-500 hover:-translate-y-0.5"
-              >
-                {t("ctaButton")}
-                <ArrowRight className="ml-2 h-5 w-5" />
-              </Link>
             </div>
           </div>
         </section>
+
+        {/* ── STATS ── */}
+        <section className="py-20 bg-warm-50 border-b border-warm-200">
+          <div className="container px-4 md:px-6 mx-auto max-w-[1280px]">
+            <h2 className="text-3xl font-bold text-warm-800 text-center mb-12">{t("statsTitle")}</h2>
+            <div className="grid md:grid-cols-3 gap-6">
+              <div className="bg-white border border-warm-300 rounded-3xl p-8 text-center">
+                <div className="h-12 w-12 rounded-2xl bg-brand-50 flex items-center justify-center mx-auto mb-4">
+                  <Calendar className="h-6 w-6 text-brand-500" />
+                </div>
+                <p className="text-3xl font-bold text-warm-800 mb-1">{t("stat1Value")}</p>
+                <p className="text-sm font-semibold text-warm-600 mb-3">{t("stat1Label")}</p>
+                <p className="text-sm text-warm-600 leading-relaxed">{t("stat1Desc")}</p>
+              </div>
+              <div className="bg-white border border-warm-300 rounded-3xl p-8 text-center">
+                <div className="h-12 w-12 rounded-2xl bg-brand-50 flex items-center justify-center mx-auto mb-4">
+                  <Users className="h-6 w-6 text-brand-500" />
+                </div>
+                <p className="text-3xl font-bold text-warm-800 mb-1">{t("stat2Value")}</p>
+                <p className="text-sm font-semibold text-warm-600 mb-3">{t("stat2Label")}</p>
+                <p className="text-sm text-warm-600 leading-relaxed">{t("stat2Desc")}</p>
+              </div>
+              <div className="bg-white border border-warm-300 rounded-3xl p-8 text-center">
+                <div className="h-12 w-12 rounded-2xl bg-brand-50 flex items-center justify-center mx-auto mb-4">
+                  <MapPin className="h-6 w-6 text-brand-500" />
+                </div>
+                <p className="text-3xl font-bold text-warm-800 mb-1">{t("stat3Value")}</p>
+                <p className="text-sm font-semibold text-warm-600 mb-3">{t("stat3Label")}</p>
+                <p className="text-sm text-warm-600 leading-relaxed">{t("stat3Desc")}</p>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        {/* ── TESTIMONIALS ── */}
+        <section className="py-20 bg-white border-b border-warm-200">
+          <div className="container px-4 md:px-6 mx-auto max-w-[1280px]">
+            <div className="text-center mb-12">
+              <h2 className="text-3xl font-bold text-warm-800 mb-4">{t("testimonialsTitle")}</h2>
+              <p className="text-warm-600 text-lg max-w-xl mx-auto">{t("testimonialsSubtitle")}</p>
+            </div>
+            <div className="grid md:grid-cols-3 gap-6">
+              <div className="bg-warm-50 border border-warm-200 rounded-3xl p-8 flex flex-col gap-4">
+                <Quote className="h-8 w-8 text-brand-200 flex-shrink-0" />
+                <p className="text-warm-700 leading-relaxed text-sm flex-1">{t("t1Text")}</p>
+                <p className="text-sm font-semibold text-warm-800">{t("t1Name")}</p>
+              </div>
+              <div className="bg-warm-50 border border-warm-200 rounded-3xl p-8 flex flex-col gap-4">
+                <Quote className="h-8 w-8 text-brand-200 flex-shrink-0" />
+                <p className="text-warm-700 leading-relaxed text-sm flex-1">{t("t2Text")}</p>
+                <p className="text-sm font-semibold text-warm-800">{t("t2Name")}</p>
+              </div>
+              <div className="bg-warm-50 border border-warm-200 rounded-3xl p-8 flex flex-col gap-4">
+                <Quote className="h-8 w-8 text-brand-200 flex-shrink-0" />
+                <p className="text-warm-700 leading-relaxed text-sm flex-1">{t("t3Text")}</p>
+                <p className="text-sm font-semibold text-warm-800">{t("t3Name")}</p>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        {/* ── CTA ── */}
+        <section className="py-16 bg-warm-100 border-t border-warm-300">
+          <div className="container px-4 md:px-6 mx-auto max-w-4xl text-center">
+            <Link
+              href={`/${locale}/#consultation`}
+              className="inline-flex h-12 items-center justify-center rounded-full bg-brand-500 px-8 text-base font-bold text-white shadow-sm transition-colors hover:bg-brand-600"
+            >
+              {t("ctaButton")}
+              <ArrowRight className="ml-2 h-5 w-5" />
+            </Link>
+          </div>
+        </section>
+
       </main>
     </div>
   );

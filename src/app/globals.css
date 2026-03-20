@@ -11,16 +11,16 @@
   --font-sans: var(--font-montserrat);
   --font-mono: var(--font-geist-mono);
 
-  /* Brand red — primary CTA & emphasis */
-  --color-brand-50:  #F8E3E2;
-  --color-brand-100: #FCEAEA;
-  --color-brand-200: #f8c4c4;
-  --color-brand-300: #f09090;
-  --color-brand-400: #e87070;
-  --color-brand-500: #E5484D;
-  --color-brand-600: #D63D42;
-  --color-brand-700: #c02d32;
-  --color-brand-800: #9a2327;
+  /* Brand burgundy — primary CTA & emphasis */
+  --color-brand-50:  #FBF0F2;
+  --color-brand-100: #F5D9DE;
+  --color-brand-200: #E8B0BC;
+  --color-brand-300: #D07585;
+  --color-brand-400: #B33A4A;
+  --color-brand-500: #8B1E2D;
+  --color-brand-600: #7A1825;
+  --color-brand-700: #5A0F1A;
+  --color-brand-800: #3D0A13;
   --color-brand-900: #23211E;
 
   /* Warm neutrals — backgrounds, text, borders */

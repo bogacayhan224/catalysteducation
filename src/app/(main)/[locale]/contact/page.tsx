@@ -18,24 +18,24 @@ export default function ContactPage() {
       <main className="flex-1">
 
         {/* ── 1. Hero ─────────────────────────────────────────── */}
-        <section className="relative overflow-hidden bg-brand-900 text-white py-16 lg:py-24 text-center">
+        <section className="relative overflow-hidden text-white py-10 lg:py-14 text-center" style={{ background: 'linear-gradient(135deg, #5A0F1A 0%, #8B1E2D 60%, #B33A4A 100%)' }}>
           {/* Grid pattern */}
-          <div className="absolute inset-0 bg-[linear-gradient(to_right,rgba(255,255,255,0.04)_1px,transparent_1px),linear-gradient(to_bottom,rgba(255,255,255,0.04)_1px,transparent_1px)] bg-[size:4rem_4rem] [mask-image:radial-gradient(ellipse_70%_60%_at_50%_0%,#000_70%,transparent_100%)]" />
+          <div className="absolute inset-0 bg-[linear-gradient(to_right,#3D0D14_1px,transparent_1px),linear-gradient(to_bottom,#3D0D14_1px,transparent_1px)] bg-[size:4rem_4rem] opacity-30 [mask-image:radial-gradient(ellipse_70%_60%_at_50%_0%,#000_70%,transparent_100%)]" />
           {/* Soft glow blobs */}
-          <div className="absolute top-0 right-0 w-[480px] h-[480px] bg-brand-500/10 rounded-full blur-3xl -translate-y-1/4 translate-x-1/4 pointer-events-none" />
-          <div className="absolute bottom-0 left-0 w-[360px] h-[360px] bg-brand-400/10 rounded-full blur-3xl translate-y-1/4 -translate-x-1/4 pointer-events-none" />
+          <div className="absolute top-0 right-0 w-[480px] h-[480px] bg-white/5 rounded-full blur-3xl -translate-y-1/4 translate-x-1/4 pointer-events-none" />
+          <div className="absolute bottom-0 left-0 w-[360px] h-[360px] bg-white/5 rounded-full blur-3xl translate-y-1/4 -translate-x-1/4 pointer-events-none" />
 
           <div className="container relative z-10 px-4 md:px-6 mx-auto max-w-[1280px]">
             {/* Badge */}
-            <div className="inline-flex items-center gap-2 rounded-full border border-white/20 bg-white/10 px-4 py-1.5 text-xs text-white/75 mb-7 backdrop-blur-sm">
+            <div className="inline-flex items-center gap-2 rounded-full border border-white/20 bg-white/10 px-4 py-1.5 text-xs text-white/75 mb-5 backdrop-blur-sm">
               <Globe className="h-3.5 w-3.5 flex-shrink-0" />
               {t("heroBadge")}
             </div>
 
-            <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight mb-5 leading-[1.1]">
+            <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold tracking-tight mb-4 leading-[1.1]">
               {t("heroTitle")}
             </h1>
-            <p className="max-w-[600px] mx-auto text-brand-100 text-lg md:text-xl leading-relaxed">
+            <p className="max-w-[560px] mx-auto text-white/75 text-base md:text-lg leading-relaxed">
               {t("heroSubtitle")}
             </p>
           </div>

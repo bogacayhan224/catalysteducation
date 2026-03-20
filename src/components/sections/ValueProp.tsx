@@ -14,7 +14,7 @@ const iconContainerClasses = [
 export function ValueProp() {
   const t = useTranslations("valueProp");
   return (
-    <section id="diploma-benefits" className="w-full py-24 md:py-32 bg-warm-100 border-t border-warm-300">
+    <section id="diploma-benefits" className="w-full py-16 md:py-24 bg-warm-100 border-t border-warm-300">
       <div className="container mx-auto px-4 md:px-6 max-w-[1280px]">
         <div className="flex flex-col items-center justify-center text-center mb-16 space-y-4">
           <h2 className="text-3xl md:text-5xl font-bold tracking-tight text-warm-800">
