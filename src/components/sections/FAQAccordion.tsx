@@ -1,10 +1,12 @@
 "use client";
 import { useState } from "react";
 import { ChevronDown } from "lucide-react";
+import { PortableText } from "@portabletext/react";
+import type { PortableTextBlock } from "@portabletext/types";
 
 interface FaqItem {
   question: string;
-  answer: string;
+  answer: PortableTextBlock[];
 }
 
 export function FAQAccordion({ items }: { items: FaqItem[] }) {
@@ -33,9 +35,22 @@ export function FAQAccordion({ items }: { items: FaqItem[] }) {
             />
           </button>
           <div className={`overflow-hidden transition-all duration-300 ease-in-out ${openIndex === index ? "max-h-96 opacity-100" : "max-h-0 opacity-0"}`}>
-            <p className="px-6 md:px-7 pb-7 pt-0 text-warm-700 leading-relaxed text-base">
-              {faq.answer}
-            </p>
+            <div className="px-6 md:px-7 pb-7 pt-0 text-warm-700 leading-relaxed text-base portable-text">
+              <PortableText
+                value={faq.answer}
+                components={{
+                  block: {
+                    normal: ({ children }) => <p className="mb-2 last:mb-0">{children}</p>,
+                  },
+                  list: {
+                    bullet: ({ children }) => <ul className="list-disc pl-5 space-y-1">{children}</ul>,
+                  },
+                  listItem: {
+                    bullet: ({ children }) => <li>{children}</li>,
+                  },
+                }}
+              />
+            </div>
           </div>
         </div>
       ))}

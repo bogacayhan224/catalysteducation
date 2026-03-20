@@ -14,8 +14,20 @@ export const faqType = defineType({
     defineField({
       name: "answer",
       title: "Answer",
-      type: "text",
-      rows: 4,
+      type: "array",
+      of: [
+        {
+          type: "block",
+          styles: [{ title: "Normal", value: "normal" }],
+          lists: [{ title: "Bullet", value: "bullet" }],
+          marks: {
+            decorators: [
+              { title: "Bold", value: "strong" },
+              { title: "Italic", value: "em" },
+            ],
+          },
+        },
+      ],
       validation: (rule) => rule.required(),
     }),
     defineField({

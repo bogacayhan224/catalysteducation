@@ -1,10 +1,11 @@
 import { client } from "@/sanity/lib/client";
 import { groq } from "next-sanity";
+import type { PortableTextBlock } from "@portabletext/types";
 
 export type Faq = {
   _id: string;
   question: string;
-  answer: string;
+  answer: PortableTextBlock[];
   language: string;
   order: number;
 };
