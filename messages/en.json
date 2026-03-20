@@ -1,0 +1,301 @@
+{
+  "nav": {
+    "howItWorks": "How It Works",
+    "theDiploma": "The Diploma",
+    "faqs": "FAQs",
+    "aboutUs": "About Us",
+    "contact": "Contact",
+    "requestConsultation": "Book Consultation",
+    "applyNow": "Get Information"
+  },
+  "apply": {
+    "title": "Student Application",
+    "subtitle": "Complete the form below to begin your journey toward earning the Ontario Secondary School Diploma (OSSD).",
+    "loading": "Loading application form..."
+  },
+  "hero": {
+    "badge": "Official Ontario Education Institution • Authorized Representative in Türkiye",
+    "title": "Continue your school in Türkiye",
+    "titleHighlight": "while earning a Canadian high school diploma",
+    "subtitle": "Your student progresses to Ontario standards while maintaining their current school routine. The program runs fully online with a structured academic timeline.",
+    "ctaPrimary": "Get a Free Consultation",
+    "ctaWhatsApp": "Quick Info via WhatsApp",
+    "ctaSecondary": "How Does It Work?",
+    "trustItem1": "Official Ontario Education System",
+    "trustItem2": "Globally recognized diploma",
+    "trustItem3": "100% Online & Flexible"
+  },
+  "leadForm": {
+    "title": "Let's Find the Right Plan Together",
+    "subtitle": "Our advisors will contact you within 24 hours.",
+    "parentName": "Parent Full Name",
+    "parentNamePlaceholder": "Your full name",
+    "phone": "Phone Number",
+    "phonePlaceholder": "+90 5xx xxx xx xx",
+    "email": "Email (optional)",
+    "emailPlaceholder": "example@email.com",
+    "grade": "Student Grade (optional)",
+    "gradePlaceholder": "Select grade",
+    "grade9": "Grade 9",
+    "grade10": "Grade 10",
+    "grade11": "Grade 11",
+    "grade12": "Grade 12",
+    "privacyConsent": "I consent to my personal data being processed by Catalyst Education.",
+    "whatsappConsent": "I would like to receive information via WhatsApp.",
+    "submit": "Request Information",
+    "submitting": "Sending...",
+    "successTitle": "Your request has been received!",
+    "successMessage": "Our advisors will contact you shortly. You can also reach us on WhatsApp right now.",
+    "successWhatsApp": "Chat on WhatsApp Now",
+    "errorMessage": "Something went wrong. Please try again or contact us on WhatsApp.",
+    "required": "This field is required",
+    "privacyRequired": "You must accept to continue",
+    "phoneInvalid": "Please enter a valid phone number"
+  },
+  "problem": {
+    "title": "The Challenges Families Face",
+    "subtitle": "Families in Türkiye want the best international opportunities for their children. But the path often looks complicated.",
+    "items": [
+      {
+        "title": "Studying abroad is expensive and risky",
+        "desc": "Family relocation, visa processes, and living costs abroad — this path isn't practical for most families."
+      },
+      {
+        "title": "Leaving the current school is a big decision",
+        "desc": "You don't want to uproot your child from their school and social life in Türkiye. You're right not to."
+      },
+      {
+        "title": "International opportunities are being missed",
+        "desc": "Applying to global universities requires an internationally recognized diploma. But how do you get one?"
+      },
+      {
+        "title": "Hard to know where to start",
+        "desc": "You need someone who understands the system and can guide you through the right steps."
+      }
+    ]
+  },
+  "solution": {
+    "title": "The Dual Diploma — The Best of Both Worlds",
+    "subtitle": "Continue school in Türkiye. Earn a Canadian diploma online in parallel.",
+    "items": [
+      {
+        "title": "Current school stays the same",
+        "desc": "Your child continues their Turkish school full-time. Nothing is sacrificed."
+      },
+      {
+        "title": "Fully online parallel program",
+        "desc": "The Canadian Ontario curriculum is completed fully online through TVO ILC's platform."
+      },
+      {
+        "title": "Official Canadian diploma (OSSD)",
+        "desc": "The Ontario Secondary School Diploma issued through TVO ILC — globally recognized."
+      },
+      {
+        "title": "Step-by-step guidance from Türkiye",
+        "desc": "Our local expert team manages every step of the process, from enrollment to graduation."
+      }
+    ]
+  },
+  "valueProp": {
+    "title": "Two Diplomas, One Educational Journey",
+    "subtitle": "Your student can continue their school in Türkiye while pursuing a Canadian high school diploma online, through a structured and planned pathway. The process is guided by academic clarity and local support.",
+    "features": {
+      "international": {
+        "title": "School Stays the Same",
+        "description": "Your student keeps their current school routine while pursuing the Canadian diploma pathway in parallel. No disruption to their social life or academic schedule."
+      },
+      "remote": {
+        "title": "Fully Online Structure",
+        "description": "The program runs entirely through a digital learning environment. Students access their courses from wherever they are, following a flexible and structured plan."
+      },
+      "credible": {
+        "title": "A Planned Academic Pathway",
+        "description": "The diploma journey is structured around the student's existing academic background. The process becomes clear, organized, and predictable from the start."
+      },
+      "mentorship": {
+        "title": "Local Guidance and Support",
+        "description": "Catalyst provides local guidance from enrollment through to completion. Families navigate the process with confidence, clarity, and consistent support."
+      }
+    }
+  },
+  "process": {
+    "title": "How It Works",
+    "subtitle": "A simple, structured process. You know every step from the first consultation to the diploma.",
+    "steps": [
+      {
+        "title": "Free Information Consultation",
+        "desc": "Meet with our advisors to learn about the dual diploma program. We assess your child's situation and explain all the steps clearly."
+      },
+      {
+        "title": "Transcript Review & Equivalency",
+        "desc": "Your child's Turkish school transcripts are reviewed to determine equivalent credits and map out the required courses."
+      },
+      {
+        "title": "Personalized Course Planning",
+        "desc": "A tailored course plan is created to fill only the missing credits needed for the Ontario diploma."
+      },
+      {
+        "title": "Online Learning via TVO ILC",
+        "desc": "Study fully online through TVO ILC's official Brightspace portal. Assignments are evaluated by Canadian teachers."
+      },
+      {
+        "title": "Graduation & Beyond",
+        "desc": "After earning the OSSD, we provide mentorship support for applying to universities worldwide."
+      }
+    ]
+  },
+  "faq": {
+    "title": "Frequently Asked Questions",
+    "subtitle": "Honest answers to the most common questions about the dual diploma program.",
+    "stillHaveQuestions": "Still have questions?",
+    "contactPrompt": "Our team is ready to walk you through the process and evaluate your child's specific situation.",
+    "contactButton": "Get Information Now",
+    "items": [
+      {
+        "question": "Can my child continue their school in Türkiye?",
+        "answer": "Yes. This is the core advantage of the dual diploma program. Your child continues their Turkish school full-time while completing the Canadian curriculum online in parallel. No school change or relocation is required."
+      },
+      {
+        "question": "Is this diploma actually valid and recognized?",
+        "answer": "Yes. The Ontario Secondary School Diploma (OSSD) is an official Canadian high school diploma recognized by universities in Canada, the US, UK, Europe, and worldwide. It is issued through TVO ILC, the Ontario Ministry of Education's designated distance learning partner."
+      },
+      {
+        "question": "Is the program completely online?",
+        "answer": "Yes. All courses are completed online through TVO ILC's official Brightspace platform. No relocation from Türkiye is required."
+      },
+      {
+        "question": "What is Catalyst Education's role?",
+        "answer": "Catalyst is the authorized TVO ILC representative in Türkiye. We handle enrollment, equivalency planning, document management, and local mentorship. We do not issue the diploma — TVO ILC does. We ensure the process is done correctly from start to finish."
+      },
+      {
+        "question": "How do I get started?",
+        "answer": "Simply fill out the form. Our advisors will call you, evaluate your child's situation, and plan the next steps together. No commitment required."
+      }
+    ]
+  },
+  "finalCta": {
+    "title": "Take the Right Step Today",
+    "subtitle": "Get free information. Our advisors will explain the program step by step and assess your child's situation.",
+    "formTitle": "Request Information",
+    "orText": "or",
+    "whatsappText": "Chat on WhatsApp Now",
+    "whatsappSub": "We typically respond within a few minutes"
+  },
+  "whatsapp": {
+    "message": "Hello, I would like to get information about the dual diploma program.",
+    "ctaText": "Chat on WhatsApp"
+  },
+  "footer": {
+    "description": "Helping students in Türkiye earn a Canadian Ontario Secondary School Diploma (OSSD) while continuing their school in Türkiye.",
+    "pathway": "The Pathway",
+    "links": {
+      "theDiploma": "The OSSD Diploma",
+      "equivalency": "How It Works",
+      "university": "Get Information"
+    },
+    "organization": "Organization",
+    "orgLinks": {
+      "about": "About Catalyst",
+      "contact": "Contact Us",
+      "schools": "For Schools"
+    },
+    "legal": "Legal & Privacy",
+    "legalLinks": {
+      "privacy": "Privacy Policy",
+      "terms": "Terms of Service"
+    },
+    "disclaimer": "Catalyst Education & Research Inc. is an authorized representative in Türkiye. Catalyst does not act as a school and does not issue diplomas directly. The OSSD is granted upon successful completion of requirements administered through TVO ILC in Ontario, Canada.",
+    "copyright": "© {year} Catalyst Education. All rights reserved."
+  },
+  "contact": {
+    "heroTitle": "Contact Us",
+    "heroSubtitle": "Get in touch with us for any questions. We're happy to help with enrollment process, program structure, and student eligibility.",
+    "heroBadge": "Support from Turkey and Canada",
+
+    "addressCardTitle": "Address",
+    "addressLine1": "173 Kingston Rd",
+    "addressLine2": "Toronto ON M4L 1T4",
+    "addressLine3": "Canada",
+
+    "phoneCardTitle": "Phone",
+    "phoneNumber": "+1 (437) 473 97 25",
+    "phoneCallCta": "Call us",
+
+    "emailCardTitle": "Email",
+    "emailAddress": "info@catalysteducation.ca",
+    "emailSendCta": "Send an email",
+
+    "instagramCardTitle": "Instagram",
+    "instagramHandle": "@thecatalysteducation",
+    "instagramCta": "Follow us on Instagram",
+    "instagramFollowCta": "View profile",
+
+    "formTitle": "How Can We Help You?",
+    "formSubtitle": "Fill out the form and our team will get back to you as soon as possible.",
+
+    "fieldFullName": "Full Name",
+    "fieldFullNamePlaceholder": "Your full name",
+    "fieldPhone": "Phone Number",
+    "fieldPhonePlaceholder": "+90 5xx xxx xx xx",
+    "fieldEmail": "Email (optional)",
+    "fieldEmailPlaceholder": "example@email.com",
+    "fieldSubject": "Subject (optional)",
+    "fieldSubjectPlaceholder": "Select subject",
+    "subjectProgram": "Program Information",
+    "subjectEnrollment": "Enrollment Process",
+    "subjectPricing": "Fees & Payment",
+    "subjectOther": "Other",
+    "fieldGrade": "Student Grade (optional)",
+    "fieldGradePlaceholder": "Select grade",
+    "grade9": "Grade 9",
+    "grade10": "Grade 10",
+    "grade11": "Grade 11",
+    "grade12": "Grade 12",
+    "fieldMessage": "Your Message (optional)",
+    "fieldMessagePlaceholder": "Feel free to write anything you'd like to ask...",
+
+    "checkWhatsApp": "I would like to receive information via WhatsApp.",
+    "checkPrivacy": "I consent to my personal data being processed by Catalyst Education.",
+
+    "submitBtn": "Send Message",
+    "submitting": "Sending...",
+    "successTitle": "Message received!",
+    "successMessage": "Our team will contact you as soon as possible.",
+    "errorMessage": "Something went wrong. Please try again.",
+    "requiredField": "This field is required",
+    "privacyRequired": "You must accept to continue",
+    "phoneInvalid": "Please enter a valid phone number",
+
+    "mapTitle": "Our Office Location",
+    "mapDesc": "You can reach us at our Toronto address, or connect through our digital channels for any questions.",
+    "mapOpenLink": "Open in Google Maps",
+
+    "trustTitle": "We're Here for You",
+    "trustDesc": "From enrollment to program planning, we support families to navigate the process with clarity and confidence.",
+    "trustItem1": "Quick response",
+    "trustItem2": "Clear information",
+    "trustItem3": "Online support"
+  },
+  "about": {
+    "heroTitle": "About Catalyst Education",
+    "heroSubtitle": "We are dedicated to building clarity and momentum for ambitious students in Türkiye through structured international pathways.",
+    "missionTitle": "Our Mission",
+    "mission1": "Catalyst Education & Research Inc. operates as the authorized Türkiye representative for the Canadian Ontario Secondary School Diploma (OSSD) remote pathway.",
+    "mission2": "We manage the complete student journey — from initial registration to course progression monitoring, and finally to graduation. Our goal is to provide a legitimate, structured educational pathway for families who care deeply about international university mobility, without requiring immediate relocation to Canada.",
+    "mission3": "By combining the internationally trusted academic framework of TVO ILC with local advisory and mentorship, we turn a complex international landscape into an actionable, step-by-step roadmap.",
+    "differenceTitle": "The Catalyst Difference",
+    "differenceItems": [
+      "An official, TVO-authorized institutional backbone",
+      "Differentiated, equivalency-driven academic planning",
+      "Continuous local mentorship & parent communication"
+    ],
+    "leadershipTitle": "Leadership",
+    "leaderName": "Ahmet Boğaç Ayhan",
+    "leaderRole": "Operator & Catalyst Education Lead",
+    "leaderBio1": "With over a decade of professional experience in digital technology product ownership, process improvement, and supply chain systems, Ahmet Boğaç Ayhan brings a highly structured, analytical approach to Catalyst Education.",
+    "leaderBio2": "His focus is bridging operational discipline with the strategic commercial mission of the company. At Catalyst this perfectly aligns with his core motivation: taking something with real value and transforming it into a commercially strong, smoothly operating pathway.",
+    "leaderBio3": "Ahmet believes in clear structure, practical solutions, and ensuring every parent has absolute clarity on how their child will succeed.",
+    "photoPlaceholder": "Photo placeholder",
+    "ctaButton": "Schedule a Consultation"
+  }
+}

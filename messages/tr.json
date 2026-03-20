@@ -1,0 +1,301 @@
+{
+  "nav": {
+    "howItWorks": "Nasıl Çalışır",
+    "theDiploma": "Çift Diploma Programı",
+    "faqs": "Sık Sorulanlar",
+    "aboutUs": "Hakkımızda",
+    "contact": "İletişim",
+    "requestConsultation": "Danışmanlık Al",
+    "applyNow": "Bilgi Al"
+  },
+  "apply": {
+    "title": "Öğrenci Başvurusu",
+    "subtitle": "Ontario Lise Diploması (OSSD) yolculuğunuza başlamak için aşağıdaki formu eksiksiz doldurun.",
+    "loading": "Başvuru formu yükleniyor..."
+  },
+  "hero": {
+    "badge": "Resmi Ontario Eğitim Kurumu • Türkiye Yetkili Temsilci",
+    "title": "Türkiye'deki okuluna devam ederken",
+    "titleHighlight": "Kanada lise diplomasına sahip ol",
+    "subtitle": "Öğrenciniz mevcut okul düzenini korurken, Ontario standartlarında ilerler. Program tamamen online yürütülür ve akademik süreç planlı şekilde ilerler.",
+    "ctaPrimary": "Ücretsiz Danışmanlık Al",
+    "ctaWhatsApp": "WhatsApp'tan Hızlı Bilgi Al",
+    "ctaSecondary": "Program Nasıl İşliyor?",
+    "trustItem1": "Resmi Ontario Eğitim Sistemi",
+    "trustItem2": "Dünya genelinde geçerli diploma",
+    "trustItem3": "%100 Online ve Esnek"
+  },
+  "leadForm": {
+    "title": "Size Uygun Planı Birlikte Belirleyelim",
+    "subtitle": "Uzmanlarımız 24 saat içinde sizi arar.",
+    "parentName": "Veli Adı Soyadı",
+    "parentNamePlaceholder": "Adınız ve soyadınız",
+    "phone": "Telefon Numarası",
+    "phonePlaceholder": "05xx xxx xx xx",
+    "email": "E-posta (isteğe bağlı)",
+    "emailPlaceholder": "ornek@email.com",
+    "grade": "Öğrencinin Sınıfı (isteğe bağlı)",
+    "gradePlaceholder": "Sınıf seçin",
+    "grade9": "9. Sınıf",
+    "grade10": "10. Sınıf",
+    "grade11": "11. Sınıf",
+    "grade12": "12. Sınıf",
+    "privacyConsent": "Kişisel verilerimin Catalyst Education tarafından işlenmesine onay veriyorum.",
+    "whatsappConsent": "WhatsApp üzerinden bilgi almak istiyorum.",
+    "submit": "Bilgi Talep Et",
+    "submitting": "Gönderiliyor...",
+    "successTitle": "Talebiniz alındı!",
+    "successMessage": "Uzmanlarımız en kısa sürede sizinle iletişime geçecek. Dilerseniz şimdi WhatsApp üzerinden de yazabilirsiniz.",
+    "successWhatsApp": "Hemen WhatsApp'tan Yaz",
+    "errorMessage": "Bir hata oluştu. Lütfen tekrar deneyin veya WhatsApp'tan yazın.",
+    "required": "Bu alan zorunludur",
+    "privacyRequired": "Devam etmek için onay vermelisiniz",
+    "phoneInvalid": "Geçerli bir telefon numarası girin"
+  },
+  "problem": {
+    "title": "Ailelerin Karşılaştığı Gerçek Sorunlar",
+    "subtitle": "Türkiye'de yaşayan aileler çocukları için uluslararası fırsatları takip ediyor. Ama yol çoğu zaman karmaşık görünüyor.",
+    "items": [
+      {
+        "title": "Yurt dışında okumak pahalı ve riskli",
+        "desc": "Aile göçü, vize süreci, yurt dışı yaşam masrafları — çoğu aile için bu yol pratik değil."
+      },
+      {
+        "title": "Mevcut okulu bırakmak çok büyük bir karar",
+        "desc": "Çocuğunuzu yerel okul ve sosyal hayatından koparmak istemiyorsunuz. Ve haklısınız."
+      },
+      {
+        "title": "Uluslararası fırsat kaçırılıyor",
+        "desc": "Dünya üniversitelerine başvurmak için uluslararası tanınan bir diploma gerekiyor."
+      },
+      {
+        "title": "Nereden başlanacağı bilinmiyor",
+        "desc": "Bu sistemin nasıl çalıştığını, neyin geçerli olduğunu ve nasıl başlanacağını bilen biri gerekiyor."
+      }
+    ]
+  },
+  "solution": {
+    "title": "Dual Diploma ile Her İkisini Birden Kazanın",
+    "subtitle": "Türkiye'deki mevcut okul hayatından taviz vermeden, online olarak Kanada lise diploması kazanın.",
+    "items": [
+      {
+        "title": "Mevcut okul değişmez",
+        "desc": "Çocuğunuz Türkiye'deki okuluna tam zamanlı devam eder. Hiçbir şeyi feda etmek zorunda değil."
+      },
+      {
+        "title": "Tamamen online paralel program",
+        "desc": "Kanada Ontario müfredatı, TVO ILC platformu üzerinden online olarak tamamlanır."
+      },
+      {
+        "title": "Resmi Kanada diploması (OSSD)",
+        "desc": "Ontario Eğitim Bakanlığı kapsamında verilen, dünya genelinde tanınan resmi lise diploması."
+      },
+      {
+        "title": "Türkiye'den adım adım rehberlik",
+        "desc": "Kayıttan mezuniyete kadar her adımda yanınızda olan yerel uzman ekibimiz."
+      }
+    ]
+  },
+  "valueProp": {
+    "title": "Tek Eğitim Yolculuğunda İki Diploma",
+    "subtitle": "Öğrenciniz Türkiye'deki okuluna devam ederken Kanada lise diplomasına giden yolu online ve planlı bir yapıyla sürdürebilir. Süreç, akademik netlik ve yerel rehberlik odağıyla ilerler.",
+    "features": {
+      "international": {
+        "title": "Türkiye'deki Okuluna Devam",
+        "description": "Öğrenci mevcut okul düzenini korurken Kanada lise diplomasına yönelik akademik yolunu eş zamanlı sürdürür. Sosyal ve eğitim hayatından kopmadan ilerler."
+      },
+      "remote": {
+        "title": "Tamamen Online Yapı",
+        "description": "Program dijital öğrenme ortamı üzerinden yürütülür. Öğrenci derslerine bulunduğu yerden erişir, sürecini esnek ve planlı biçimde takip eder."
+      },
+      "credible": {
+        "title": "Planlı Akademik Yol",
+        "description": "Öğrencinin mevcut eğitim geçmişi değerlendirilerek diploma yolculuğu yapılandırılır. Tamamlanması gereken akademik süreç net, düzenli ve öngörülebilir hale gelir."
+      },
+      "mentorship": {
+        "title": "Yerel Rehberlik ve Destek",
+        "description": "Catalyst, kayıt aşamasından süreç takibine kadar ailelere yerel rehberlik sunar. Süreç daha güvenli, anlaşılır ve yönetilebilir bir yapıda ilerler."
+      }
+    }
+  },
+  "process": {
+    "title": "Nasıl Çalışır?",
+    "subtitle": "Basit ve yapılandırılmış bir süreç. İlk danışmanlıktan diplomaya kadar her adımı bilirsiniz.",
+    "steps": [
+      {
+        "title": "Ücretsiz Bilgi Görüşmesi",
+        "desc": "Uzmanlarımızla dual diploma programını tanışın. Çocuğunuzun durumunu değerlendiriyor, tüm adımları net olarak açıklıyoruz."
+      },
+      {
+        "title": "Transkript İncelemesi ve Denklik",
+        "desc": "Türkiye'deki okul notları incelenerek denklik kredileri belirlenir ve kaç ders alınması gerektiği ortaya çıkar."
+      },
+      {
+        "title": "Kişisel Ders Planlaması",
+        "desc": "Yalnızca eksik kredileri tamamlamak için kişiselleştirilmiş bir ders planı oluşturulur."
+      },
+      {
+        "title": "Online Öğrenim (TVO ILC)",
+        "desc": "Resmi Brightspace platformu üzerinden tamamen online olarak öğrenim; ödevler Kanadalı öğretmenler tarafından değerlendirilir."
+      },
+      {
+        "title": "Mezuniyet ve Sonrası",
+        "desc": "OSSD alındıktan sonra dünya üniversitelerine başvuru için mentorluk desteği sunulur."
+      }
+    ]
+  },
+  "faq": {
+    "title": "Sık Sorulan Sorular",
+    "subtitle": "Dual diploma programı hakkında en çok sorulan soruların dürüst yanıtları.",
+    "stillHaveQuestions": "Başka sorunuz var mı?",
+    "contactPrompt": "Uzmanlarımız programı adım adım anlatmaya ve çocuğunuzun durumunu değerlendirmeye hazır.",
+    "contactButton": "Hemen Bilgi Alın",
+    "items": [
+      {
+        "question": "Çocuğum Türkiye'deki okuluna devam edebilir mi?",
+        "answer": "Evet. Dual diploma programının temel avantajı budur. Çocuğunuz Türkiye'deki okuluna tam zamanlı devam ederken, paralel olarak online Kanada müfredatını tamamlar. Okul değişikliği veya göç gerekmez."
+      },
+      {
+        "question": "Bu diploma gerçekten geçerli ve tanınan bir belge mi?",
+        "answer": "Evet. Ontario Lise Diploması (OSSD), Kanada, ABD, İngiltere, Avrupa ve dünya genelindeki üniversiteler tarafından tanınan resmi bir Kanada lise diplomasıdır. Ontario Eğitim Bakanlığı'nın uzaktan öğrenim ortağı TVO ILC tarafından verilmektedir."
+      },
+      {
+        "question": "Program tamamen online mu?",
+        "answer": "Evet. Tüm dersler TVO ILC'nin resmi Brightspace platformu üzerinden online olarak tamamlanır. Türkiye'den herhangi bir yere taşınmak gerekmez."
+      },
+      {
+        "question": "Catalyst Education'ın rolü nedir?",
+        "answer": "Catalyst, Türkiye'nin yetkili TVO ILC temsilcisidir. Kayıt, denklik planlaması, belge yönetimi ve yerel mentorluk hizmetlerini yürütür. Diplomayı biz vermiyoruz — bu işi TVO ILC yapar. Biz sürecin en başından en sonuna kadar doğru gitmesini sağlıyoruz."
+      },
+      {
+        "question": "Programa başlamak için ne yapmalıyım?",
+        "answer": "Formu doldurmanız yeterli. Uzmanlarımız sizi arar, çocuğunuzun durumunu değerlendirir ve bir sonraki adımı birlikte planlar. Herhangi bir taahhüt gerekmez."
+      }
+    ]
+  },
+  "finalCta": {
+    "title": "Doğru Adımı Bugün Atın",
+    "subtitle": "Ücretsiz bilgi alın. Uzmanlarımız programı adım adım açıklar, çocuğunuzun durumunu değerlendirir.",
+    "formTitle": "Bilgi Talep Edin",
+    "orText": "veya",
+    "whatsappText": "Hemen WhatsApp'tan Yazın",
+    "whatsappSub": "Genellikle birkaç dakika içinde yanıt veriyoruz"
+  },
+  "whatsapp": {
+    "message": "Merhaba, dual diploma programı hakkında bilgi almak istiyorum.",
+    "ctaText": "WhatsApp'tan Yaz"
+  },
+  "footer": {
+    "description": "Türkiye'deki öğrencilerin mevcut okullarına devam ederken Kanada Ontario Lise Diploması (OSSD) kazanmalarına yardımcı oluyoruz.",
+    "pathway": "Eğitim Yolu",
+    "links": {
+      "theDiploma": "OSSD Diploması",
+      "equivalency": "Nasıl Çalışır",
+      "university": "Bilgi Al"
+    },
+    "organization": "Kurum",
+    "orgLinks": {
+      "about": "Catalyst Hakkında",
+      "contact": "İletişim",
+      "schools": "Okullar İçin"
+    },
+    "legal": "Hukuki & Gizlilik",
+    "legalLinks": {
+      "privacy": "Gizlilik Politikası",
+      "terms": "Kullanım Koşulları"
+    },
+    "disclaimer": "Catalyst Education & Research Inc., Türkiye'de yetkili bir temsilcidir. Catalyst bir okul olarak faaliyet göstermez ve diplomaları doğrudan düzenlemez. OSSD, Kanada Ontario'daki TVO ILC aracılığıyla yürütülen gerekliliklerin başarıyla tamamlanmasının ardından verilir.",
+    "copyright": "© {year} Catalyst Education. Tüm hakları saklıdır."
+  },
+  "contact": {
+    "heroTitle": "Bize Ulaşın",
+    "heroSubtitle": "Sorularınız için bizimle iletişime geçin. Kayıt süreci, program yapısı ve öğrenci uygunluğu hakkında size memnuniyetle yardımcı oluruz.",
+    "heroBadge": "Türkiye ve Kanada'dan destek",
+
+    "addressCardTitle": "Adres",
+    "addressLine1": "173 Kingston Rd",
+    "addressLine2": "Toronto ON M4L 1T4",
+    "addressLine3": "Canada",
+
+    "phoneCardTitle": "Telefon",
+    "phoneNumber": "+1 (437) 473 97 25",
+    "phoneCallCta": "Hemen ara",
+
+    "emailCardTitle": "E-posta",
+    "emailAddress": "info@catalysteducation.ca",
+    "emailSendCta": "E-posta gönder",
+
+    "instagramCardTitle": "Instagram",
+    "instagramHandle": "@thecatalysteducation",
+    "instagramCta": "Instagram'da bizi takip edin",
+    "instagramFollowCta": "Profili görüntüle",
+
+    "formTitle": "Size Nasıl Yardımcı Olabiliriz?",
+    "formSubtitle": "Formu doldurun, ekibimiz en kısa sürede sizinle iletişime geçsin.",
+
+    "fieldFullName": "Ad Soyad",
+    "fieldFullNamePlaceholder": "Adınız ve soyadınız",
+    "fieldPhone": "Telefon Numarası",
+    "fieldPhonePlaceholder": "05xx xxx xx xx",
+    "fieldEmail": "E-posta (isteğe bağlı)",
+    "fieldEmailPlaceholder": "ornek@email.com",
+    "fieldSubject": "Konu (isteğe bağlı)",
+    "fieldSubjectPlaceholder": "Konu seçin",
+    "subjectProgram": "Program Bilgisi",
+    "subjectEnrollment": "Kayıt Süreci",
+    "subjectPricing": "Ücret ve Ödeme",
+    "subjectOther": "Diğer",
+    "fieldGrade": "Öğrencinin Sınıfı (isteğe bağlı)",
+    "fieldGradePlaceholder": "Sınıf seçin",
+    "grade9": "9. Sınıf",
+    "grade10": "10. Sınıf",
+    "grade11": "11. Sınıf",
+    "grade12": "12. Sınıf",
+    "fieldMessage": "Mesajınız (isteğe bağlı)",
+    "fieldMessagePlaceholder": "Sormak istediğiniz her şeyi yazabilirsiniz...",
+
+    "checkWhatsApp": "WhatsApp üzerinden bilgi almak istiyorum.",
+    "checkPrivacy": "Kişisel verilerimin Catalyst Education tarafından işlenmesine onay veriyorum.",
+
+    "submitBtn": "Mesaj Gönder",
+    "submitting": "Gönderiliyor...",
+    "successTitle": "Mesajınız alındı!",
+    "successMessage": "Ekibimiz en kısa sürede sizinle iletişime geçecek.",
+    "errorMessage": "Bir hata oluştu. Lütfen tekrar deneyin.",
+    "requiredField": "Bu alan zorunludur",
+    "privacyRequired": "Devam etmek için onay vermelisiniz",
+    "phoneInvalid": "Geçerli bir telefon numarası girin",
+
+    "mapTitle": "Ofis Konumumuz",
+    "mapDesc": "Toronto adresimiz üzerinden bize ulaşabilir, sorularınız için dijital kanallarımızdan da iletişim kurabilirsiniz.",
+    "mapOpenLink": "Google Maps'te Aç",
+
+    "trustTitle": "Yanınızdayız",
+    "trustDesc": "Kayıttan program planlamasına kadar, ailelerin süreci daha net ve güvenli şekilde yönetebilmesi için destek sağlıyoruz.",
+    "trustItem1": "Hızlı geri dönüş",
+    "trustItem2": "Net bilgilendirme",
+    "trustItem3": "Online destek"
+  },
+  "about": {
+    "heroTitle": "Catalyst Education Hakkında",
+    "heroSubtitle": "Türkiye'deki iddialı öğrenciler için yapılandırılmış uluslararası yollar aracılığıyla netlik ve ivme oluşturmaya adanmış durumdayız.",
+    "missionTitle": "Misyonumuz",
+    "mission1": "Catalyst Education & Research Inc., Kanada Ontario Lise Diploması (OSSD) uzaktan yolu için Türkiye'nin yetkili temsilcisi olarak faaliyet göstermektedir.",
+    "mission2": "İlk kayıttan ders izleme ve mezuniyete kadar öğrencinin tüm yolculuğunu yönetiyoruz. Amacımız; Kanada'ya hemen göç etme zorunluluğu olmaksızın, uluslararası üniversite hareketliliğini önemseyen aileler için meşru ve yapılandırılmış bir eğitim yolu sunmaktır.",
+    "mission3": "TVO ILC'nin uluslararası alanda güvenilen akademik çerçevesini yerel danışmanlık ve mentorluğumuzla bir araya getirerek karmaşık uluslararası ortamı somut, adım adım bir yol haritasına dönüştürüyoruz.",
+    "differenceTitle": "Catalyst Farkı",
+    "differenceItems": [
+      "TVO yetkili resmi kurumsal altyapı",
+      "Denkliğe dayalı farklılaştırılmış akademik planlama",
+      "Sürekli yerel mentorluk ve ebeveyn iletişimi"
+    ],
+    "leadershipTitle": "Liderlik",
+    "leaderName": "Ahmet Boğaç Ayhan",
+    "leaderRole": "Operatör & Catalyst Education Sorumlusu",
+    "leaderBio1": "Dijital Teknoloji Ürün Sahipliği, süreç iyileştirme ve tedarik zinciri sistemlerinde on yılı aşkın profesyonel deneyimiyle Ahmet Boğaç Ayhan, Catalyst Education'a son derece yapılandırılmış ve analitik bir bakış açısı katmaktadır.",
+    "leaderBio2": "Odak noktası, operasyonel disiplini şirketin stratejik ticari misyonuyla buluşturmaktır. Bu anlayış, Catalyst'teki rolüyle tam uyum içindedir: gerçek değer taşıyan bir şeyi ticari açıdan güçlü ve sorunsuz işleyen bir yola dönüştürmek.",
+    "leaderBio3": "Ahmet, net yapılara, pratik çözümlere ve her ebeveynin çocuklarının nasıl başaracağı konusunda tam bir netliğe sahip olmasına inanır.",
+    "photoPlaceholder": "Fotoğraf alanı",
+    "ctaButton": "Danışmanlık Randevusu Alın"
+  }
+}
