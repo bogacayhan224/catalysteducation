@@ -70,13 +70,6 @@ export default async function DiplomaPage() {
                     <MessageCircle className="h-5 w-5" />
                     {t("ctaWhatsApp")}
                   </a>
-                  <a
-                    href="#how-it-works"
-                    className="inline-flex h-12 items-center justify-center gap-2 rounded-full px-5 text-sm font-medium text-warm-600 hover:text-warm-800 transition-colors"
-                  >
-                    {t("heroSecondary")}
-                    <ArrowRight className="h-4 w-4" />
-                  </a>
                 </div>
 
                 <div className="flex flex-wrap gap-x-6 gap-y-3 pt-4 border-t border-warm-300">

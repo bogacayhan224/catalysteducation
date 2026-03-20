@@ -137,18 +137,6 @@ export default function AboutPage() {
           </div>
         </section>
 
-        {/* ── CTA ── */}
-        <section className="py-16 bg-warm-100 border-t border-warm-300">
-          <div className="container px-4 md:px-6 mx-auto max-w-4xl text-center">
-            <Link
-              href={`/${locale}/#consultation`}
-              className="inline-flex h-12 items-center justify-center rounded-full bg-brand-500 px-8 text-base font-bold text-white shadow-sm transition-colors hover:bg-brand-600"
-            >
-              {t("ctaButton")}
-              <ArrowRight className="ml-2 h-5 w-5" />
-            </Link>
-          </div>
-        </section>
 
       </main>
     </div>

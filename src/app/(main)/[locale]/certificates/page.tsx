@@ -83,12 +83,6 @@ export default function CertificatesPage() {
                   {t("heroCTA")}
                   <ArrowRight className="h-4 w-4" />
                 </a>
-                <Link
-                  href={`/${locale}/contact`}
-                  className="inline-flex h-12 items-center justify-center gap-2 rounded-full border border-warm-300 bg-white px-7 text-sm font-medium text-warm-700 hover:bg-warm-50 transition-colors"
-                >
-                  {t("heroSecondary")}
-                </Link>
               </div>
             </div>
 
