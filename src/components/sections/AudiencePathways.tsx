@@ -69,7 +69,7 @@ export function AudiencePathways() {
                 <h3 className="text-xl font-bold text-warm-800 leading-snug">
                   {t(`${key}Title` as Parameters<typeof t>[0])}
                 </h3>
-                <p className="text-sm text-warm-600 font-medium">
+                <p className="text-sm text-warm-600 font-medium whitespace-pre-line">
                   {t(`${key}Subtitle` as Parameters<typeof t>[0])}
                 </p>
                 <div className="flex flex-col gap-2 flex-1">

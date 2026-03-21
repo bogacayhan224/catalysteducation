@@ -1,7 +1,5 @@
 "use client";
 
-import { useState, useEffect } from "react";
-import { X } from "lucide-react";
 import { useLocale } from "next-intl";
 
 const WHATSAPP_URL =
@@ -9,47 +7,15 @@ const WHATSAPP_URL =
 
 export function WhatsAppFloat() {
   const locale = useLocale();
-  const [tooltipVisible, setTooltipVisible] = useState(false);
-  const [dismissed, setDismissed] = useState(false);
-
-  useEffect(() => {
-    const alreadyDismissed = sessionStorage.getItem("wa_tooltip_dismissed");
-    if (!alreadyDismissed) {
-      const timer = setTimeout(() => setTooltipVisible(true), 2500);
-      return () => clearTimeout(timer);
-    }
-  }, []);
-
-  const dismiss = (e: React.MouseEvent) => {
-    e.preventDefault();
-    e.stopPropagation();
-    setTooltipVisible(false);
-    setDismissed(true);
-    sessionStorage.setItem("wa_tooltip_dismissed", "1");
-  };
 
   return (
     <div className="fixed bottom-6 right-6 z-50 flex flex-col items-end gap-2">
-      {/* Tooltip */}
-      {tooltipVisible && !dismissed && (
-        <div className="flex items-center gap-2 bg-white border border-warm-200 rounded-2xl shadow-lg px-4 py-2.5 text-sm text-warm-800 font-medium animate-in fade-in slide-in-from-bottom-2 duration-300">
-          <span>Size nasıl yardımcı olabiliriz?</span>
-          <button
-            onClick={dismiss}
-            className="text-warm-400 hover:text-warm-600 transition-colors flex-shrink-0"
-            aria-label="Kapat"
-          >
-            <X className="h-3.5 w-3.5" />
-          </button>
-        </div>
-      )}
-
-      {/* Main button */}
+{/* Main button */}
       <a
         href={WHATSAPP_URL}
         target="_blank"
         rel="noopener noreferrer"
-        onClick={() => { setTooltipVisible(false); setDismissed(true); }}
+        onClick={() => {}}
         className="group flex items-center gap-2.5 rounded-full bg-[#25D366] px-4 py-3 shadow-[0_4px_20px_rgba(37,211,102,0.35)] hover:brightness-105 hover:shadow-[0_6px_28px_rgba(37,211,102,0.45)] hover:scale-[1.03] active:scale-[0.98] transition-all duration-200"
         aria-label="WhatsApp ile iletişime geç"
       >

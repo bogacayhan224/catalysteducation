@@ -34,7 +34,7 @@ export function FAQAccordion({ items }: { items: FaqItem[] }) {
               }`}
             />
           </button>
-          <div className={`overflow-hidden transition-all duration-300 ease-in-out ${openIndex === index ? "max-h-96 opacity-100" : "max-h-0 opacity-0"}`}>
+          <div className={`overflow-hidden transition-all duration-300 ease-in-out ${openIndex === index ? "max-h-[800px] opacity-100" : "max-h-0 opacity-0"}`}>
             <div className="px-6 md:px-7 pb-7 pt-0 text-warm-700 leading-relaxed text-base portable-text">
               <PortableText
                 value={faq.answer}

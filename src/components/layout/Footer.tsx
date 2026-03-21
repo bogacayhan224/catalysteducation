@@ -46,8 +46,8 @@ export function Footer() {
         {/* Legal */}
         <div className="flex flex-col gap-3">
           <h3 className="font-semibold text-warm-800">{t("legal")}</h3>
-          <Link href="#" className="text-sm text-warm-600 hover:text-brand-500 transition-colors">{t("legalLinks.privacy")}</Link>
-          <Link href="#" className="text-sm text-warm-600 hover:text-brand-500 transition-colors">{t("legalLinks.terms")}</Link>
+          <Link href={localePath("/privacy")} className="text-sm text-warm-600 hover:text-brand-500 transition-colors">{t("legalLinks.privacy")}</Link>
+          <Link href={localePath("/terms")} className="text-sm text-warm-600 hover:text-brand-500 transition-colors">{t("legalLinks.terms")}</Link>
         </div>
       </div>
 

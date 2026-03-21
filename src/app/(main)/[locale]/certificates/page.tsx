@@ -87,8 +87,10 @@ export default function CertificatesPage() {
             </div>
 
             {/* Partner logos */}
-            <div className="hidden lg:flex flex-col items-center gap-4">
-              <p className="text-[10px] font-semibold text-warm-400 uppercase tracking-widest mb-1">Backed by</p>
+            <div className="flex flex-row lg:flex-col items-center justify-center gap-4">
+              {locale !== "tr" && (
+                <p className="text-[10px] font-semibold text-warm-400 uppercase tracking-widest mb-1">Backed by</p>
+              )}
               <div className="bg-white/80 rounded-2xl px-6 py-4 border border-warm-200 shadow-sm">
                 <Image
                   src="/ontario-tech-logo.png"
