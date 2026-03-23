@@ -35,6 +35,29 @@ export async function getFaqsByLocale(locale: string): Promise<Faq[]> {
   );
 }
 
+export type Testimonial = {
+  _id: string;
+  parentName: string;
+  quote: string;
+  studentInfo?: string;
+  language: string;
+  order?: number;
+};
+
+export async function getTestimonials(locale: string): Promise<Testimonial[]> {
+  return client.fetch(
+    groq`*[_type == "testimonial" && published == true && language == $locale] | order(order asc) {
+      _id,
+      parentName,
+      quote,
+      studentInfo,
+      language,
+      order
+    }`,
+    { locale }
+  );
+}
+
 export type Post = {
   _id: string;
   title: string;

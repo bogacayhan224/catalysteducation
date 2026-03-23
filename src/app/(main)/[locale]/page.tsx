@@ -4,6 +4,7 @@ import { ValueProp } from "@/components/sections/ValueProp";
 import { Process } from "@/components/sections/Process";
 import { AudiencePathways } from "@/components/sections/AudiencePathways";
 import { CertificatesIntro } from "@/components/sections/CertificatesIntro";
+import { TestimonialsSection } from "@/components/sections/TestimonialsSection";
 export default function Home() {
   return (
     <div className="flex flex-col min-h-screen">
@@ -20,7 +21,10 @@ export default function Home() {
         {/* 4. Process — how the diploma pathway works */}
         <Process />
 
-        {/* 5. Audience Pathways — 2-card segment selector */}
+        {/* 5. Student Outcomes / Testimonials — CMS-driven, fallback if empty */}
+        <TestimonialsSection />
+
+        {/* 6. Audience Pathways — 2-card segment selector */}
         <AudiencePathways />
 
         {/* 6. Certificates Intro — Ontario Tech / Brilliant Catalyst programs */}
