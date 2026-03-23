@@ -1,11 +1,9 @@
-"use client";
-import Link from "next/link";
-import { ArrowRight, Calendar, Users, MapPin, Quote, Check } from "lucide-react";
-import { useTranslations, useLocale } from "next-intl";
+import { getTranslations } from "next-intl/server";
+import { Calendar, Users, MapPin, Check } from "lucide-react";
+import { TestimonialsSection } from "@/components/sections/TestimonialsSection";
 
-export default function AboutPage() {
-  const t = useTranslations("about");
-  const locale = useLocale();
+export default async function AboutPage() {
+  const t = await getTranslations("about");
 
   return (
     <div className="flex flex-col min-h-screen">
@@ -110,33 +108,8 @@ export default function AboutPage() {
           </div>
         </section>
 
-        {/* ── TESTIMONIALS ── */}
-        <section className="py-20 bg-white border-b border-warm-200">
-          <div className="container px-4 md:px-6 mx-auto max-w-[1280px]">
-            <div className="text-center mb-12">
-              <h2 className="text-3xl font-bold text-warm-800 mb-4">{t("testimonialsTitle")}</h2>
-              <p className="text-warm-600 text-lg max-w-xl mx-auto">{t("testimonialsSubtitle")}</p>
-            </div>
-            <div className="grid md:grid-cols-3 gap-6">
-              <div className="bg-warm-50 border border-warm-200 rounded-3xl p-8 flex flex-col gap-4">
-                <Quote className="h-8 w-8 text-brand-200 flex-shrink-0" />
-                <p className="text-warm-700 leading-relaxed text-sm flex-1">{t("t1Text")}</p>
-                <p className="text-sm font-semibold text-warm-800">{t("t1Name")}</p>
-              </div>
-              <div className="bg-warm-50 border border-warm-200 rounded-3xl p-8 flex flex-col gap-4">
-                <Quote className="h-8 w-8 text-brand-200 flex-shrink-0" />
-                <p className="text-warm-700 leading-relaxed text-sm flex-1">{t("t2Text")}</p>
-                <p className="text-sm font-semibold text-warm-800">{t("t2Name")}</p>
-              </div>
-              <div className="bg-warm-50 border border-warm-200 rounded-3xl p-8 flex flex-col gap-4">
-                <Quote className="h-8 w-8 text-brand-200 flex-shrink-0" />
-                <p className="text-warm-700 leading-relaxed text-sm flex-1">{t("t3Text")}</p>
-                <p className="text-sm font-semibold text-warm-800">{t("t3Name")}</p>
-              </div>
-            </div>
-          </div>
-        </section>
-
+        {/* ── TESTIMONIALS — CMS-driven, fallback if empty ── */}
+        <TestimonialsSection />
 
       </main>
     </div>
