@@ -1,7 +1,7 @@
 "use client";
 
 import { useTranslations, useLocale } from "next-intl";
-import { MapPin, Phone, Mail, Instagram, Globe, Clock, CheckCircle2, MessageSquare, ArrowUpRight } from "lucide-react";
+import { MapPin, Phone, Mail, Instagram, Linkedin, Globe, Clock, CheckCircle2, MessageSquare, ArrowUpRight } from "lucide-react";
 import { ContactForm } from "@/components/sections/ContactForm";
 
 export default function ContactPage() {
@@ -10,6 +10,7 @@ export default function ContactPage() {
 
   const mapsUrl = "https://maps.google.com/?q=173+Kingston+Rd+Toronto+ON+M4L+1T4+Canada";
   const mapsEmbedUrl = `https://www.google.com/maps?q=173+Kingston+Rd+Toronto+ON+M4L+1T4+Canada&output=embed&z=16&hl=${locale}`;
+  const linkedinUrl = "https://www.linkedin.com/company/catalyst-education-tr/";
   const instagramUrl = "https://www.instagram.com/thecatalysteducation/";
   const phoneRaw = "+14374739725";
 
@@ -44,7 +45,7 @@ export default function ContactPage() {
         {/* ── 2. Contact Info Cards ────────────────────────────── */}
         <section className="py-14 lg:py-18 bg-warm-200">
           <div className="container px-4 md:px-6 mx-auto max-w-[1280px]">
-            <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-5">
+            <div className="grid sm:grid-cols-2 lg:grid-cols-5 gap-5">
 
               {/* Address */}
               <div className="group bg-white rounded-2xl p-6 shadow-[0_2px_12px_rgba(31,29,26,0.07)] border border-warm-300 flex flex-col gap-4 hover:shadow-[0_4px_20px_rgba(31,29,26,0.10)] transition-shadow">
@@ -108,6 +109,29 @@ export default function ContactPage() {
                   className="inline-flex items-center gap-1.5 text-xs font-semibold text-warm-600 hover:text-warm-800 transition-colors"
                 >
                   {t("emailSendCta")}
+                  <ArrowUpRight className="h-3.5 w-3.5" />
+                </a>
+              </div>
+
+              {/* LinkedIn */}
+              <div className="group bg-white rounded-2xl p-6 shadow-[0_2px_12px_rgba(31,29,26,0.07)] border border-warm-300 flex flex-col gap-4 hover:shadow-[0_4px_20px_rgba(31,29,26,0.10)] transition-shadow">
+                <div className="h-10 w-10 rounded-xl bg-info-100 flex items-center justify-center flex-shrink-0">
+                  <Linkedin className="h-5 w-5 text-[#3B7CB0]" />
+                </div>
+                <div className="flex-1">
+                  <p className="text-[11px] font-semibold text-warm-500 uppercase tracking-widest mb-2">
+                    {t("linkedinCardTitle")}
+                  </p>
+                  <p className="text-sm font-medium text-warm-800">{t("linkedinHandle")}</p>
+                  <p className="text-xs text-warm-500 mt-1">{t("linkedinCta")}</p>
+                </div>
+                <a
+                  href={linkedinUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center gap-1.5 text-xs font-semibold text-[#3B7CB0] hover:text-[#2d6391] transition-colors"
+                >
+                  {t("linkedinFollowCta")}
                   <ArrowUpRight className="h-3.5 w-3.5" />
                 </a>
               </div>
