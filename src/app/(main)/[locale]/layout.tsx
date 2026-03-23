@@ -7,6 +7,7 @@ import "../../globals.css";
 import { Navbar } from "@/components/layout/Navbar";
 import { Footer } from "@/components/layout/Footer";
 import { WhatsAppFloat } from "@/components/ui/WhatsAppFloat";
+import { AnnouncementBar } from "@/components/ui/AnnouncementBar";
 import { SanityLive } from "@/sanity/lib/live";
 import type { Metadata } from "next";
 
@@ -52,11 +53,12 @@ export default async function LocaleLayout({
     >
       <body className="flex min-h-screen flex-col font-sans">
         <NextIntlClientProvider messages={messages}>
+          <SanityLive />
+          <AnnouncementBar />
           <Navbar />
           {children}
           <Footer />
           <WhatsAppFloat />
-          <SanityLive />
         </NextIntlClientProvider>
       </body>
     </html>
