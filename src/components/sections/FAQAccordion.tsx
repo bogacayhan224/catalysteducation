@@ -1,6 +1,7 @@
 "use client";
 import { useState } from "react";
 import { ChevronDown } from "lucide-react";
+import { event } from "@/lib/gtm";
 import { PortableText } from "@portabletext/react";
 import type { PortableTextBlock } from "@portabletext/types";
 
@@ -25,7 +26,13 @@ export function FAQAccordion({ items }: { items: FaqItem[] }) {
         >
           <button
             className="w-full flex items-center justify-between p-6 md:p-7 text-left focus:outline-none"
-            onClick={() => setOpenIndex(openIndex === index ? null : index)}
+            onClick={() => {
+              const isOpening = openIndex !== index;
+              setOpenIndex(openIndex === index ? null : index);
+              if (isOpening) {
+                event({ action: 'faq_expand', section_name: faq.question });
+              }
+            }}
           >
             <span className="font-semibold text-base md:text-lg text-warm-800 pr-4">{faq.question}</span>
             <ChevronDown

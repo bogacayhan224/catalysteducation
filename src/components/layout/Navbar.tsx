@@ -5,6 +5,7 @@ import Image from "next/image";
 import { useState, useEffect, useRef } from "react";
 import { Menu, X, Globe, ChevronDown, GraduationCap, Lightbulb } from "lucide-react";
 import { cn } from "@/lib/utils";
+import { event } from "@/lib/gtm";
 import { useTranslations, useLocale } from "next-intl";
 import { useRouter, usePathname } from "next/navigation";
 
@@ -128,6 +129,7 @@ export function Navbar() {
           </Link>
           <Link
             href={localePath("/apply")}
+            onClick={() => event({ action: 'apply_click', button_text: t('applyNow'), section_name: 'Navbar' })}
             className="inline-flex h-10 items-center justify-center rounded-full bg-brand-500 px-6 text-sm font-semibold text-white shadow-sm transition-all hover:bg-brand-600 hover:shadow-md"
           >
             {t("applyNow")}
@@ -185,7 +187,7 @@ export function Navbar() {
             <Link
               href={localePath("/apply")}
               className="inline-flex h-11 w-full items-center justify-center rounded-full bg-brand-500 px-4 text-sm font-semibold text-white shadow transition-colors hover:bg-brand-600"
-              onClick={() => setIsOpen(false)}
+              onClick={() => { setIsOpen(false); event({ action: 'apply_click', button_text: t('applyNow'), section_name: 'Navbar Mobile' }); }}
             >
               {t("applyNow")}
             </Link>

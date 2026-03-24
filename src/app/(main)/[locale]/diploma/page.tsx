@@ -1,6 +1,43 @@
+import type { Metadata } from "next";
 import Link from "next/link";
 import Image from "next/image";
 import { getTranslations, getLocale } from "next-intl/server";
+
+const SITE_URL =
+  process.env.NEXT_PUBLIC_SITE_URL ?? "https://catalyst-education-web.vercel.app";
+
+export async function generateMetadata({
+  params,
+}: {
+  params: Promise<{ locale: string }>;
+}): Promise<Metadata> {
+  const { locale } = await params;
+  const isEn = locale === "en";
+  const title = isEn
+    ? "Ontario Secondary School Diploma (OSSD) Program | Catalyst Education"
+    : "OSSD Nedir? Ontario Lise Diploması Programı | Catalyst Education";
+  const description = isEn
+    ? "Learn everything about the Ontario Secondary School Diploma (OSSD) and how to earn it from Turkey through Catalyst Education's official TVO ILC program."
+    : "OSSD (Ontario Secondary School Diploma) nedir, nasıl alınır? Türkiye'den Catalyst Education aracılığıyla resmi TVO ILC programıyla Kanada lise diploması edinin.";
+  const url = `${SITE_URL}/${locale}/diploma`;
+
+  return {
+    title,
+    description,
+    alternates: {
+      canonical: url,
+      languages: { tr: `${SITE_URL}/tr/diploma`, en: `${SITE_URL}/en/diploma` },
+    },
+    openGraph: {
+      title, description, url,
+      siteName: "Catalyst Education",
+      type: "website",
+      locale: isEn ? "en_US" : "tr_TR",
+      images: [{ url: "/logo.png", width: 300, height: 200, alt: "Catalyst Education" }],
+    },
+    twitter: { card: "summary", title, description, images: ["/logo.png"] },
+  };
+}
 import {
   ShieldCheck, Globe, Monitor, Users, GraduationCap,
   ArrowRight, Check, Info, MessageCircle, MapPin

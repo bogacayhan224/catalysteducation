@@ -1,7 +1,44 @@
+import type { Metadata } from "next";
 import { getTranslations, getLocale } from "next-intl/server";
 import { HelpCircle } from "lucide-react";
 import { getFaqsByLocale } from "@/sanity/lib/queries";
 import { FAQAccordion } from "@/components/sections/FAQAccordion";
+
+const SITE_URL =
+  process.env.NEXT_PUBLIC_SITE_URL ?? "https://catalyst-education-web.vercel.app";
+
+export async function generateMetadata({
+  params,
+}: {
+  params: Promise<{ locale: string }>;
+}): Promise<Metadata> {
+  const { locale } = await params;
+  const isEn = locale === "en";
+  const title = isEn
+    ? "FAQ — OSSD Program Questions Answered | Catalyst Education"
+    : "Sık Sorulan Sorular — OSSD ve Program Süreci | Catalyst Education";
+  const description = isEn
+    ? "Find answers to the most common questions about the Ontario Secondary School Diploma (OSSD), enrollment, duration, recognition, and costs."
+    : "OSSD programı hakkında en çok sorulan soruların cevapları: kayıt süreci, program süresi, MEB denkliği, maliyetler ve daha fazlası.";
+  const url = `${SITE_URL}/${locale}/faq`;
+
+  return {
+    title,
+    description,
+    alternates: {
+      canonical: url,
+      languages: { tr: `${SITE_URL}/tr/faq`, en: `${SITE_URL}/en/faq` },
+    },
+    openGraph: {
+      title, description, url,
+      siteName: "Catalyst Education",
+      type: "website",
+      locale: isEn ? "en_US" : "tr_TR",
+      images: [{ url: "/logo.png", width: 300, height: 200, alt: "Catalyst Education" }],
+    },
+    twitter: { card: "summary", title, description, images: ["/logo.png"] },
+  };
+}
 
 export default async function FAQPage() {
   const t = await getTranslations("faq");
@@ -24,8 +61,34 @@ export default async function FAQPage() {
           ],
         }));
 
+  // Plain-text pairs for FAQPage JSON-LD schema
+  const faqPlainItems =
+    sanityFaqs.length > 0
+      ? sanityFaqs.map((f) => ({
+          question: f.question,
+          answer: (f.answer as Array<{ children?: Array<{ text?: string }> }>)
+            .flatMap((b) => b.children ?? [])
+            .map((s) => s.text ?? "")
+            .join(" "),
+        }))
+      : (t.raw("items") as { question: string; answer: string }[]);
+
+  const faqSchema = {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    mainEntity: faqPlainItems.map((item) => ({
+      "@type": "Question",
+      name: item.question,
+      acceptedAnswer: { "@type": "Answer", text: item.answer },
+    })),
+  };
+
   return (
     <div className="flex flex-col min-h-screen">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
+      />
       <main className="flex-1">
 
         {/* Hero */}

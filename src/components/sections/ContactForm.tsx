@@ -3,6 +3,7 @@
 import { useState } from "react";
 import { useTranslations, useLocale } from "next-intl";
 import { CheckCircle, AlertCircle } from "lucide-react";
+import { event } from "@/lib/gtm";
 
 interface ContactFormData {
   fullName: string;
@@ -80,6 +81,7 @@ export function ContactForm() {
       });
 
       if (!res.ok) throw new Error("submission_failed");
+      event({ action: 'form_submit', section_name: 'ContactForm', program_type: formData.programType });
       setStatus("success");
     } catch {
       setStatus("error");

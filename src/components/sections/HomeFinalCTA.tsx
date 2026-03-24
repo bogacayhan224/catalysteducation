@@ -1,6 +1,7 @@
 "use client";
 import Link from "next/link";
 import { useTranslations, useLocale } from "next-intl";
+import { event } from "@/lib/gtm";
 import { GraduationCap, Lightbulb, Building2, ArrowRight } from "lucide-react";
 
 const funnels = [
@@ -71,6 +72,7 @@ export function HomeFinalCTA() {
               </div>
               <Link
                 href={localePath(ctaHref)}
+                onClick={ctaHref === '/apply' ? () => event({ action: 'apply_click', button_text: t(`${key}CTA`), section_name: 'HomeFinalCTA' }) : undefined}
                 className={`inline-flex h-11 items-center justify-center gap-2 rounded-full px-6 text-sm font-semibold shadow-sm transition-colors ${ctaClass}`}
               >
                 {t(`${key}CTA`)}

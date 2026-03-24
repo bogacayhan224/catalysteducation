@@ -1,5 +1,42 @@
+import type { Metadata } from "next";
 import { getTranslations } from "next-intl/server";
 import { Calendar, Users, MapPin, Check } from "lucide-react";
+
+const SITE_URL =
+  process.env.NEXT_PUBLIC_SITE_URL ?? "https://catalyst-education-web.vercel.app";
+
+export async function generateMetadata({
+  params,
+}: {
+  params: Promise<{ locale: string }>;
+}): Promise<Metadata> {
+  const { locale } = await params;
+  const isEn = locale === "en";
+  const title = isEn
+    ? "About Us — Authorized TVO ILC Representative in Turkey | Catalyst Education"
+    : "Hakkımızda — TVO ILC Türkiye Yetkili Temsilcisi | Catalyst Education";
+  const description = isEn
+    ? "Catalyst Education is Turkey's official TVO ILC representative, helping students earn an Ontario Secondary School Diploma (OSSD) with local support."
+    : "Catalyst Education, Türkiye'nin resmi TVO ILC temsilcisidir. Öğrencilerin Ontario Secondary School Diploma (OSSD) almasına yerel destek sağlıyoruz.";
+  const url = `${SITE_URL}/${locale}/about`;
+
+  return {
+    title,
+    description,
+    alternates: {
+      canonical: url,
+      languages: { tr: `${SITE_URL}/tr/about`, en: `${SITE_URL}/en/about` },
+    },
+    openGraph: {
+      title, description, url,
+      siteName: "Catalyst Education",
+      type: "website",
+      locale: isEn ? "en_US" : "tr_TR",
+      images: [{ url: "/logo.png", width: 300, height: 200, alt: "Catalyst Education" }],
+    },
+    twitter: { card: "summary", title, description, images: ["/logo.png"] },
+  };
+}
 import { TestimonialsSection } from "@/components/sections/TestimonialsSection";
 
 export default async function AboutPage() {

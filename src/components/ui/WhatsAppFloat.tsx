@@ -1,6 +1,7 @@
 "use client";
 
 import { useLocale } from "next-intl";
+import { event } from "@/lib/gtm";
 
 const WHATSAPP_URL =
   "https://wa.me/14374739725?text=Merhaba,%20Catalyst%20Education%20programlar%C4%B1%20hakk%C4%B1nda%20bilgi%20almak%20istiyorum.";
@@ -15,7 +16,7 @@ export function WhatsAppFloat() {
         href={WHATSAPP_URL}
         target="_blank"
         rel="noopener noreferrer"
-        onClick={() => {}}
+        onClick={() => event({ action: 'whatsapp_click', button_text: locale === 'tr' ? 'Bize WhatsApp\'tan Yazın' : 'Message Us on WhatsApp' })}
         className="group flex items-center gap-2.5 rounded-full bg-[#25D366] px-4 py-3 shadow-[0_4px_20px_rgba(37,211,102,0.35)] hover:brightness-105 hover:shadow-[0_6px_28px_rgba(37,211,102,0.45)] hover:scale-[1.03] active:scale-[0.98] transition-all duration-200"
         aria-label="WhatsApp ile iletişime geç"
       >
