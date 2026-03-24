@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { ogImage } from "@/lib/og";
 import { getTranslations, getLocale } from "next-intl/server";
 import { HelpCircle } from "lucide-react";
 import { getFaqsByLocale } from "@/sanity/lib/queries";
@@ -34,9 +35,9 @@ export async function generateMetadata({
       siteName: "Catalyst Education",
       type: "website",
       locale: isEn ? "en_US" : "tr_TR",
-      images: [{ url: "/logo.png", width: 300, height: 200, alt: "Catalyst Education" }],
+      images: ogImage(title),
     },
-    twitter: { card: "summary", title, description, images: ["/logo.png"] },
+    twitter: { card: "summary_large_image", title, description, images: [ogImage(title)[0].url] },
   };
 }
 

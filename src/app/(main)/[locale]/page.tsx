@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { ogImage } from "@/lib/og";
 import { Hero } from "@/components/sections/Hero";
 import { TrustSection } from "@/components/sections/TrustSection";
 import { ValueProp } from "@/components/sections/ValueProp";
@@ -18,7 +19,7 @@ export async function generateMetadata({
   const { locale } = await params;
   const isEn = locale === "en";
   const title = isEn
-    ? "Canadian High School Diploma in Turkey — 100% Online | Catalyst Education"
+    ? "Canadian High School Diploma in Turkey | Catalyst Education"
     : "Ontario Lise Diploması (OSSD) Türkiye | Catalyst Education";
   const description = isEn
     ? "Earn an Ontario Secondary School Diploma (OSSD) from Turkey with official TVO ILC support. 100% online, government-recognized Canadian diploma."
@@ -39,9 +40,9 @@ export async function generateMetadata({
       siteName: "Catalyst Education",
       type: "website",
       locale: isEn ? "en_US" : "tr_TR",
-      images: [{ url: "/logo.png", width: 300, height: 200, alt: "Catalyst Education" }],
+      images: ogImage(title),
     },
-    twitter: { card: "summary", title, description, images: ["/logo.png"] },
+    twitter: { card: "summary_large_image", title, description, images: [ogImage(title)[0].url] },
   };
 }
 
