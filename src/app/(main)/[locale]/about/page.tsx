@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import { ogImage } from "@/lib/og";
-import { getTranslations } from "next-intl/server";
+import { getTranslations, getLocale } from "next-intl/server";
 import { Calendar, Users, MapPin, Check } from "lucide-react";
 
 const SITE_URL =
@@ -42,9 +42,21 @@ import { TestimonialsSection } from "@/components/sections/TestimonialsSection";
 
 export default async function AboutPage() {
   const t = await getTranslations("about");
+  const locale = await getLocale();
+  const isEn = locale === "en";
+
+  const breadcrumbSchema = {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    itemListElement: [
+      { "@type": "ListItem", position: 1, name: isEn ? "Home" : "Ana Sayfa", item: `${SITE_URL}/${locale}` },
+      { "@type": "ListItem", position: 2, name: isEn ? "About Us" : "Hakkımızda", item: `${SITE_URL}/${locale}/about` },
+    ],
+  };
 
   return (
     <div className="flex flex-col min-h-screen">
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }} />
       <main className="flex-1">
 
         {/* ── HERO ── */}

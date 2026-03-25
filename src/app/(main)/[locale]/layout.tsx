@@ -10,7 +10,9 @@ import { Footer } from "@/components/layout/Footer";
 import { WhatsAppFloat } from "@/components/ui/WhatsAppFloat";
 import { AnnouncementBar } from "@/components/ui/AnnouncementBar";
 import { GTMAnalytics } from "@/components/analytics/GTMAnalytics";
-import { GTM_ID } from "@/lib/gtm";
+import { GTM_ID, GA4_ID } from "@/lib/gtm";
+
+const IS_PRODUCTION = process.env.NODE_ENV === 'production';
 import type { Metadata } from "next";
 
 const SITE_URL =
@@ -86,6 +88,22 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 })(window,document,'script','dataLayer','${GTM_ID}');`,
           }}
         />
+        {IS_PRODUCTION && (
+          <>
+            <Script
+              id="ga4-script"
+              strategy="afterInteractive"
+              src={`https://www.googletagmanager.com/gtag/js?id=${GA4_ID}`}
+            />
+            <Script
+              id="ga4-init"
+              strategy="afterInteractive"
+              dangerouslySetInnerHTML={{
+                __html: `window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','${GA4_ID}',{send_page_view:false});`,
+              }}
+            />
+          </>
+        )}
         <NextIntlClientProvider messages={messages}>
           <GTMAnalytics />
           <AnnouncementBar />

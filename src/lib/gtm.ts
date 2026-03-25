@@ -1,8 +1,10 @@
 export const GTM_ID = 'GTM-TM9N9RNW';
+export const GA4_ID = 'G-83F13WGM3D';
 
 declare global {
   interface Window {
     dataLayer: Record<string, unknown>[];
+    gtag: (...args: unknown[]) => void;
   }
 }
 

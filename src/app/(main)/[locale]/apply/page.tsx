@@ -1,10 +1,28 @@
 "use client";
 
-import { useTranslations } from "next-intl";
+import { useTranslations, useLocale } from "next-intl";
 import Script from "next/script";
+import { useEffect } from "react";
+import { event as gtmEvent } from "@/lib/gtm";
 
 export default function ApplyPage() {
   const t = useTranslations("apply");
+  const locale = useLocale();
+
+  useEffect(() => {
+    function handleTallyMessage(e: MessageEvent) {
+      if (typeof e.data !== "object" || !e.data) return;
+      if (e.data.type !== "TallyFormSubmitted") return;
+      gtmEvent({
+        action: "form_submit",
+        form_id: e.data.formId ?? "Y5d6zz",
+        form_name: "application_form",
+        locale,
+      });
+    }
+    window.addEventListener("message", handleTallyMessage);
+    return () => window.removeEventListener("message", handleTallyMessage);
+  }, [locale]);
 
   return (
     <div className="flex flex-col min-h-screen bg-zinc-50">

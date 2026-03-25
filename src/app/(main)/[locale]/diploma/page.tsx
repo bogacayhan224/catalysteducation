@@ -67,9 +67,39 @@ export default async function DiplomaPage() {
   const locale = await getLocale();
   const whatsappNumber = process.env.NEXT_PUBLIC_WHATSAPP_NUMBER ?? "905334702735";
   const whatsappUrl = `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(whatsapp("message"))}`;
+  const isEn = locale === "en";
+
+  const courseSchema = {
+    "@context": "https://schema.org",
+    "@type": "Course",
+    name: "Ontario Secondary School Diploma (OSSD)",
+    description: isEn
+      ? "Earn a recognized Canadian high school diploma fully online from Turkey. Official TVO ILC authorized program with local Turkish support."
+      : "Türkiye'den tamamen online olarak tanınan bir Kanada lise diploması edinin. Yerel Türkçe destek ile resmi TVO ILC yetkili programı.",
+    provider: {
+      "@type": "Organization",
+      name: "Catalyst Education",
+      url: SITE_URL,
+    },
+    educationalCredentialAwarded: "Ontario Secondary School Diploma (OSSD)",
+    courseMode: "online",
+    inLanguage: isEn ? "en" : "tr",
+    url: `${SITE_URL}/${locale}/diploma`,
+  };
+
+  const breadcrumbSchema = {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    itemListElement: [
+      { "@type": "ListItem", position: 1, name: isEn ? "Home" : "Ana Sayfa", item: `${SITE_URL}/${locale}` },
+      { "@type": "ListItem", position: 2, name: isEn ? "Ontario Diploma (OSSD)" : "Ontario Diploması (OSSD)", item: `${SITE_URL}/${locale}/diploma` },
+    ],
+  };
 
   return (
     <div className="flex flex-col min-h-screen">
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(courseSchema) }} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }} />
       <main className="flex-1">
 
         {/* ── HERO ── */}

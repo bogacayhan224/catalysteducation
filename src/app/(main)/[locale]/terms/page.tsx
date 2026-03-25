@@ -1,5 +1,43 @@
+import type { Metadata } from "next";
+import { ogImage } from "@/lib/og";
 import { useLocale } from "next-intl";
 import { ReactNode } from "react";
+
+const SITE_URL =
+  process.env.NEXT_PUBLIC_SITE_URL ?? "https://catalyst-education-web.vercel.app";
+
+export async function generateMetadata({
+  params,
+}: {
+  params: Promise<{ locale: string }>;
+}): Promise<Metadata> {
+  const { locale } = await params;
+  const isEn = locale === "en";
+  const title = isEn
+    ? "Terms of Use | Catalyst Education"
+    : "Kullanım Koşulları | Catalyst Education";
+  const description = isEn
+    ? "Read the terms and conditions governing the use of Catalyst Education's platform and services."
+    : "Catalyst Education platformu ve hizmetlerinin kullanımını düzenleyen koşulları okuyun.";
+  const url = `${SITE_URL}/${locale}/terms`;
+
+  return {
+    title,
+    description,
+    alternates: {
+      canonical: url,
+      languages: { tr: `${SITE_URL}/tr/terms`, en: `${SITE_URL}/en/terms` },
+    },
+    openGraph: {
+      title, description, url,
+      siteName: "Catalyst Education",
+      type: "website",
+      locale: isEn ? "en_US" : "tr_TR",
+      images: ogImage(title),
+    },
+    twitter: { card: "summary_large_image", title, description, images: [ogImage(title)[0].url] },
+  };
+}
 
 const H1 = ({ children }: { children: ReactNode }) => (
   <h1 className="text-3xl md:text-4xl font-extrabold text-warm-800 mb-2 leading-tight">{children}</h1>

@@ -84,11 +84,24 @@ export default async function FAQPage() {
     })),
   };
 
+  const breadcrumbSchema = {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    itemListElement: [
+      { "@type": "ListItem", position: 1, name: locale === "en" ? "Home" : "Ana Sayfa", item: `${SITE_URL}/${locale}` },
+      { "@type": "ListItem", position: 2, name: locale === "en" ? "FAQ" : "SSS", item: `${SITE_URL}/${locale}/faq` },
+    ],
+  };
+
   return (
     <div className="flex flex-col min-h-screen">
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }}
       />
       <main className="flex-1">
 

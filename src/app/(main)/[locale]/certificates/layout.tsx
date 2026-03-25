@@ -37,6 +37,47 @@ export async function generateMetadata({
   };
 }
 
-export default function CertificatesLayout({ children }: { children: React.ReactNode }) {
-  return <>{children}</>;
+export default async function CertificatesLayout({
+  children,
+  params,
+}: {
+  children: React.ReactNode;
+  params: Promise<{ locale: string }>;
+}) {
+  const { locale } = await params;
+  const isEn = locale === "en";
+
+  const courseSchema = {
+    "@context": "https://schema.org",
+    "@type": "Course",
+    name: isEn ? "Future Skills Certificates" : "Future Skills Sertifikaları",
+    description: isEn
+      ? "Industry-recognized online certificates from Ontario Tech University and Brilliant Catalyst, available from Turkey."
+      : "Ontario Tech Üniversitesi ve Brilliant Catalyst iş birliğiyle geliştirilen, Türkiye'den alınabilecek sektör tarafından tanınan online sertifikalar.",
+    provider: {
+      "@type": "Organization",
+      name: "Catalyst Education",
+      url: SITE_URL,
+    },
+    courseMode: "online",
+    inLanguage: isEn ? "en" : "tr",
+    url: `${SITE_URL}/${locale}/certificates`,
+  };
+
+  const breadcrumbSchema = {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    itemListElement: [
+      { "@type": "ListItem", position: 1, name: isEn ? "Home" : "Ana Sayfa", item: `${SITE_URL}/${locale}` },
+      { "@type": "ListItem", position: 2, name: isEn ? "Future Skills Certificates" : "Future Skills Sertifikaları", item: `${SITE_URL}/${locale}/certificates` },
+    ],
+  };
+
+  return (
+    <>
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(courseSchema) }} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }} />
+      {children}
+    </>
+  );
 }
