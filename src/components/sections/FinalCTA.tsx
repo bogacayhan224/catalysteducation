@@ -17,7 +17,7 @@ export function FinalCTA() {
   const whatsapp = useTranslations("whatsapp");
   const locale = useLocale();
 
-  const whatsappNumber = process.env.NEXT_PUBLIC_WHATSAPP_NUMBER ?? "905551234567";
+  const whatsappNumber = process.env.NEXT_PUBLIC_WHATSAPP_NUMBER ?? "905334702735";
   const whatsappUrl = `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(whatsapp("message"))}`;
 
   return (

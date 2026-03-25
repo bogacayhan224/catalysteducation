@@ -12,7 +12,7 @@ export default function ContactPage() {
   const mapsEmbedUrl = `https://www.google.com/maps?q=173+Kingston+Rd+Toronto+ON+M4L+1T4+Canada&output=embed&z=16&hl=${locale}`;
   const linkedinUrl = "https://www.linkedin.com/company/catalyst-education-tr/";
   const instagramUrl = "https://www.instagram.com/thecatalysteducation/";
-  const phoneRaw = "+14374739725";
+  const phoneRaw = "+905334702735";
 
   return (
     <div className="flex flex-col min-h-screen">

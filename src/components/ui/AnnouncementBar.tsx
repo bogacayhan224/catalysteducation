@@ -3,7 +3,7 @@
 import { useLocale } from "next-intl";
 
 const WHATSAPP_URL =
-  "https://wa.me/14374739725?text=Merhaba,%20Catalyst%20Education%20programlar%C4%B1%20hakk%C4%B1nda%20bilgi%20almak%20istiyorum.";
+  "https://wa.me/905334702735?text=Merhaba,%20Catalyst%20Education%20programlar%C4%B1%20hakk%C4%B1nda%20bilgi%20almak%20istiyorum.";
 
 const TEXTS = {
   tr: "🎓 2026–2027 Kayıt Dönemi Açıldı  •  Erken kayıt avantajlarından yararlanmak için hemen bizimle iletişime geçin",

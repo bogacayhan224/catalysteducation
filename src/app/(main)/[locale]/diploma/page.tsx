@@ -65,7 +65,7 @@ export default async function DiplomaPage() {
   const t = await getTranslations("diplomaPage");
   const whatsapp = await getTranslations("whatsapp");
   const locale = await getLocale();
-  const whatsappNumber = process.env.NEXT_PUBLIC_WHATSAPP_NUMBER ?? "905551234567";
+  const whatsappNumber = process.env.NEXT_PUBLIC_WHATSAPP_NUMBER ?? "905334702735";
   const whatsappUrl = `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(whatsapp("message"))}`;
 
   return (
