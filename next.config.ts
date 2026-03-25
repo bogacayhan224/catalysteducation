@@ -78,15 +78,12 @@ const nextConfig: NextConfig = {
       { source: "/tr/merhaba-dunya",           destination: "/tr",         permanent: true },
 
       // ── WordPress sitemap URL'leri → Next.js sitemap ───────────
-      { source: "/wp-sitemap.xml",                         destination: "/sitemap.xml", permanent: true },
-      { source: "/sitemap_index.xml",                      destination: "/sitemap.xml", permanent: true },
-      { source: "/post-sitemap.xml",                       destination: "/sitemap.xml", permanent: true },
-      { source: "/page-sitemap.xml",                       destination: "/sitemap.xml", permanent: true },
-      { source: "/wp-sitemap-posts-post-1.xml",            destination: "/sitemap.xml", permanent: true },
-      { source: "/wp-sitemap-posts-page-1.xml",            destination: "/sitemap.xml", permanent: true },
-      { source: "/wp-sitemap-taxonomies-category-1.xml",   destination: "/sitemap.xml", permanent: true },
-      { source: "/wp-sitemap-taxonomies-post_tag-1.xml",   destination: "/sitemap.xml", permanent: true },
-      { source: "/wp-sitemap-users-1.xml",                 destination: "/sitemap.xml", permanent: true },
+      // Wildcard: wp-sitemap.xml ve tüm alt sitemap varyantları
+      { source: "/wp-sitemap.xml",        destination: "/sitemap.xml", permanent: true },
+      { source: "/wp-sitemap-:slug.xml",  destination: "/sitemap.xml", permanent: true },
+      { source: "/sitemap_index.xml",     destination: "/sitemap.xml", permanent: true },
+      { source: "/post-sitemap.xml",      destination: "/sitemap.xml", permanent: true },
+      { source: "/page-sitemap.xml",      destination: "/sitemap.xml", permanent: true },
     ];
   },
 };
