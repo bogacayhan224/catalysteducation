@@ -1,4 +1,5 @@
 import { NextRequest, NextResponse } from "next/server";
+import { Resend } from "resend";
 
 // Domain parts must be non-empty alphanumeric segments — rejects consecutive dots (e.g. hotmail..com)
 const EMAIL_RE = /^[^\s@]+@(?:[a-zA-Z0-9-]+\.)+[a-zA-Z]{2,}$/;
@@ -22,6 +23,52 @@ function splitName(fullName: string): { firstname: string; lastname: string } {
   if (parts.length === 1) return { firstname: parts[0], lastname: "" };
   const lastname = parts.pop()!;
   return { firstname: parts.join(" "), lastname };
+}
+
+async function sendLeadEmail(payload: LeadPayload): Promise<void> {
+  const apiKey = process.env.RESEND_API_KEY;
+  if (!apiKey) {
+    console.warn("[leads] RESEND_API_KEY not set — skipping email notification");
+    return;
+  }
+
+  const resend = new Resend(apiKey);
+  const NOTIFY_TO = "info@catalysteducation.ca";
+  const FROM = "Catalyst Website <noreply@catalysteducation.ca>";
+
+  const programLabels: Record<string, string> = {
+    diploma: "Canadian High School Diploma (OSSD)",
+    certificates: "Future Skills Certificates",
+    undecided: "Karar Verilmedi / Undecided",
+  };
+
+  const html = `
+    <div style="font-family:sans-serif;max-width:600px;margin:0 auto;padding:24px;background:#fff;border:1px solid #e5e7eb;border-radius:8px">
+      <h2 style="margin:0 0 20px;color:#1F1D1A;font-size:20px">📋 Yeni Lead — Catalyst Education</h2>
+      <table style="width:100%;border-collapse:collapse;font-size:14px">
+        <tr><td style="padding:8px 0;color:#6b7280;width:140px">Ad Soyad</td><td style="padding:8px 0;font-weight:600;color:#1F1D1A">${payload.parentName}</td></tr>
+        <tr style="background:#f9fafb"><td style="padding:8px 0;color:#6b7280">Telefon</td><td style="padding:8px 0;font-weight:600;color:#1F1D1A">${payload.phone}</td></tr>
+        <tr><td style="padding:8px 0;color:#6b7280">E-posta</td><td style="padding:8px 0;color:#1F1D1A">${payload.email ?? "—"}</td></tr>
+        <tr style="background:#f9fafb"><td style="padding:8px 0;color:#6b7280">Program</td><td style="padding:8px 0;color:#1F1D1A">${programLabels[payload.program_type ?? ""] ?? payload.program_type ?? "—"}</td></tr>
+        <tr><td style="padding:8px 0;color:#6b7280">Sınıf</td><td style="padding:8px 0;color:#1F1D1A">${payload.grade ? `${payload.grade}. Sınıf` : "—"}</td></tr>
+        <tr style="background:#f9fafb"><td style="padding:8px 0;color:#6b7280">WhatsApp Onayı</td><td style="padding:8px 0;color:#1F1D1A">${payload.whatsappConsent ? "✅ Evet" : "❌ Hayır"}</td></tr>
+        <tr><td style="padding:8px 0;color:#6b7280">Dil</td><td style="padding:8px 0;color:#1F1D1A">${payload.locale === "tr" ? "🇹🇷 Türkçe" : "🇺🇸 English"}</td></tr>
+        <tr style="background:#f9fafb"><td style="padding:8px 0;color:#6b7280">Zaman</td><td style="padding:8px 0;color:#1F1D1A">${new Date().toLocaleString("tr-TR", { timeZone: "Europe/Istanbul" })}</td></tr>
+      </table>
+      <p style="margin:20px 0 0;font-size:12px;color:#9ca3af">Bu e-posta catalysteducation.ca üzerindeki form doldurulduğunda otomatik olarak gönderilir.</p>
+    </div>
+  `;
+
+  try {
+    await resend.emails.send({
+      from: FROM,
+      to: NOTIFY_TO,
+      subject: `Yeni Lead: ${payload.parentName} — ${programLabels[payload.program_type ?? ""] ?? payload.program_type}`,
+      html,
+    });
+  } catch (err) {
+    console.error("[leads] Resend email failed:", err);
+  }
 }
 
 async function createHubSpotContact(payload: LeadPayload): Promise<string | null> {
@@ -221,14 +268,17 @@ export async function POST(req: NextRequest) {
     locale: body.locale ?? "tr",
   };
 
-  // Create HubSpot contact
-  const contactId = await createHubSpotContact(payload);
+  // Run HubSpot and email notification in parallel — neither blocks the other
+  const [contactId] = await Promise.all([
+    createHubSpotContact(payload),
+    sendLeadEmail(payload),
+  ]);
 
-  // Create deal if contact was created/found
+  // Create deal if HubSpot contact was created/found
   if (contactId) {
     await createHubSpotDeal(contactId, payload);
   }
 
-  // Return success regardless — we don't want a HubSpot outage to block form submissions
+  // Return success regardless — we don't want a HubSpot/email outage to block form submissions
   return NextResponse.json({ success: true });
 }
