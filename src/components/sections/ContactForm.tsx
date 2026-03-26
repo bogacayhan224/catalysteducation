@@ -99,6 +99,8 @@ export function ContactForm() {
           email: formData.email || undefined,
           program_type: formData.programType,
           grade: formData.grade || undefined,
+          subject: formData.subject || undefined,
+          message: formData.message || undefined,
           privacyConsent: formData.privacyConsent,
           whatsappConsent: formData.whatsappConsent,
           locale,

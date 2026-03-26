@@ -12,6 +12,8 @@ interface LeadPayload {
   email?: string;
   grade?: string;
   program_type?: string;
+  subject?: string;
+  message?: string;
   privacyConsent: boolean;
   whatsappConsent?: boolean;
   locale: string;
@@ -42,6 +44,21 @@ async function sendLeadEmail(payload: LeadPayload): Promise<void> {
     undecided: "Karar Verilmedi / Undecided",
   };
 
+  const subjectLabels: Record<string, string> = {
+    program: "Program Hakkında",
+    enrollment: "Kayıt / Kabul",
+    pricing: "Ücretlendirme",
+    other: "Diğer",
+  };
+
+  const subjectRow = payload.subject
+    ? `<tr><td style="padding:8px 0;color:#6b7280;width:140px">Konu</td><td style="padding:8px 0;color:#1F1D1A">${subjectLabels[payload.subject] ?? payload.subject}</td></tr>`
+    : "";
+
+  const messageRow = payload.message
+    ? `<tr style="background:#f9fafb"><td style="padding:8px 12px 8px 0;color:#6b7280;vertical-align:top;width:140px">Mesaj</td><td style="padding:8px 0;color:#1F1D1A;white-space:pre-wrap">${payload.message}</td></tr>`
+    : "";
+
   const html = `
     <div style="font-family:sans-serif;max-width:600px;margin:0 auto;padding:24px;background:#fff;border:1px solid #e5e7eb;border-radius:8px">
       <h2 style="margin:0 0 20px;color:#1F1D1A;font-size:20px">📋 Yeni Lead — Catalyst Education</h2>
@@ -51,6 +68,8 @@ async function sendLeadEmail(payload: LeadPayload): Promise<void> {
         <tr><td style="padding:8px 0;color:#6b7280">E-posta</td><td style="padding:8px 0;color:#1F1D1A">${payload.email ?? "—"}</td></tr>
         <tr style="background:#f9fafb"><td style="padding:8px 0;color:#6b7280">Program</td><td style="padding:8px 0;color:#1F1D1A">${programLabels[payload.program_type ?? ""] ?? payload.program_type ?? "—"}</td></tr>
         <tr><td style="padding:8px 0;color:#6b7280">Sınıf</td><td style="padding:8px 0;color:#1F1D1A">${payload.grade ? `${payload.grade}. Sınıf` : "—"}</td></tr>
+        ${subjectRow}
+        ${messageRow}
         <tr style="background:#f9fafb"><td style="padding:8px 0;color:#6b7280">WhatsApp Onayı</td><td style="padding:8px 0;color:#1F1D1A">${payload.whatsappConsent ? "✅ Evet" : "❌ Hayır"}</td></tr>
         <tr><td style="padding:8px 0;color:#6b7280">Dil</td><td style="padding:8px 0;color:#1F1D1A">${payload.locale === "tr" ? "🇹🇷 Türkçe" : "🇺🇸 English"}</td></tr>
         <tr style="background:#f9fafb"><td style="padding:8px 0;color:#6b7280">Zaman</td><td style="padding:8px 0;color:#1F1D1A">${new Date().toLocaleString("tr-TR", { timeZone: "Europe/Istanbul" })}</td></tr>
@@ -263,6 +282,8 @@ export async function POST(req: NextRequest) {
     email: body.email?.trim() || undefined,
     grade: body.grade || undefined,
     program_type: body.program_type,
+    subject: body.subject?.trim() || undefined,
+    message: body.message?.trim().slice(0, 2000) || undefined,
     privacyConsent: body.privacyConsent,
     whatsappConsent: body.whatsappConsent ?? false,
     locale: body.locale ?? "tr",
