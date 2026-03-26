@@ -122,7 +122,7 @@ export function Navbar() {
           </button>
 
           <Link
-            href={localePath("/contact")}
+            href={localePath("/contact#contact-form")}
             className="inline-flex h-10 items-center justify-center rounded-full border border-warm-400 bg-transparent px-6 text-sm font-semibold text-warm-700 transition-all hover:bg-warm-200"
           >
             {t("getInfo")}
@@ -192,7 +192,7 @@ export function Navbar() {
               {t("applyNow")}
             </Link>
             <Link
-              href={localePath("/contact")}
+              href={localePath("/contact#contact-form")}
               className="inline-flex h-11 w-full items-center justify-center rounded-full border border-warm-400 bg-transparent px-4 text-sm font-semibold text-warm-700 transition-colors hover:bg-warm-200"
               onClick={() => setIsOpen(false)}
             >

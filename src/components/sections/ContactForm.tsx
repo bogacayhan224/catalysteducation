@@ -1,12 +1,34 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useRef } from "react";
 import { useTranslations, useLocale } from "next-intl";
 import { CheckCircle, AlertCircle } from "lucide-react";
 import { event } from "@/lib/gtm";
 
+const COUNTRY_CODES = [
+  { code: "+90", flag: "🇹🇷" },
+  { code: "+1",  flag: "🇺🇸" },
+  { code: "+44", flag: "🇬🇧" },
+  { code: "+49", flag: "🇩🇪" },
+  { code: "+31", flag: "🇳🇱" },
+  { code: "+32", flag: "🇧🇪" },
+  { code: "+33", flag: "🇫🇷" },
+  { code: "+41", flag: "🇨🇭" },
+  { code: "+43", flag: "🇦🇹" },
+  { code: "+61", flag: "🇦🇺" },
+  { code: "+971", flag: "🇦🇪" },
+  { code: "+966", flag: "🇸🇦" },
+];
+
+function normalizePhone(countryCode: string, localPhone: string): string {
+  const digits = localPhone.replace(/\D/g, "");
+  const stripped = digits.startsWith("0") ? digits.slice(1) : digits;
+  return `${countryCode}${stripped}`;
+}
+
 interface ContactFormData {
   fullName: string;
+  countryCode: string;
   phone: string;
   email: string;
   programType: string;
@@ -28,9 +50,11 @@ export function ContactForm() {
   const t = useTranslations("contact");
   const tLead = useTranslations("leadForm");
   const locale = useLocale();
+  const successRef = useRef<HTMLDivElement>(null);
 
   const [formData, setFormData] = useState<ContactFormData>({
     fullName: "",
+    countryCode: "+90",
     phone: "",
     email: "",
     programType: "",
@@ -48,8 +72,9 @@ export function ContactForm() {
     if (!formData.fullName.trim()) errs.fullName = t("requiredField");
     if (!formData.phone.trim()) {
       errs.phone = t("requiredField");
-    } else if (!/^[\d\s+\-()]{7,}$/.test(formData.phone.trim())) {
-      errs.phone = t("phoneInvalid");
+    } else {
+      const digits = formData.phone.replace(/\D/g, "").replace(/^0/, "");
+      if (digits.length < 7) errs.phone = t("phoneInvalid");
     }
     if (!formData.programType) errs.programType = t("requiredField");
     if (!formData.privacyConsent) errs.privacyConsent = t("privacyRequired");
@@ -70,7 +95,7 @@ export function ContactForm() {
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
           parentName: formData.fullName,
-          phone: formData.phone,
+          phone: normalizePhone(formData.countryCode, formData.phone),
           email: formData.email || undefined,
           program_type: formData.programType,
           grade: formData.grade || undefined,
@@ -83,6 +108,9 @@ export function ContactForm() {
       if (!res.ok) throw new Error("submission_failed");
       event({ action: 'form_submit', section_name: 'ContactForm', program_type: formData.programType });
       setStatus("success");
+      setTimeout(() => {
+        successRef.current?.scrollIntoView({ behavior: 'smooth', block: 'center' });
+      }, 100);
     } catch {
       setStatus("error");
     }
@@ -90,7 +118,7 @@ export function ContactForm() {
 
   if (status === "success") {
     return (
-      <div className="bg-white rounded-3xl p-8 md:p-10 shadow-[0_2px_16px_rgba(31,29,26,0.08)] border border-warm-300 text-center">
+      <div ref={successRef} className="bg-white rounded-3xl p-8 md:p-10 shadow-[0_2px_16px_rgba(31,29,26,0.08)] border border-warm-300 text-center">
         <div className="flex justify-center mb-4">
           <CheckCircle className="h-12 w-12 text-trust-500" />
         </div>
@@ -127,15 +155,24 @@ export function ContactForm() {
             <label className="block text-sm font-medium text-warm-700 mb-1">
               {t("fieldPhone")} <span className="text-brand-500">*</span>
             </label>
-            <input
-              type="tel"
-              placeholder={t("fieldPhonePlaceholder")}
-              value={formData.phone}
-              onChange={(e) => setFormData((f) => ({ ...f, phone: e.target.value }))}
-              className={`w-full h-11 rounded-xl border px-4 text-sm text-warm-800 placeholder:text-warm-500 focus:outline-none focus:ring-2 focus:ring-brand-300 focus:border-brand-400 transition ${
-                errors.phone ? "border-brand-300 bg-brand-50/50" : "border-warm-300 bg-warm-100/80"
-              }`}
-            />
+            <div className={`flex h-11 rounded-xl border overflow-hidden focus-within:ring-2 focus-within:ring-brand-300 focus-within:border-brand-400 transition ${errors.phone ? "border-brand-300 bg-brand-50/50" : "border-warm-300"}`}>
+              <select
+                value={formData.countryCode}
+                onChange={(e) => setFormData((f) => ({ ...f, countryCode: e.target.value }))}
+                className="bg-warm-200/70 border-r border-warm-300 pl-3 pr-1 text-sm text-warm-800 focus:outline-none flex-shrink-0"
+              >
+                {COUNTRY_CODES.map(({ code, flag }) => (
+                  <option key={code} value={code}>{flag} {code}</option>
+                ))}
+              </select>
+              <input
+                type="tel"
+                placeholder={t("fieldPhonePlaceholder")}
+                value={formData.phone}
+                onChange={(e) => setFormData((f) => ({ ...f, phone: e.target.value }))}
+                className="flex-1 bg-warm-100/80 px-4 text-sm text-warm-800 placeholder:text-warm-500 focus:outline-none"
+              />
+            </div>
             {errors.phone && <p className="text-xs text-brand-600 mt-1">{errors.phone}</p>}
           </div>
           <div>

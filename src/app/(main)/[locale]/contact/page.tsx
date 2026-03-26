@@ -164,7 +164,7 @@ export default function ContactPage() {
         </section>
 
         {/* ── 3. Form + Map ────────────────────────────────────── */}
-        <section className="py-16 lg:py-24 bg-white">
+        <section id="contact-form" className="py-16 lg:py-24 bg-white">
           <div className="container px-4 md:px-6 mx-auto max-w-[1280px]">
             <div className="grid lg:grid-cols-[3fr_2fr] gap-10 lg:gap-16 items-start">
 
