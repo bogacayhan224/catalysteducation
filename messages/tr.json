@@ -544,7 +544,10 @@
     "legal": "Hukuki & Gizlilik",
     "legalLinks": {
       "privacy": "Gizlilik Politikası",
-      "terms": "Kullanım Koşulları"
+      "terms": "Kullanım Koşulları",
+      "kvkk": "KVKK Aydınlatma Metni",
+      "cookieNotice": "Çerez Bildirimi",
+      "cookiePreferences": "Çerez Tercihleri"
     },
     "disclaimer": "Catalyst Education & Research Inc., TVO ILC'nin yetkili idari temsilcisidir. Catalyst Education bir okul değildir ve diplomaları doğrudan düzenlemez. OSSD, Ontario Eğitim Bakanlığı gerekliliklerinin tamamlanmasının ardından TVO ILC tarafından verilir.",
     "copyright": "© {year} Catalyst Education. Tüm hakları saklıdır."
@@ -651,5 +654,26 @@
     "stat3Label": "Türkiye'de yerel destek",
     "stat3Desc": "Kayıttan mezuniyete kadar sürekli danışmanlık ve akademik takip sağlıyoruz.",
     "ctaButton": "Ücretsiz Danışmanlık Alın"
+  },
+  "cookieConsent": {
+    "bannerTitle": "Çerez kullanıyoruz",
+    "bannerDescription": "Ziyaretçilerin web sitemizi nasıl kullandığını anlamak ve deneyiminizi geliştirmek için çerezler kullanıyoruz. Tüm çerezleri kabul edebilir, isteğe bağlı olanları reddedebilir veya tercihlerinizi yönetebilirsiniz.",
+    "acceptAll": "Tümünü Kabul Et",
+    "rejectAll": "Tümünü Reddet",
+    "managePreferences": "Tercihlerimi Yönet",
+    "modalTitle": "Çerez Tercihleri",
+    "modalDescription": "Bu web sitesinde çerezleri nasıl kullandığımızı yönetin.",
+    "savePreferences": "Tercihleri Kaydet",
+    "necessary": "Zorunlu Çerezler",
+    "necessaryDescription": "Bu çerezler web sitesinin doğru çalışması için gereklidir ve devre dışı bırakılamaz. Oturum yönetimi ve güvenlik özellikleri bu kapsamdadır.",
+    "analytics": "Analitik Çerezler",
+    "analyticsDescription": "Bu çerezler, anonim kullanım verileri toplayarak ziyaretçilerin web sitemizle nasıl etkileşime girdiğini anlamamıza yardımcı olur. İçerik ve performansı iyileştirmek amacıyla kullanılır.",
+    "marketing": "Pazarlama Çerezleri",
+    "marketingDescription": "Bu çerezler, ilgili reklamları sunmak ve pazarlama kampanyalarımızın etkinliğini takip etmek için kullanılır.",
+    "preferences": "Tercih Çerezleri",
+    "preferencesDescription": "Bu çerezler, dil veya bölge gibi yaptığınız seçimleri hatırlayarak daha kişiselleştirilmiş bir deneyim sunmamızı sağlar.",
+    "alwaysActive": "Her zaman aktif",
+    "cookiePreferences": "Çerez Tercihleri",
+    "privacyPolicy": "Gizlilik Politikası"
   }
 }

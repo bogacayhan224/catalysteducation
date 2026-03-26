@@ -2,11 +2,13 @@
 import Link from "next/link";
 import Image from "next/image";
 import { useTranslations, useLocale } from "next-intl";
+import { useConsent } from "@/contexts/ConsentContext";
 
 export function Footer() {
   const t = useTranslations("footer");
   const locale = useLocale();
   const localePath = (href: string) => `/${locale}${href}`;
+  const { openPreferences } = useConsent();
 
   return (
     <footer className="w-full bg-warm-100 border-t border-warm-300 py-12 md:py-16">
@@ -48,6 +50,11 @@ export function Footer() {
           <h3 className="font-semibold text-warm-800">{t("legal")}</h3>
           <Link href={localePath("/privacy")} className="text-sm text-warm-600 hover:text-brand-500 transition-colors">{t("legalLinks.privacy")}</Link>
           <Link href={localePath("/terms")} className="text-sm text-warm-600 hover:text-brand-500 transition-colors">{t("legalLinks.terms")}</Link>
+          {locale === "tr" && (
+            <Link href={localePath("/kvkk")} className="text-sm text-warm-600 hover:text-brand-500 transition-colors">{t("legalLinks.kvkk")}</Link>
+          )}
+          <Link href={localePath("/cookie-notice")} className="text-sm text-warm-600 hover:text-brand-500 transition-colors">{t("legalLinks.cookieNotice")}</Link>
+          <button onClick={openPreferences} className="text-sm text-warm-600 hover:text-brand-500 transition-colors text-left">{t("legalLinks.cookiePreferences")}</button>
         </div>
       </div>
 

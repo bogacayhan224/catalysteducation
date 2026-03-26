@@ -3,16 +3,15 @@ import { getMessages } from "next-intl/server";
 import { notFound } from "next/navigation";
 import { routing } from "@/i18n/routing";
 import { Montserrat, Geist_Mono } from "next/font/google";
-import Script from "next/script";
 import "../../globals.css";
 import { Navbar } from "@/components/layout/Navbar";
 import { Footer } from "@/components/layout/Footer";
 import { WhatsAppFloat } from "@/components/ui/WhatsAppFloat";
 import { AnnouncementBar } from "@/components/ui/AnnouncementBar";
 import { GTMAnalytics } from "@/components/analytics/GTMAnalytics";
-import { GTM_ID, GA4_ID } from "@/lib/gtm";
-
-const IS_PRODUCTION = process.env.NODE_ENV === 'production';
+import { ConsentProvider } from "@/contexts/ConsentContext";
+import { ConsentAwareScripts } from "@/components/consent/ConsentAwareScripts";
+import { ConsentUI } from "@/components/consent/ConsentUI";
 import type { Metadata } from "next";
 
 const SITE_URL =
@@ -69,49 +68,20 @@ export default async function LocaleLayout({
       suppressHydrationWarning
     >
       <body className="flex min-h-screen flex-col font-sans">
-        <noscript>
-          <iframe
-            src={`https://www.googletagmanager.com/ns.html?id=${GTM_ID}`}
-            height="0"
-            width="0"
-            style={{ display: "none", visibility: "hidden" }}
-          />
-        </noscript>
-        <Script
-          id="gtm-script"
-          strategy="afterInteractive"
-          dangerouslySetInnerHTML={{
-            __html: `(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
-new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
-j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
-'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
-})(window,document,'script','dataLayer','${GTM_ID}');`,
-          }}
-        />
-        {IS_PRODUCTION && (
-          <>
-            <Script
-              id="ga4-script"
-              strategy="afterInteractive"
-              src={`https://www.googletagmanager.com/gtag/js?id=${GA4_ID}`}
-            />
-            <Script
-              id="ga4-init"
-              strategy="afterInteractive"
-              dangerouslySetInnerHTML={{
-                __html: `window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','${GA4_ID}',{send_page_view:false});`,
-              }}
-            />
-          </>
-        )}
-        <NextIntlClientProvider messages={messages}>
-          <GTMAnalytics />
-          <AnnouncementBar />
-          <Navbar />
-          {children}
-          <Footer />
-          <WhatsAppFloat />
-        </NextIntlClientProvider>
+        <ConsentProvider>
+          {/* Scripts load only after analytics consent is confirmed */}
+          <ConsentAwareScripts />
+          <NextIntlClientProvider messages={messages}>
+            <GTMAnalytics />
+            <AnnouncementBar />
+            <Navbar />
+            {children}
+            <Footer />
+            <WhatsAppFloat />
+            {/* Cookie banner + preferences modal */}
+            <ConsentUI />
+          </NextIntlClientProvider>
+        </ConsentProvider>
       </body>
     </html>
   );

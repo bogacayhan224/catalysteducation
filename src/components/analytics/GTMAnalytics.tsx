@@ -4,6 +4,7 @@ import { usePathname } from 'next/navigation';
 import { useEffect, useRef } from 'react';
 import { pageview, event } from '@/lib/gtm';
 import { onCLS, onINP, onLCP, onFCP, onTTFB } from 'web-vitals';
+import { useConsent } from '@/contexts/ConsentContext';
 
 const SCROLL_DEPTHS = [50, 90];
 
@@ -20,10 +21,16 @@ function reportWebVitals() {
 
 export function GTMAnalytics() {
   const pathname = usePathname();
+  const { consent } = useConsent();
   const firedDepths = useRef<Set<number>>(new Set());
   const vitalsFired = useRef(false);
 
+  const analyticsEnabled = consent?.categories.analytics === true;
+
   useEffect(() => {
+    // Do not push events if analytics consent has not been given
+    if (!analyticsEnabled) return;
+
     pageview(pathname);
 
     // GA4 direct pageview (send_page_view:false on init, so we fire manually)
@@ -53,13 +60,14 @@ export function GTMAnalytics() {
 
     window.addEventListener('scroll', handleScroll, { passive: true });
     return () => window.removeEventListener('scroll', handleScroll);
-  }, [pathname]);
+  }, [pathname, analyticsEnabled]);
 
   useEffect(() => {
+    if (!analyticsEnabled) return;
     if (vitalsFired.current) return;
     vitalsFired.current = true;
     reportWebVitals();
-  }, []);
+  }, [analyticsEnabled]);
 
   return null;
 }

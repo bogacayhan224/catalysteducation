@@ -14,11 +14,11 @@ export async function generateMetadata({
   const { locale } = await params;
   const isEn = locale === "en";
   const title = isEn
-    ? "Terms of Use | Catalyst Education"
+    ? "Terms and Conditions | Catalyst Education"
     : "Kullanım Koşulları | Catalyst Education";
   const description = isEn
-    ? "Read the terms and conditions governing the use of Catalyst Education's platform and services."
-    : "Catalyst Education platformu ve hizmetlerinin kullanımını düzenleyen koşulları okuyun.";
+    ? "Web sitesi ve hizmet kullanım koşullarımız."
+    : "Read the terms and conditions governing the use of Catalyst Education's platform and services.";
   const url = `${SITE_URL}/${locale}/terms`;
 
   return {
@@ -39,6 +39,8 @@ export async function generateMetadata({
   };
 }
 
+// ─── Shared primitives ────────────────────────────────────────────────────────
+
 const H1 = ({ children }: { children: ReactNode }) => (
   <h1 className="text-3xl md:text-4xl font-extrabold text-warm-800 mb-2 leading-tight">{children}</h1>
 );
@@ -46,7 +48,7 @@ const H2 = ({ children }: { children: ReactNode }) => (
   <h2 className="text-xl font-bold text-warm-800 mt-12 mb-3 pb-2 border-b border-warm-300">{children}</h2>
 );
 const H3 = ({ children }: { children: ReactNode }) => (
-  <h3 className="text-base font-semibold text-warm-800 mt-5 mb-2">{children}</h3>
+  <h3 className="text-base font-semibold text-warm-800 mt-6 mb-2">{children}</h3>
 );
 const P = ({ children }: { children: ReactNode }) => (
   <p className="text-[15px] text-warm-700 leading-relaxed mb-3">{children}</p>
@@ -57,210 +59,229 @@ const UL = ({ children }: { children: ReactNode }) => (
 const LI = ({ children }: { children: ReactNode }) => (
   <li className="text-[15px] text-warm-700 leading-relaxed">{children}</li>
 );
+const B = ({ children }: { children: ReactNode }) => (
+  <span className="font-semibold text-warm-800">{children}</span>
+);
+const A = ({ href, children }: { href: string; children: ReactNode }) => (
+  <a href={href} className="text-brand-500 hover:text-brand-400 underline" target="_blank" rel="noopener noreferrer">{children}</a>
+);
+const ContactBox = ({ children }: { children: ReactNode }) => (
+  <div className="bg-warm-100 border border-warm-300 rounded-2xl p-6 text-[15px] text-warm-700 leading-relaxed space-y-1 my-6">
+    {children}
+  </div>
+);
+
+// ─── Turkish content ──────────────────────────────────────────────────────────
 
 function TermsTR() {
   return (
     <article>
       <H1>Kullanım Koşulları</H1>
-      <p className="text-sm text-warm-500 mb-10">Son Güncelleme: Mart 2026</p>
+      <p className="text-sm text-warm-500 mb-2">Son Güncelleme: 26 Mart 2026</p>
+      <ContactBox>
+        <p><B>Şirket:</B> Catalyst Education &amp; Research Inc.</p>
+        <p>📍 173 Kingston Rd, Toronto, ON M4L 1T4, Kanada</p>
+        <p>📧 info@catalysteducation.ca</p>
+        <p>🌐 <A href="https://www.catalysteducation.ca/">catalysteducation.ca</A></p>
+      </ContactBox>
 
-      <H2>1. Giriş</H2>
-      <P>Bu Kullanım Koşulları ("Koşullar"), Catalyst Education ("Şirket", "biz", "bize" veya "bizim") tarafından işletilen web sitesi, başvuru sistemleri ve ilgili hizmetlerin ("Platform") kullanımını düzenler.</P>
-      <P>Platformu kullanarak bu Koşulları kabul etmiş sayılırsınız. Eğer bu Koşulları kabul etmiyorsanız Platformu kullanmamanız gerekmektedir.</P>
+      <H2>1. Taraflar ve Kapsam</H2>
+      <P>Bu Kullanım Koşulları ("Koşullar"), Catalyst Education &amp; Research Inc. ("Catalyst Education", "biz", "şirket") ile <A href="https://www.catalysteducation.ca/">https://www.catalysteducation.ca/</A> adresindeki web sitesini ve sunulan hizmetleri kullanan bireyler ("Kullanıcı", "siz") arasındaki ilişkiyi düzenlemektedir.</P>
+      <P>Web sitemizi ziyaret etmek, başvuru formlarını doldurmak veya herhangi bir hizmetimizden yararlanmak suretiyle bu Koşulları okuduğunuzu, anladığınızı ve kabul ettiğinizi beyan edersiniz. Bu Koşulları kabul etmiyorsanız lütfen web sitemizi ve hizmetlerimizi kullanmayınız.</P>
 
-      <H2>2. Hizmet Tanımı</H2>
-      <P>Catalyst Education aşağıdaki hizmetleri sunar:</P>
+      <H2>2. Hizmetlerin Tanımı</H2>
+      <P>Catalyst Education; Ontario Secondary School Diploma (OSSD) programını ve buna bağlı eğitim hizmetlerini Türkiye'deki öğrencilere ve ailelerine sunmaktadır. Sunulan hizmetler şunları kapsar:</P>
       <UL>
-        <LI>Uluslararası eğitim programlarına başvuru süreci</LI>
-        <LI>Akademik planlama ve yönlendirme</LI>
-        <LI>Öğrenci ve veli danışmanlığı</LI>
-        <LI>Başvuru koordinasyonu ve belge yönetimi</LI>
+        <LI>Ontario Ortaöğretim Diploma (OSSD) programına kayıt ve danışmanlık</LI>
+        <LI>Eğitim danışmanlığı ve kariyer rehberliği</LI>
+        <LI>Çevrimiçi ve yüz yüze kurs içerikleri</LI>
+        <LI>Öğrenci takip ve akademik destek hizmetleri</LI>
+        <LI>Bilgi amaçlı web sitesi içerikleri</LI>
       </UL>
-      <P>Catalyst Education:</P>
+      <P>Catalyst Education, hizmet kapsamını önceden bildirmeksizin güncelleme, genişletme veya daraltma hakkını saklı tutar.</P>
+
+      <H2>3. Kullanım Koşulları</H2>
+      <H3>3.1 Kabul Yaşı</H3>
+      <P>Web sitemiz ve hizmetlerimiz 18 yaşını doldurmuş bireyler için tasarlanmıştır. 18 yaş altı bireyler yalnızca bir ebeveyn veya yasal vasi gözetiminde ve onayıyla hizmetlerimizden yararlanabilir. Veliler adına yapılan başvurularda, başvuruyu yapan kişinin velayete yetkili olduğu kabul edilir.</P>
+
+      <H3>3.2 Doğru Bilgi Sağlama</H3>
+      <P>Kullanıcılar, başvuru formları ve iletişim kanalları aracılığıyla sağladıkları bilgilerin doğru, güncel ve eksiksiz olduğunu beyan eder. Yanlış veya yanıltıcı bilgi sağlanması halinde Catalyst Education, hizmet sunumunu askıya alma veya sonlandırma hakkını saklı tutar.</P>
+
+      <H3>3.3 Hesap Güvenliği</H3>
+      <P>Öğrenci portalı veya çevrimiçi platformlara erişim için kullanıcı adı ve şifre oluşturulması durumunda, bu bilgilerin güvenliğini sağlamak kullanıcının sorumluluğundadır. Hesabınızla gerçekleştirilen tüm işlemler size ait kabul edilir.</P>
+
+      <H2>4. Fikri Mülkiyet Hakları</H2>
+      <P>Web sitesindeki tüm içerikler (metin, görsel, logo, video, kurs materyalleri, tasarım vb.) Catalyst Education &amp; Research Inc.'e veya lisans verenlerine aittir ve telif hakkı, ticari marka ile diğer fikri mülkiyet yasalarıyla korunmaktadır.</P>
+      <P>Kullanıcılar şu kullanımlar için önceden yazılı izin almak zorundadır:</P>
       <UL>
-        <LI>Bir eğitim kurumu değildir</LI>
-        <LI>Diploma veya akademik sertifika vermez</LI>
-        <LI>Eğitim kurumları adına akademik karar vermez</LI>
-        <LI>Eğitim kurumlarının ücretlerini belirlemez</LI>
+        <LI>İçeriklerin ticari amaçla kullanımı</LI>
+        <LI>İçeriklerin kopyalanması, çoğaltılması veya dağıtılması</LI>
+        <LI>Türev çalışma oluşturulması</LI>
       </UL>
-      <P>Platform, eğitim kurumlarına başvuru sürecini destekleyen bir danışmanlık ve koordinasyon hizmeti sunmaktadır.</P>
+      <P>Kişisel ve eğitim amacıyla yapılan sınırlı alıntılar için kaynak gösterilmesi yeterlidir.</P>
 
-      <H2>3. Kullanıcı Yükümlülükleri</H2>
-      <P>Kullanıcı:</P>
+      <H2>5. Yasaklı Kullanımlar</H2>
+      <P>Kullanıcılar aşağıdaki eylemleri gerçekleştirmemeyi kabul eder:</P>
       <UL>
-        <LI>Sağladığı bilgilerin doğru ve güncel olduğunu kabul eder</LI>
-        <LI>Sahte veya yanıltıcı bilgi vermemeyi taahhüt eder</LI>
-        <LI>Platformu yasalara uygun şekilde kullanacağını kabul eder</LI>
-      </UL>
-      <P>Catalyst Education, yanlış veya eksik bilgi verilmesi nedeniyle oluşabilecek sonuçlardan sorumlu tutulamaz.</P>
-
-      <H2>4. Hizmetler ve Ücretler</H2>
-      <H3>4.1 Hizmet Kapsamı</H3>
-      <P>Catalyst Education tarafından sunulan danışmanlık ve başvuru yönetimi hizmetleri ücretli olabilir. Hizmet kapsamı ve ücretlendirme koşulları başvuru sürecinde kullanıcıya ayrıca bildirilebilir.</P>
-
-      <H3>4.2 Eğitim Kurumu Ücretleri</H3>
-      <P>Eğitim kurumlarına ait öğrenim ücretleri, kayıt ücretleri ve diğer mali yükümlülükler ilgili eğitim kurumları tarafından belirlenir. Catalyst Education bu ücretlerin belirlenmesinden sorumlu değildir.</P>
-
-      <H3>4.3 Ödeme</H3>
-      <P>Ödemeler aşağıdaki yöntemlerle gerçekleştirilebilir:</P>
-      <UL>
-        <LI>Banka transferi</LI>
-        <LI>Kredi kartı</LI>
-        <LI>Diğer güvenli ödeme yöntemleri</LI>
-      </UL>
-      <P>Catalyst Education; üçüncü taraf ödeme sistemlerinden kaynaklanan kesintilerden, bankacılık işlemlerindeki gecikmelerden veya teknik sistem arızalarından sorumlu tutulamaz.</P>
-
-      <H3>4.4 İptal ve İade</H3>
-      <UL>
-        <LI>Sunulan danışmanlık hizmetlerinin niteliğine bağlı olarak iptal ve iade koşulları değişiklik gösterebilir.</LI>
-        <LI>Danışmanlık süreci başlatıldıktan sonra gerçekleştirilen hizmetlere ilişkin ücretler iade edilmeyebilir.</LI>
-        <LI>İade talepleri her başvuru özelinde değerlendirilir.</LI>
-        <LI>Eğitim kurumlarının kendi iade politikaları Catalyst Education'dan bağımsızdır.</LI>
-      </UL>
-
-      <H3>4.5 Hizmet ve Ücret Değişiklikleri</H3>
-      <P>Catalyst Education, hizmet kapsamını ve ücretlendirme koşullarını önceden bildirimde bulunmaksızın güncelleme hakkını saklı tutar.</P>
-
-      <H2>5. Başvuru ve Kabul Kararları</H2>
-      <P>Başvuru ve kabul kararları tamamen ilgili eğitim kurumları tarafından verilir. Catalyst Education:</P>
-      <UL>
-        <LI>Kabul garantisi vermez</LI>
-        <LI>Akademik sonuçları garanti etmez</LI>
-        <LI>Eğitim kurumlarının kararlarından sorumlu değildir</LI>
+        <LI>Web sitesine yetkisiz erişim sağlamak veya sağlamaya çalışmak</LI>
+        <LI>Zararlı yazılım, virüs veya benzeri kodlar yüklemek</LI>
+        <LI>Diğer kullanıcıların hizmetlere erişimini engellemek</LI>
+        <LI>Yanıltıcı, hakaret içeren veya yasadışı içerik paylaşmak</LI>
+        <LI>Catalyst Education'ın itibarına zarar verebilecek eylemlerde bulunmak</LI>
+        <LI>Hizmetlerin işleyişini bozacak teknik saldırılar düzenlemek (DDoS, scraping, vb.)</LI>
+        <LI>Başka bir kişi veya kurum adına hareket etmek</LI>
       </UL>
 
-      <H2>6. Sorumluluk Sınırlaması</H2>
-      <P>Catalyst Education aşağıdaki durumlardan sorumlu tutulamaz:</P>
+      <H2>6. Ödeme ve İptal Koşulları</H2>
+      <H3>6.1 Ücretlendirme</H3>
+      <P>Hizmet ücretleri kayıt sırasında açıkça belirtilir. Tüm ödemeler, belirtilen para birimi (CAD veya TRY) üzerinden gerçekleştirilir. Kur farklılıklarından doğabilecek ek maliyetler kullanıcıya aittir.</P>
+
+      <H3>6.2 İptal ve İade</H3>
+      <P>İptal ve iade koşulları, kayıt aşamasında imzalanan öğrenci sözleşmesinde ayrıntılı olarak belirtilmektedir. Genel ilkeler:</P>
       <UL>
-        <LI>Eğitim kurumlarının akademik kararları</LI>
-        <LI>Vize başvurusu sonuçları</LI>
-        <LI>Resmi makam kararları</LI>
-        <LI>Teknik sistem kesintileri</LI>
-        <LI>Üçüncü taraf hizmet sağlayıcılar</LI>
+        <LI>Programa başlamadan önce yapılan iptallerde, şirket politikasına göre kısmi iade yapılabilir.</LI>
+        <LI>Program başladıktan sonra yapılan iptallerde iade yapılmaz; ancak istisnai durumlar için Catalyst Education'a yazılı başvuru yapılabilir.</LI>
+        <LI>Teknik aksaklık kaynaklı kesintilerde telafi mekanizmaları devreye alınır.</LI>
       </UL>
 
-      <H2>7. Fikri Mülkiyet</H2>
-      <P>Platformda yer alan tüm içerik, marka ve materyaller Catalyst Education'a aittir. İzinsiz kullanım yasaktır.</P>
+      <H2>7. Sorumluluğun Sınırlandırılması</H2>
+      <P>Catalyst Education, aşağıdaki durumlardan kaynaklanan zararlardan sorumlu tutulamaz:</P>
+      <UL>
+        <LI>Kullanıcının yanlış ya da eksik bilgi sağlamasından doğan sonuçlar</LI>
+        <LI>Üçüncü taraf web sitelerinin içerik veya uygulamaları</LI>
+        <LI>Mücbir sebep halleri (doğal afet, siber saldırı, pandemi vb.)</LI>
+        <LI>İnternet bağlantısı veya kullanıcı cihazından kaynaklanan teknik sorunlar</LI>
+        <LI>Kullanıcının bu Koşulları ihlal etmesinden doğan zararlar</LI>
+      </UL>
+      <P>Catalyst Education'ın toplam sorumluluğu, ilgili hizmet için kullanıcının ödediği tutarı hiçbir koşulda aşamaz.</P>
 
-      <H2>8. Gizlilik</H2>
-      <P>Kişisel verileriniz Gizlilik Politikası kapsamında işlenmektedir.</P>
+      <H2>8. Üçüncü Taraf Bağlantıları</H2>
+      <P>Web sitemiz üçüncü taraf web sitelerine bağlantılar içerebilir. Bu bağlantılar yalnızca bilgi amaçlıdır. Catalyst Education, bu sitelerin içeriği, gizlilik politikaları veya uygulamalarından sorumlu değildir.</P>
 
       <H2>9. Değişiklikler</H2>
-      <P>Catalyst Education bu Koşulları zaman zaman güncelleyebilir. Güncel versiyon web sitesinde yayınlanır.</P>
+      <P>Catalyst Education, bu Koşulları zaman zaman güncelleme hakkını saklı tutar. Önemli değişiklikler web sitesi üzerinden veya kayıtlı e-posta adresinize duyurulacaktır. Değişiklik sonrası hizmetleri kullanmaya devam etmeniz, güncellenmiş Koşulları kabul ettiğiniz anlamına gelir.</P>
 
-      <H2>10. İletişim</H2>
-      <div className="bg-warm-100 border border-warm-300 rounded-2xl p-6 text-[15px] text-warm-700 leading-relaxed space-y-1">
-        <p className="font-semibold text-warm-800">Catalyst Education</p>
+      <H2>10. Geçerli Hukuk ve Uyuşmazlık Çözümü</H2>
+      <P>Bu Koşullar, Ontario eyaleti ve Kanada federal yasaları çerçevesinde yorumlanır. Taraflar arasında doğabilecek uyuşmazlıklarda önce müzakere, akabinde arabuluculuk yoluna başvurulması esastır. Çözüm sağlanamaması halinde Toronto, Ontario'daki yetkili mahkemeler yetkilidir.</P>
+      <P>Türk kullanıcılar, bu Koşulların Türk tüketici mevzuatından doğan haklarını kısıtlamadığını bilmelidir.</P>
+
+      <H2>11. İletişim</H2>
+      <ContactBox>
+        <p><B>Catalyst Education &amp; Research Inc.</B></p>
+        <p>📍 173 Kingston Rd, Toronto, ON M4L 1T4, Kanada</p>
         <p>📧 info@catalysteducation.ca</p>
-        <p>📍 173 Kingston Rd, Toronto ON M4L 1T4, Canada</p>
-        <p>📞 +1 (437) 473 97 25</p>
-        <p>🌐 catalysteducation.ca</p>
-      </div>
+        <p>🌐 <A href="https://www.catalysteducation.ca/">catalysteducation.ca</A></p>
+      </ContactBox>
     </article>
   );
 }
+
+// ─── English content ──────────────────────────────────────────────────────────
 
 function TermsEN() {
   return (
     <article>
-      <H1>Terms of Use</H1>
-      <p className="text-sm text-warm-500 mb-10">Last Updated: March 2026</p>
+      <H1>Terms and Conditions</H1>
+      <p className="text-sm text-warm-500 mb-2">Last Updated: March 26, 2026</p>
+      <ContactBox>
+        <p><B>Company:</B> Catalyst Education &amp; Research Inc.</p>
+        <p>📍 173 Kingston Rd, Toronto, ON M4L 1T4, Canada</p>
+        <p>📧 info@catalysteducation.ca</p>
+        <p>🌐 <A href="https://www.catalysteducation.ca/">catalysteducation.ca</A></p>
+      </ContactBox>
 
-      <H2>1. Introduction</H2>
-      <P>These Terms of Use ("Terms") govern the use of the website, application systems, and related services ("Platform") operated by Catalyst Education ("Company," "we," "us," or "our").</P>
-      <P>By using the Platform, you agree to these Terms. If you do not agree, please refrain from using the Platform.</P>
+      <H2>1. Parties and Scope</H2>
+      <P>These Terms and Conditions ("Terms") govern the relationship between Catalyst Education &amp; Research Inc. ("Catalyst Education", "we", "us", "our") and individuals ("User", "you") who access <A href="https://www.catalysteducation.ca/">https://www.catalysteducation.ca/</A> or use any of our services.</P>
+      <P>By visiting our website, completing application forms, or using any of our services, you acknowledge that you have read, understood, and agree to be bound by these Terms. If you do not agree to these Terms, please do not use our website or services.</P>
 
-      <H2>2. Service Description</H2>
-      <P>Catalyst Education provides the following services:</P>
+      <H2>2. Description of Services</H2>
+      <P>Catalyst Education provides the Ontario Secondary School Diploma (OSSD) program and related educational services to students and families in Türkiye. Services include:</P>
       <UL>
-        <LI>Application process support for international education programs</LI>
-        <LI>Academic planning and guidance</LI>
-        <LI>Student and parent advisory services</LI>
-        <LI>Application coordination and document management</LI>
+        <LI>Enrolment and advisory services for the Ontario Secondary School Diploma (OSSD) program</LI>
+        <LI>Educational consulting and career guidance</LI>
+        <LI>Online and in-person course content delivery</LI>
+        <LI>Student progress tracking and academic support</LI>
+        <LI>Informational website content</LI>
       </UL>
-      <P>Catalyst Education:</P>
+      <P>Catalyst Education reserves the right to update, expand, or modify the scope of services at any time with reasonable notice.</P>
+
+      <H2>3. Terms of Use</H2>
+      <H3>3.1 Age Requirement</H3>
+      <P>Our website and services are designed for individuals who are 18 years of age or older. Individuals under 18 may only use our services under the supervision and with the consent of a parent or legal guardian. Where applications are submitted on behalf of a minor, the submitting party represents that they have the legal authority to do so.</P>
+
+      <H3>3.2 Accuracy of Information</H3>
+      <P>Users represent that all information provided through application forms and communication channels is accurate, current, and complete. In the event of false or misleading information, Catalyst Education reserves the right to suspend or terminate service provision.</P>
+
+      <H3>3.3 Account Security</H3>
+      <P>Where usernames and passwords are created to access the student portal or online platforms, users are responsible for maintaining the confidentiality of their credentials. All activity conducted through your account will be attributed to you.</P>
+
+      <H2>4. Intellectual Property Rights</H2>
+      <P>All content on the website (text, images, logos, videos, course materials, designs, etc.) is the property of Catalyst Education &amp; Research Inc. or its licensors and is protected by copyright, trademark, and other intellectual property laws.</P>
+      <P>Users must obtain prior written permission for:</P>
       <UL>
-        <LI>Is not an educational institution</LI>
-        <LI>Does not issue diplomas or academic certificates</LI>
-        <LI>Does not make academic decisions on behalf of educational institutions</LI>
-        <LI>Does not set tuition fees for educational institutions</LI>
+        <LI>Commercial use of any content</LI>
+        <LI>Copying, reproducing, or distributing content</LI>
+        <LI>Creating derivative works</LI>
       </UL>
-      <P>The Platform provides advisory and coordination services to support the application process to educational institutions.</P>
+      <P>Limited quotation for personal or educational purposes is permitted provided that proper attribution is given.</P>
 
-      <H2>3. User Obligations</H2>
-      <P>The user:</P>
+      <H2>5. Prohibited Uses</H2>
+      <P>Users agree not to:</P>
       <UL>
-        <LI>Confirms that the information provided is accurate and up to date</LI>
-        <LI>Agrees not to provide false or misleading information</LI>
-        <LI>Agrees to use the Platform in compliance with applicable laws</LI>
-      </UL>
-      <P>Catalyst Education cannot be held responsible for consequences arising from incorrect or incomplete information provided by the user.</P>
-
-      <H2>4. Services and Fees</H2>
-      <H3>4.1 Scope of Services</H3>
-      <P>Advisory and application management services provided by Catalyst Education may be subject to fees. The scope of services and fee terms will be communicated to the user separately during the application process.</P>
-
-      <H3>4.2 Institutional Fees</H3>
-      <P>Tuition fees, registration fees, and other financial obligations of educational institutions are determined by those institutions. Catalyst Education is not responsible for setting these fees.</P>
-
-      <H3>4.3 Payment</H3>
-      <P>Payments may be made via:</P>
-      <UL>
-        <LI>Bank transfer</LI>
-        <LI>Credit card</LI>
-        <LI>Other secure payment methods</LI>
-      </UL>
-      <P>Catalyst Education cannot be held responsible for fees charged by third-party payment systems, delays in banking transactions, or technical system failures.</P>
-
-      <H3>4.4 Cancellation and Refund</H3>
-      <UL>
-        <LI>Cancellation and refund conditions may vary depending on the nature of the advisory services provided.</LI>
-        <LI>Fees for services already rendered after the advisory process has begun may not be refunded.</LI>
-        <LI>Refund requests are evaluated on a case-by-case basis.</LI>
-        <LI>The refund policies of educational institutions are independent of Catalyst Education.</LI>
-      </UL>
-
-      <H3>4.5 Service and Fee Changes</H3>
-      <P>Catalyst Education reserves the right to update the scope of services and fee terms without prior notice.</P>
-
-      <H2>5. Applications and Admission Decisions</H2>
-      <P>Admission decisions are made solely by the relevant educational institutions. Catalyst Education:</P>
-      <UL>
-        <LI>Does not guarantee admission</LI>
-        <LI>Does not guarantee academic outcomes</LI>
-        <LI>Is not responsible for decisions made by educational institutions</LI>
+        <LI>Access or attempt to access the website in an unauthorized manner</LI>
+        <LI>Upload malicious software, viruses, or similar code</LI>
+        <LI>Prevent other users from accessing services</LI>
+        <LI>Share misleading, defamatory, or unlawful content</LI>
+        <LI>Engage in conduct that could damage Catalyst Education's reputation</LI>
+        <LI>Conduct technical attacks on the service (DDoS, scraping, etc.)</LI>
+        <LI>Act on behalf of another person or organization without authorization</LI>
       </UL>
 
-      <H2>6. Limitation of Liability</H2>
-      <P>Catalyst Education cannot be held responsible for:</P>
+      <H2>6. Fees and Cancellation</H2>
+      <H3>6.1 Pricing</H3>
+      <P>Service fees are clearly stated at the time of enrolment. All payments are processed in the currency specified (CAD or TRY). Any additional costs arising from currency fluctuations are the responsibility of the user.</P>
+
+      <H3>6.2 Cancellations and Refunds</H3>
+      <P>Cancellation and refund conditions are detailed in the student agreement signed at enrolment. General principles:</P>
       <UL>
-        <LI>Academic decisions by educational institutions</LI>
-        <LI>Visa application outcomes</LI>
-        <LI>Decisions by official authorities</LI>
-        <LI>Technical system outages</LI>
-        <LI>Third-party service providers</LI>
+        <LI>Cancellations prior to program commencement may be eligible for a partial refund in accordance with company policy.</LI>
+        <LI>No refunds are issued following program commencement; however, exceptional circumstances may be considered upon written request to Catalyst Education.</LI>
+        <LI>Service interruptions caused by technical failures will be addressed through compensatory mechanisms.</LI>
       </UL>
 
-      <H2>7. Intellectual Property</H2>
-      <P>All content, trademarks, and materials on the Platform belong to Catalyst Education. Unauthorized use is prohibited.</P>
+      <H2>7. Limitation of Liability</H2>
+      <P>Catalyst Education shall not be liable for damages arising from:</P>
+      <UL>
+        <LI>Consequences of inaccurate or incomplete information provided by the user</LI>
+        <LI>Content or practices of third-party websites</LI>
+        <LI>Force majeure events (natural disasters, cyberattacks, pandemics, etc.)</LI>
+        <LI>Technical issues arising from internet connectivity or user devices</LI>
+        <LI>Damages arising from the user's breach of these Terms</LI>
+      </UL>
+      <P>In no event shall Catalyst Education's total liability exceed the amount paid by the user for the relevant service.</P>
 
-      <H2>8. Privacy</H2>
-      <P>Your personal data is processed in accordance with our Privacy Policy.</P>
+      <H2>8. Third-Party Links</H2>
+      <P>Our website may contain links to third-party websites. These links are provided for informational purposes only. Catalyst Education is not responsible for the content, privacy policies, or practices of those sites.</P>
 
       <H2>9. Modifications</H2>
-      <P>Catalyst Education may update these Terms from time to time. The current version will be published on the website.</P>
+      <P>Catalyst Education reserves the right to update these Terms from time to time. Significant changes will be communicated via the website or to your registered email address. Your continued use of the services following any update constitutes acceptance of the revised Terms.</P>
 
-      <H2>10. Contact</H2>
-      <div className="bg-warm-100 border border-warm-300 rounded-2xl p-6 text-[15px] text-warm-700 leading-relaxed space-y-1">
-        <p className="font-semibold text-warm-800">Catalyst Education</p>
+      <H2>10. Governing Law and Dispute Resolution</H2>
+      <P>These Terms are governed by and construed in accordance with the laws of the Province of Ontario and the federal laws of Canada. In the event of a dispute, the parties shall first seek resolution through negotiation and, if necessary, mediation. If resolution cannot be reached, the courts of Toronto, Ontario shall have jurisdiction.</P>
+      <P>Users in Türkiye should be aware that these Terms do not limit any rights they may have under applicable Turkish consumer protection legislation.</P>
+
+      <H2>11. Contact</H2>
+      <ContactBox>
+        <p><B>Catalyst Education &amp; Research Inc.</B></p>
+        <p>📍 173 Kingston Rd, Toronto, ON M4L 1T4, Canada</p>
         <p>📧 info@catalysteducation.ca</p>
-        <p>📍 173 Kingston Rd, Toronto ON M4L 1T4, Canada</p>
-        <p>📞 +1 (437) 473 97 25</p>
-        <p>🌐 catalysteducation.ca</p>
-      </div>
+        <p>🌐 <A href="https://www.catalysteducation.ca/">catalysteducation.ca</A></p>
+      </ContactBox>
     </article>
   );
 }
+
+// ─── Page ─────────────────────────────────────────────────────────────────────
 
 export default function TermsPage() {
   const locale = useLocale();

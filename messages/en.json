@@ -544,7 +544,10 @@
     "legal": "Legal & Privacy",
     "legalLinks": {
       "privacy": "Privacy Policy",
-      "terms": "Terms of Service"
+      "terms": "Terms of Service",
+      "kvkk": "KVKK Notice",
+      "cookieNotice": "Cookie Notice",
+      "cookiePreferences": "Cookie Preferences"
     },
     "disclaimer": "Catalyst Education & Research Inc. is an authorized administrative representative of TVO ILC. Catalyst Education is not a school and does not issue diplomas directly. The OSSD is granted by TVO ILC upon completion of Ontario Ministry of Education requirements.",
     "copyright": "© {year} Catalyst Education. All rights reserved."
@@ -651,5 +654,26 @@
     "stat3Label": "Local support in Turkey",
     "stat3Desc": "We provide continuous advisory and academic monitoring from enrollment through to graduation.",
     "ctaButton": "Book a Free Consultation"
+  },
+  "cookieConsent": {
+    "bannerTitle": "We use cookies",
+    "bannerDescription": "We use cookies to understand how visitors use our website and to improve your experience. You can accept all cookies, reject optional ones, or manage your preferences.",
+    "acceptAll": "Accept All",
+    "rejectAll": "Reject All",
+    "managePreferences": "Manage Preferences",
+    "modalTitle": "Cookie Preferences",
+    "modalDescription": "Manage how we use cookies on this website.",
+    "savePreferences": "Save Preferences",
+    "necessary": "Strictly Necessary",
+    "necessaryDescription": "These cookies are essential for the website to function correctly and cannot be disabled. They include session management and security features.",
+    "analytics": "Analytics",
+    "analyticsDescription": "These cookies help us understand how visitors interact with our website by collecting anonymous usage data. They help us improve content and performance.",
+    "marketing": "Marketing",
+    "marketingDescription": "These cookies are used to deliver relevant advertisements and track the effectiveness of our marketing campaigns.",
+    "preferences": "Preferences",
+    "preferencesDescription": "These cookies allow the website to remember choices you make, such as your language or region, to provide a more personalised experience.",
+    "alwaysActive": "Always active",
+    "cookiePreferences": "Cookie Preferences",
+    "privacyPolicy": "Privacy Policy"
   }
 }
