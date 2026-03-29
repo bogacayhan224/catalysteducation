@@ -1,5 +1,14 @@
 {
   "nav": {
+    "home": "Home",
+    "whatIsOssd": "What is OSSD?",
+    "certWhyChoose": "Why Choose Us?",
+    "certPrograms": "Available Programs",
+    "certCohort": "Cohort Journey",
+    "viewCertProgram": "View Program",
+    "catalystDifference": "The Catalyst Difference",
+    "whyOssdMatters": "Why OSSD Matters?",
+    "viewDiplomaProgram": "View Program",
     "howItWorks": "How It Works",
     "theDiploma": "The Diploma",
     "faqs": "FAQs",
@@ -21,7 +30,7 @@
   "hero": {
     "badge": "Ontario distance learning institution TVO ILC • Authorized administrative representative in Türkiye",
     "title": "Continue your school in Türkiye",
-    "titleHighlight": "Start your Ontario high school diploma (OSSD) journey",
+    "titleHighlight": "Start your Canadian high school diploma journey",
     "subtitle": "Your student progresses to Ontario standards while maintaining their current school routine. The program runs fully online with a structured academic timeline.",
     "ctaPrimary": "Get a Free Consultation",
     "ctaWhatsApp": "Quick Info via WhatsApp",
@@ -165,11 +174,6 @@
         "title": "Graduation",
         "desc1": "Students who successfully complete the required courses earn the Ontario Secondary School Diploma.",
         "desc2": ""
-      },
-      {
-        "title": "University Applications & Mentorship",
-        "desc1": "After graduation, guidance and mentorship support is provided for the student's university application process.",
-        "desc2": "Our goal is to ensure the student confidently transitions to their next educational step."
       }
     ]
   },
@@ -216,8 +220,9 @@
   },
   "trustSection": {
     "badge": "Authorized Türkiye Representative",
-    "title": "With TVO ILC, Ontario's Established Online High School Institution",
-    "subtitle": "Catalyst Education is an officially authorized administrative partner for TVO ILC — Ontario's Ministry of Education designated distance learning program. Students receive genuine Ontario curriculum delivery and graduate with an internationally recognized diploma.",
+    "title": "Educational Opportunity with TVO ILC — Ontario's Largest and Official Online High School",
+    "subtitle": "TVO ILC is Ontario's largest online high school — publicly funded and authorized by the Ontario Ministry of Education.",
+    "subtitleP2": "Students follow the genuine Ontario curriculum and graduate with the Ontario Secondary School Diploma (OSSD), recognized by universities around the world.",
     "item1Title": "TVO ILC Authorized",
     "item1Desc": "Officially authorized to administer TVO ILC courses to international students through Ontario's sub-licensing model.",
     "item2Title": "Ontario Ministry of Education",
@@ -239,7 +244,7 @@
     "card1Desc3": "Structured support is provided from enrollment through to graduation.",
     "card1CTA": "Explore the Dual Diploma Program",
     "card2Tag": "Certificate Programs",
-    "card2Title": "For University Students & Professionals",
+    "card2Title": "For Everyone Who Wants to Advance Their Career",
     "card2Subtitle": "Future Competency Programs",
     "card2Desc": "Earn internationally recognized certificates by working on real projects in AI, blockchain, and entrepreneurship.",
     "card2Desc2": "Programs are developed in collaboration with Ontario Tech University and directly support career advancement.",
@@ -292,13 +297,13 @@
   },
   "diplomaPage": {
     "badge": "Official Ontario High School Diploma (OSSD)",
-    "heroTitle": "The Ontario Secondary School Diploma",
+    "heroTitle": "The Canadian Secondary School Diploma (OSSD)",
     "heroHighlight": "Global Recognition. Online Flexibility. Structured Support.",
     "heroSubtitle": "Catalyst Education is an authorized administrative representative for TVO ILC — Ontario's official Ministry of Education distance learning program. International students can pursue a genuine OSSD while continuing their existing schooling.",
     "heroCTA": "Book a Free Consultation",
     "heroSecondary": "How It Works",
     "whatTitle": "What Is the OSSD?",
-    "whatDesc1": "The Ontario Secondary School Diploma (OSSD) is the official high school leaving certificate issued by the Province of Ontario, Canada — recognized by universities worldwide. It is a high school diploma accepted in university applications in Canada and many other countries. Final decisions are made at the university/program level.",
+    "whatDesc1": "The Ontario Secondary School Diploma (OSSD) is the official high school leaving certificate issued by the Province of Ontario, Canada — recognized by universities worldwide. It is a high school diploma accepted in university applications in Canada and many other countries.",
     "whatDesc2": "Through TVO ILC — Ontario Ministry of Education's designated distance learning partner — international students can complete the required courses fully online, earning a diploma that opens doors to global universities.",
     "whatDesc3": "Catalyst Education administers this pathway as an authorized representative, managing enrollment, course planning, prior learning assessment, and student support from start to graduation.",
     "whatDesc4": "Students can pursue a Canadian diploma while continuing at their current school — no relocation required.",
@@ -352,18 +357,18 @@
     "glanceTitle": "OSSD At a Glance",
     "glanceDefinition": "OSSD is the official high school diploma issued in Ontario by the Ontario Ministry of Education.",
     "glanceLabel1": "Diploma Issuing Authority",
-    "glanceValue1": "TVO ILC (under Ontario requirements)",
+    "glanceValue1": "Ontario Ministry of Education",
     "glanceLabel2": "Recognized In",
-    "glanceValue2": "Canada, USA, UK, Australia & 100+ countries",
+    "glanceValue2": "Canada, USA, UK, Europe & 100+ countries",
     "glanceLabel3": "Delivery",
     "glanceValue3": "100% Online",
     "glanceSub3": "Via TVO ILC Online Learning Platform",
     "glanceLabel4": "Duration",
-    "glanceValue4": "Based on credits required",
+    "glanceValue4": "Parallel to the student's current high school graduation",
     "glanceSub4": "Determined through prior learning assessment",
     "glanceLabel5": "Key Advantage",
-    "glanceValue5": "Students can complete the Canadian diploma process without leaving Turkey.",
-    "glanceLabel6": "Catalyst Education's Role",
+    "glanceValue5": "Students can complete the Canadian diploma process without leaving Turkey or in Canada.",
+    "glanceLabel6": "CATALYST EDUCATION'S ROLE",
     "glanceValue6": "Authorized administrative representative and student support partner",
     "ctaTitle": "Start Your Diploma Pathway",
     "ctaSubtitle": "Book a free consultation. Our advisors will assess your child's academic background and outline a clear path forward.",
@@ -556,33 +561,26 @@
     "heroTitle": "Contact Us",
     "heroSubtitle": "Get in touch with us for any questions. We're happy to help with enrollment process, program structure, and student eligibility.",
     "heroBadge": "Support from Turkey and Canada",
-
     "addressCardTitle": "Address",
     "addressLine1": "173 Kingston Rd",
     "addressLine2": "Toronto ON M4L 1T4",
     "addressLine3": "Canada",
-
     "phoneCardTitle": "Phone",
     "phoneNumber": "+90 (533) 470 27 35",
     "phoneCallCta": "Call us",
-
     "emailCardTitle": "Email",
     "emailAddress": "info@catalysteducation.ca",
     "emailSendCta": "Send an email",
-
     "linkedinCardTitle": "LinkedIn",
-    "linkedinHandle": "catalyst-education-tr",
+    "linkedinHandle": "catalyst-education-ca",
     "linkedinCta": "Follow us on LinkedIn",
     "linkedinFollowCta": "View profile",
-
     "instagramCardTitle": "Instagram",
     "instagramHandle": "@thecatalysteducation",
     "instagramCta": "Follow us on Instagram",
     "instagramFollowCta": "View profile",
-
     "formTitle": "How Can We Help You?",
     "formSubtitle": "Fill out the form and our team will get back to you as soon as possible.",
-
     "fieldFullName": "Full Name",
     "fieldFullNamePlaceholder": "Your full name",
     "fieldPhone": "Phone Number",
@@ -603,10 +601,8 @@
     "grade12": "Grade 12",
     "fieldMessage": "Your Message (optional)",
     "fieldMessagePlaceholder": "Feel free to write anything you'd like to ask...",
-
     "checkWhatsApp": "I would like to receive information via WhatsApp.",
     "checkPrivacy": "I consent to my personal data being processed by Catalyst Education.",
-
     "submitBtn": "Send Message",
     "submitting": "Sending...",
     "successTitle": "Message received!",
@@ -615,11 +611,9 @@
     "requiredField": "This field is required",
     "privacyRequired": "You must accept to continue",
     "phoneInvalid": "Please enter a valid phone number",
-
     "mapTitle": "Our Office Location",
     "mapDesc": "You can reach us at our Toronto address, or connect through our digital channels for any questions.",
     "mapOpenLink": "Open in Google Maps",
-
     "trustTitle": "We're Here for You",
     "trustDesc": "From enrollment to program planning, we support families to navigate the process with clarity and confidence.",
     "trustItem1": "Quick response",

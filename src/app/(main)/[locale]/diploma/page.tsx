@@ -165,7 +165,7 @@ export default async function DiplomaPage() {
         </section>
 
         {/* ── WHAT IS THE OSSD ── */}
-        <section className="w-full py-20 md:py-28 bg-white border-t border-warm-300">
+        <section id="what-is-ossd" className="w-full py-20 md:py-28 bg-white border-t border-warm-300">
           <div className="container mx-auto px-4 md:px-6 max-w-[1280px]">
             <div className="grid lg:grid-cols-2 gap-12 lg:gap-20 items-start">
               <div>
@@ -231,10 +231,10 @@ export default async function DiplomaPage() {
         </section>
 
         {/* ── HOW IT WORKS ── */}
-        <Process />
+        <div id="how-it-works"><Process /></div>
 
         {/* ── WHY THE OSSD MATTERS ── */}
-        <section className="w-full py-20 md:py-28 bg-warm-100 border-t border-warm-300">
+        <section id="why-ossd-matters" className="w-full py-20 md:py-28 bg-warm-100 border-t border-warm-300">
           <div className="container mx-auto px-4 md:px-6 max-w-[1280px]">
             <div className="text-center mb-14 space-y-3">
               <h2 className="text-3xl md:text-4xl font-bold text-warm-800">{t("diplomaValueTitle")}</h2>
@@ -257,7 +257,7 @@ export default async function DiplomaPage() {
         </section>
 
         {/* ── HOW CATALYST SUPPORTS YOU ── */}
-        <section className="w-full py-20 md:py-28 bg-white border-t border-warm-300">
+        <section id="catalyst-difference" className="w-full py-20 md:py-28 bg-white border-t border-warm-300">
           <div className="container mx-auto px-4 md:px-6 max-w-[1280px]">
             <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
               <div>

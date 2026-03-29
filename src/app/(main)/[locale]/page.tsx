@@ -5,7 +5,7 @@ import { TrustSection } from "@/components/sections/TrustSection";
 import { ValueProp } from "@/components/sections/ValueProp";
 import { Process } from "@/components/sections/Process";
 import { AudiencePathways } from "@/components/sections/AudiencePathways";
-import { CertificatesIntro } from "@/components/sections/CertificatesIntro";
+// import { CertificatesIntro } from "@/components/sections/CertificatesIntro";
 import { TestimonialsSection } from "@/components/sections/TestimonialsSection";
 
 const SITE_URL =
@@ -88,7 +88,7 @@ export default function Home() {
         <AudiencePathways />
 
         {/* 6. Certificates Intro — Ontario Tech / Brilliant Catalyst programs */}
-        <CertificatesIntro />
+        {/* <CertificatesIntro /> */}
       </main>
     </div>
   );

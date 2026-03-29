@@ -10,7 +10,7 @@ export default function ContactPage() {
 
   const mapsUrl = "https://maps.google.com/?q=173+Kingston+Rd+Toronto+ON+M4L+1T4+Canada";
   const mapsEmbedUrl = `https://www.google.com/maps?q=173+Kingston+Rd+Toronto+ON+M4L+1T4+Canada&output=embed&z=16&hl=${locale}`;
-  const linkedinUrl = "https://www.linkedin.com/company/catalyst-education-tr/";
+  const linkedinUrl = "https://www.linkedin.com/company/catalyst-education-ca";
   const instagramUrl = "https://www.instagram.com/thecatalysteducation/";
   const phoneRaw = "+905334702735";
 
@@ -102,7 +102,7 @@ export default function ContactPage() {
                   <p className="text-[11px] font-semibold text-warm-500 uppercase tracking-widest mb-2">
                     {t("emailCardTitle")}
                   </p>
-                  <p className="text-sm font-medium text-warm-800 break-all">{t("emailAddress")}</p>
+                  <p className="text-xs font-medium text-warm-800 break-all">{t("emailAddress")}</p>
                 </div>
                 <a
                   href={`mailto:${t("emailAddress")}`}

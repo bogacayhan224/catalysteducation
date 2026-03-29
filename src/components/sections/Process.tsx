@@ -20,11 +20,10 @@ export function Process() {
 
         <div className="max-w-3xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-4">
           {steps.map((s, i) => {
-            const isLast = i === steps.length - 1;
             return (
               <div
                 key={i}
-                className={`bg-white rounded-xl border border-warm-200 p-5 shadow-sm flex gap-4 items-start${isLast ? " md:col-span-2 md:w-[calc(50%-8px)] md:mx-auto" : ""}`}
+                className="bg-white rounded-xl border border-warm-200 p-5 shadow-sm flex gap-4 items-start"
               >
                 <span className="flex-shrink-0 mt-0.5 h-9 w-9 rounded-full bg-brand-500 text-white font-bold text-sm flex items-center justify-center shadow-sm">
                   {String(i + 1).padStart(2, "0")}

@@ -115,7 +115,7 @@ export default function CertificatesPage() {
         </section>
 
         {/* ── ABOUT BRILLIANT CATALYST ── */}
-        <section className="w-full py-16 md:py-20 bg-[#3A6EA5] text-white border-b border-white/20">
+        <section className="hidden w-full py-16 md:py-20 bg-[#3A6EA5] text-white border-b border-white/20">
           <div className="container mx-auto px-4 md:px-6 max-w-[1280px]">
             <div className="grid lg:grid-cols-2 gap-10 lg:gap-16 items-center">
               <div>
@@ -139,7 +139,7 @@ export default function CertificatesPage() {
         </section>
 
         {/* ── WHY CHOOSE ── */}
-        <section className="w-full py-20 md:py-28 bg-white border-b border-warm-300">
+        <section id="why-choose" className="w-full py-20 md:py-28 bg-white border-b border-warm-300">
           <div className="container mx-auto px-4 md:px-6 max-w-[1280px]">
             <div className="text-center mb-14 space-y-3">
               <h2 className="text-3xl md:text-4xl font-bold text-warm-800">{t("whyTitle")}</h2>
@@ -219,7 +219,7 @@ export default function CertificatesPage() {
         </section>
 
         {/* ── LEARNING FORMAT ── */}
-        <section className="w-full py-20 md:py-28 bg-white border-b border-warm-300">
+        <section className="hidden w-full py-20 md:py-28 bg-white border-b border-warm-300">
           <div className="container mx-auto px-4 md:px-6 max-w-[1280px]">
             <div className="text-center mb-14 space-y-3">
               <h2 className="text-3xl md:text-4xl font-bold text-warm-800">{t("formatTitle")}</h2>
@@ -247,7 +247,7 @@ export default function CertificatesPage() {
         </section>
 
         {/* ── COHORT JOURNEY ── */}
-        <section className="w-full py-24 md:py-32 bg-info-50 border-b border-warm-300">
+        <section id="cohort-journey" className="w-full py-24 md:py-32 bg-info-50 border-b border-warm-300">
           <div className="container mx-auto px-4 md:px-6 max-w-[1280px]">
             <div className="text-center mb-16 space-y-3">
               <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-warm-800">{t("journeyTitle")}</h2>
