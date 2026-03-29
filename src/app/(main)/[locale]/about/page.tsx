@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { ogImage } from "@/lib/og";
 import { getTranslations, getLocale } from "next-intl/server";
 import { Calendar, Users, MapPin, Check } from "lucide-react";
+import Image from "next/image";
 
 const SITE_URL =
   process.env.NEXT_PUBLIC_SITE_URL ?? "https://catalyst-education-web.vercel.app";
@@ -61,7 +62,19 @@ export default async function AboutPage() {
 
         {/* ── HERO ── */}
         <section className="text-white py-20 lg:py-28 text-center relative overflow-hidden" style={{ background: 'linear-gradient(135deg, #5A0F1A 0%, #8B1E2D 60%, #B33A4A 100%)' }}>
-          <div className="absolute inset-0 bg-[linear-gradient(to_right,#3D0D14_1px,transparent_1px),linear-gradient(to_bottom,#3D0D14_1px,transparent_1px)] bg-[size:4rem_4rem] opacity-30 [mask-image:radial-gradient(ellipse_60%_50%_at_50%_0%,#000_70%,transparent_100%)]" />
+          {/* Background image */}
+          <div className="absolute inset-0">
+            <Image
+              src="/about-hero-bg.png"
+              alt=""
+              fill
+              className="object-cover object-center opacity-25"
+              priority
+            />
+          </div>
+          {/* Dark gradient overlay for readability */}
+          <div className="absolute inset-0 bg-gradient-to-b from-[#3D0D14]/70 via-[#5A0F1A]/60 to-[#3D0D14]/80" />
+          <div className="absolute inset-0 bg-[linear-gradient(to_right,#3D0D14_1px,transparent_1px),linear-gradient(to_bottom,#3D0D14_1px,transparent_1px)] bg-[size:4rem_4rem] opacity-20 [mask-image:radial-gradient(ellipse_60%_50%_at_50%_0%,#000_70%,transparent_100%)]" />
           <div className="container relative z-10 px-4 md:px-6 mx-auto max-w-4xl">
             <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight mb-6">
               {t("heroTitle")}
@@ -83,8 +96,17 @@ export default async function AboutPage() {
         </section>
 
         {/* ── MISSION + CATALYST FARKI ── */}
-        <section className="py-20 bg-white border-b border-warm-200">
-          <div className="container px-4 md:px-6 mx-auto max-w-[1280px]">
+        <section className="py-20 bg-white border-b border-warm-200 relative overflow-hidden">
+          {/* Subtle background image */}
+          <div className="absolute inset-0">
+            <Image
+              src="/about-mission-img.png"
+              alt=""
+              fill
+              className="object-cover object-right opacity-[0.07]"
+            />
+          </div>
+          <div className="container relative z-10 px-4 md:px-6 mx-auto max-w-[1280px]">
             <div className="grid md:grid-cols-2 gap-12 lg:gap-20 items-start">
               <div>
                 <h2 className="text-3xl font-bold text-warm-800 mb-6">{t("missionTitle")}</h2>
@@ -95,7 +117,7 @@ export default async function AboutPage() {
                   <p>{t("mission4")}</p>
                 </div>
               </div>
-              <div className="bg-warm-100 border border-warm-300 rounded-3xl p-8">
+              <div className="bg-white/80 backdrop-blur-sm border border-warm-300 rounded-3xl p-8">
                 <h3 className="text-xl font-bold text-warm-800 mb-6">{t("differenceTitle")}</h3>
                 <div className="space-y-5">
                   <div className="flex items-start gap-4">

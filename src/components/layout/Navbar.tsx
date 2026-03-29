@@ -186,32 +186,33 @@ export function Navbar() {
             )}
           </div>
 
+          <Link href={localePath("/about")} className={navLink}>{t("aboutUs")}</Link>
           <Link href={localePath("/faq")} className={navLink}>{t("faqs")}</Link>
           <Link href={localePath("/contact")} className={navLink}>{t("contact")}</Link>
         </nav>
 
-        {/* Right: locale + CTA */}
-        <div className="hidden md:flex items-center gap-3">
-          <button
-            onClick={switchLocale}
-            className="inline-flex items-center gap-1.5 text-sm font-medium text-warm-600 hover:text-warm-800 transition-colors"
-          >
-            <Globe size={16} />
-            {locale === "en" ? "TR" : "EN"}
-          </button>
+        {/* Right: CTA + locale */}
+        <div className="hidden md:flex items-center gap-2.5">
           <Link
             href={localePath("/contact#contact-form")}
-            className="inline-flex h-10 items-center justify-center rounded-full border border-warm-400 bg-transparent px-5 text-sm font-semibold text-warm-700 transition-all hover:bg-warm-200"
+            className="inline-flex h-10 items-center justify-center rounded-full border border-warm-400 bg-transparent px-4 text-sm font-semibold text-warm-700 transition-all hover:bg-warm-200 whitespace-nowrap"
           >
             {t("getInfo")}
           </Link>
           <Link
             href={localePath("/apply")}
             onClick={() => event({ action: 'apply_click', button_text: t('applyNow'), section_name: 'Navbar' })}
-            className="inline-flex h-10 items-center justify-center rounded-full bg-brand-500 px-5 text-sm font-semibold text-white shadow-sm transition-all hover:bg-brand-600 hover:shadow-md"
+            className="inline-flex h-10 items-center justify-center rounded-full bg-brand-500 px-4 text-sm font-semibold text-white shadow-sm transition-all hover:bg-brand-600 hover:shadow-md whitespace-nowrap"
           >
             {t("applyNow")}
           </Link>
+          <button
+            onClick={switchLocale}
+            className="inline-flex items-center gap-1 text-sm font-medium text-warm-500 hover:text-warm-800 transition-colors ml-1"
+          >
+            <Globe size={15} />
+            {locale === "en" ? "TR" : "EN"}
+          </button>
         </div>
 
         {/* Mobile Toggle */}
@@ -268,6 +269,7 @@ export function Navbar() {
               <Link href={localePath("/certificates")} className="py-2.5 text-sm font-semibold text-[#3B7CB0] hover:text-[#2d6091]" onClick={() => { setIsOpen(false); setMobileCertOpen(false); }}>{t("viewCertProgram")} →</Link>
             </div>
           )}
+          <Link href={localePath("/about")} className="text-sm font-medium text-warm-700 hover:text-warm-800 py-3 border-b border-warm-300" onClick={() => setIsOpen(false)}>{t("aboutUs")}</Link>
           <Link href={localePath("/faq")} className="text-sm font-medium text-warm-700 hover:text-warm-800 py-3 border-b border-warm-300" onClick={() => setIsOpen(false)}>{t("faqs")}</Link>
           <Link href={localePath("/contact")} className="text-sm font-medium text-warm-700 hover:text-warm-800 py-3 border-b border-warm-300" onClick={() => setIsOpen(false)}>{t("contact")}</Link>
 
