@@ -16,7 +16,7 @@ export async function generateMetadata({
   const isEn = locale === "en";
   const title = isEn
     ? "Ontario Secondary School Diploma (OSSD) Program | Catalyst Education"
-    : "OSSD Nedir? Ontario Lise Diploması Programı | Catalyst Education";
+    : "OSSD Nedir? Kanada Lise Diploması Programı | Catalyst Education";
   const description = isEn
     ? "Learn everything about the Ontario Secondary School Diploma (OSSD) and how to earn it from Turkey through Catalyst Education's official TVO ILC program."
     : "OSSD (Ontario Secondary School Diploma) nedir, nasıl alınır? Türkiye'den Catalyst Education aracılığıyla resmi TVO ILC programıyla Kanada lise diploması edinin.";
