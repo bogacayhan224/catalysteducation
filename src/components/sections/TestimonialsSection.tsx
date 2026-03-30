@@ -16,7 +16,7 @@ const FALLBACK = {
       {
         icon: BookOpen,
         title: "Akademik Esneklik",
-        text: "Türkiye'de okuluna devam ederken Ontario lise diploması programını planlı şekilde tamamlayabilir ve uluslararası üniversite başvurularında güçlü bir akademik avantaj elde edebilir.",
+        text: "Türkiye'de okuluna devam ederken Kanada lise diplomasını planlı şekilde tamamlayabilir ve uluslararası üniversite başvurularında güçlü bir akademik avantaj elde edebilir.",
       },
       {
         icon: Target,
