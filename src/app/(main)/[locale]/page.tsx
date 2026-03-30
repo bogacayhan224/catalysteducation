@@ -20,7 +20,7 @@ export async function generateMetadata({
   const isEn = locale === "en";
   const title = isEn
     ? "Canadian High School Diploma in Turkey | Catalyst Education"
-    : "Ontario Lise Diploması (OSSD) Türkiye | Catalyst Education";
+    : "Kanada Lise Diploması (OSSD - Ontario Secondary School Diploma) Türkiye | Catalyst Education";
   const description = isEn
     ? "Earn an Ontario Secondary School Diploma (OSSD) from Turkey with official TVO ILC support. 100% online, government-recognized Canadian diploma."
     : "Türkiye'den %100 online Ontario Secondary School Diploma (OSSD) alın. TVO ILC'nin Türkiye yetkili temsilcisi. Kanada hükümeti onaylı lise diploması.";
