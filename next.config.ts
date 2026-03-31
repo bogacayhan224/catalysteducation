@@ -22,6 +22,16 @@ const nextConfig: NextConfig = {
         permanent: true,
       },
 
+      // ── Locale'siz URL'ler → /tr (Google'ın crawl ettiği eski URL'ler için 301)
+      // next-intl middleware bunları 307 ile redirect eder; explicit 301 Google için daha temiz.
+      { source: "/diploma",      destination: "/tr/diploma",      permanent: true },
+      { source: "/certificates", destination: "/tr/certificates", permanent: true },
+      { source: "/corporate",    destination: "/tr/corporate",    permanent: true },
+      { source: "/about",        destination: "/tr/about",        permanent: true },
+      { source: "/faq",          destination: "/tr/faq",          permanent: true },
+      { source: "/apply",        destination: "/tr/apply",        permanent: true },
+      { source: "/contact",      destination: "/tr/contact",      permanent: true },
+
       // ── Ana sayfa ──────────────────────────────────────────────
       { source: "/",               destination: "/tr",         permanent: false },
 
