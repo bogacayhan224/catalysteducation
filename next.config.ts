@@ -13,6 +13,15 @@ const nextConfig: NextConfig = {
     // Sebep: next-intl middleware (localePrefix: "always") bazen /tr/eski-url şeklinde
     // yönlendirme yapıyor. Her iki durumu da yakalamak için tüm varyantlar tanımlandı.
     return [
+      // ── www canonical zorunluluğu ───────────────────────────────
+      // non-www → www yönlendirmesi (Google'ın seçtiği canonical ile tutarlılık)
+      {
+        source: "/:path*",
+        has: [{ type: "host", value: "catalysteducation.ca" }],
+        destination: "https://www.catalysteducation.ca/:path*",
+        permanent: true,
+      },
+
       // ── Ana sayfa ──────────────────────────────────────────────
       { source: "/",               destination: "/tr",         permanent: false },
 
