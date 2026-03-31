@@ -41,6 +41,11 @@ const nextConfig: NextConfig = {
       { source: "/en/:oldLang([a-z]{2})", destination: "/en", permanent: true },
       { source: "/tr/:oldLang([a-z]{2})", destination: "/tr", permanent: true },
 
+      // Legacy language root redirects (/ru, /fr, /fa) -> /en
+      { source: "/ru/:path*", destination: "/en", permanent: true },
+      { source: "/fr/:path*", destination: "/en", permanent: true },
+      { source: "/fa/:path*", destination: "/en", permanent: true },
+
       // ── Program / Diploma ──────────────────────────────────────
       { source: "/what-we-offer",              destination: "/tr/diploma", permanent: true },
       { source: "/what-we-offer/",             destination: "/tr/diploma", permanent: true },

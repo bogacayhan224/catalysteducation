@@ -8,7 +8,18 @@ export default function robots(): MetadataRoute.Robots {
     rules: {
       userAgent: "*",
       allow: "/",
-      disallow: "/studio/",
+      disallow: [
+        "/studio/",
+        "/kurslar/",
+        "/ders-kategori/",
+        "/product-category/",
+        "/tag/",
+        "/category/",
+        "/feed/",
+        "/page/",
+        "/*?add-to-cart=",
+        "/*?filter-category",
+      ],
     },
     sitemap: `${SITE_URL}/sitemap.xml`,
   };
