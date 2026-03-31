@@ -33,7 +33,7 @@ const nextConfig: NextConfig = {
       { source: "/contact",      destination: "/tr/contact",      permanent: true },
 
       // ── Ana sayfa ──────────────────────────────────────────────
-      { source: "/",               destination: "/tr",         permanent: false },
+      { source: "/",               destination: "/tr",         permanent: true },
 
       // ── Program / Diploma ──────────────────────────────────────
       { source: "/what-we-offer",              destination: "/tr/diploma", permanent: true },
