@@ -35,6 +35,12 @@ const nextConfig: NextConfig = {
       // ── Ana sayfa ──────────────────────────────────────────────
       { source: "/",               destination: "/tr",         permanent: true },
 
+      // ── Eski Dil Uzantıları (Migration Cleanup) ────────────────
+      // Gelen istek /en/fa, /en/fr gibi 2 harfli eski dil yollarıysa ana dile yönlendiriyoruz.
+      // Sitenin geçerli /en/diploma, /tr/faq gibi gerçek sayfaları bozulmaz!
+      { source: "/en/:oldLang([a-z]{2})", destination: "/en", permanent: true },
+      { source: "/tr/:oldLang([a-z]{2})", destination: "/tr", permanent: true },
+
       // ── Program / Diploma ──────────────────────────────────────
       { source: "/what-we-offer",              destination: "/tr/diploma", permanent: true },
       { source: "/what-we-offer/",             destination: "/tr/diploma", permanent: true },
