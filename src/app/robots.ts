@@ -17,6 +17,8 @@ export default function robots(): MetadataRoute.Robots {
         "/category/",
         "/feed/",
         "/page/",
+        "/wp-json/",
+        "/xmlrpc.php",
         "/*?add-to-cart=",
         "/*?filter-category",
       ],
