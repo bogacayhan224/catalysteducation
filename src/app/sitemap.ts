@@ -9,7 +9,7 @@ const routes = [
   { path: "", priority: 1.0, changeFrequency: "weekly" as const },
   { path: "/diploma", priority: 0.9, changeFrequency: "monthly" as const },
   { path: "/certificates", priority: 0.9, changeFrequency: "monthly" as const },
-  { path: "/corporate", priority: 0.8, changeFrequency: "monthly" as const },
+  // { path: "/corporate", priority: 0.8, changeFrequency: "monthly" as const }, // page disabled (notFound)
   { path: "/about", priority: 0.7, changeFrequency: "monthly" as const },
   { path: "/faq", priority: 0.8, changeFrequency: "monthly" as const },
   { path: "/apply", priority: 0.9, changeFrequency: "monthly" as const },
