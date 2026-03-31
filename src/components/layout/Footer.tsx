@@ -22,7 +22,6 @@ export function Footer() {
             width={180}
             height={54}
             className="h-16 w-auto"
-            unoptimized
           />
           <p className="text-sm text-warm-600 max-w-xs leading-relaxed">
             {t("description")}
