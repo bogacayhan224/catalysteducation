@@ -107,6 +107,13 @@ const nextConfig: NextConfig = {
       { source: "/merhaba-dunya",              destination: "/tr",         permanent: true },
       { source: "/tr/merhaba-dunya",           destination: "/tr",         permanent: true },
 
+      // ── Blog Pillar Pages — cross-locale redirects ─────────────
+      // Ensures canonical slugs: TR uses /tr/ossd-nedir, EN uses /en/what-is-ossd
+      { source: "/ossd-nedir",                 destination: "/tr/ossd-nedir",   permanent: true },
+      { source: "/en/ossd-nedir",              destination: "/en/what-is-ossd", permanent: true },
+      { source: "/what-is-ossd",               destination: "/en/what-is-ossd", permanent: true },
+      { source: "/tr/what-is-ossd",            destination: "/tr/ossd-nedir",   permanent: true },
+
       // ── WordPress sitemap URL'leri → Next.js sitemap ───────────
       // Wildcard: wp-sitemap.xml ve tüm alt sitemap varyantları
       { source: "/wp-sitemap.xml",        destination: "/sitemap.xml", permanent: true },

@@ -34,6 +34,31 @@ export function Footer() {
           <h3 className="font-semibold text-warm-800">{t("programs")}</h3>
           <Link href={localePath("/diploma")} className="text-sm text-warm-600 hover:text-brand-500 transition-colors">{t("programLinks.diploma")}</Link>
           <Link href={localePath("/certificates")} className="text-sm text-warm-600 hover:text-brand-500 transition-colors">{t("programLinks.certificates")}</Link>
+          <h3 className="font-semibold text-warm-800 mt-2">{t("guides")}</h3>
+          <Link
+            href={locale === "tr" ? "/tr/rehberler" : "/en/guides"}
+            className="text-sm text-warm-600 hover:text-brand-500 transition-colors"
+          >
+            {t("guideLinks.allGuides")}
+          </Link>
+          <Link
+            href={locale === "tr" ? "/tr/ossd-nedir" : "/en/what-is-ossd"}
+            className="text-sm text-warm-600 hover:text-brand-500 transition-colors"
+          >
+            {t("guideLinks.whatIsOssd")}
+          </Link>
+          <Link
+            href={locale === "tr" ? "/tr/kanada-lise-diplomasi-nasil-alinir" : "/en/how-to-get-canadian-high-school-diploma"}
+            className="text-sm text-warm-600 hover:text-brand-500 transition-colors"
+          >
+            {t("guideLinks.howToGet")}
+          </Link>
+          <Link
+            href={locale === "tr" ? "/tr/ossd-avantajlari" : "/en/ossd-benefits"}
+            className="text-sm text-warm-600 hover:text-brand-500 transition-colors"
+          >
+            {t("guideLinks.ossdBenefits")}
+          </Link>
         </div>
 
         {/* Organization */}

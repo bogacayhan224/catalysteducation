@@ -19,7 +19,7 @@ const routes = [
 ];
 
 export default function sitemap(): MetadataRoute.Sitemap {
-  return locales.flatMap((locale) =>
+  const symmetric = locales.flatMap((locale) =>
     routes.map(({ path, priority, changeFrequency }) => ({
       url: `${SITE_URL}/${locale}${path}`,
       lastModified: new Date(),
@@ -33,4 +33,34 @@ export default function sitemap(): MetadataRoute.Sitemap {
       },
     }))
   );
+
+  // Blog pillar pages — locale-specific slugs (TR ≠ EN)
+  const pillarPages: MetadataRoute.Sitemap = [
+    {
+      url: `${SITE_URL}/tr/ossd-nedir`,
+      lastModified: new Date("2026-04-05"),
+      changeFrequency: "monthly",
+      priority: 0.8,
+      alternates: {
+        languages: {
+          tr: `${SITE_URL}/tr/ossd-nedir`,
+          en: `${SITE_URL}/en/what-is-ossd`,
+        },
+      },
+    },
+    {
+      url: `${SITE_URL}/en/what-is-ossd`,
+      lastModified: new Date("2026-04-05"),
+      changeFrequency: "monthly",
+      priority: 0.8,
+      alternates: {
+        languages: {
+          tr: `${SITE_URL}/tr/ossd-nedir`,
+          en: `${SITE_URL}/en/what-is-ossd`,
+        },
+      },
+    },
+  ];
+
+  return [...symmetric, ...pillarPages];
 }

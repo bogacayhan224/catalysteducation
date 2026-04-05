@@ -534,6 +534,13 @@
       "diploma": "Canadian High School Diploma",
       "certificates": "Future Competencies Programs"
     },
+    "guides": "Guides",
+    "guideLinks": {
+      "allGuides": "All Guides",
+      "whatIsOssd": "What Is OSSD?",
+      "howToGet": "How to Get a Canadian High School Diploma",
+      "ossdBenefits": "Benefits of the OSSD"
+    },
     "pathway": "The Pathway",
     "links": {
       "theDiploma": "The OSSD Diploma",

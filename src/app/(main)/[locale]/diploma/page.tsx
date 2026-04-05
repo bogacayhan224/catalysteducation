@@ -176,6 +176,13 @@ export default async function DiplomaPage() {
                   <p>{t("whatDesc3")}</p>
                   <p className="font-medium text-warm-800 border-l-4 border-trust-400 pl-4">{t("whatDesc4")}</p>
                 </div>
+                <Link
+                  href={isEn ? "/en/what-is-ossd" : "/tr/ossd-nedir"}
+                  className="inline-flex items-center gap-2 mt-7 text-sm font-semibold text-brand-500 hover:text-brand-600 transition-colors group"
+                >
+                  <ArrowRight className="h-4 w-4 group-hover:translate-x-0.5 transition-transform" />
+                  {isEn ? "Read the complete OSSD guide →" : "OSSD hakkında kapsamlı rehberi oku →"}
+                </Link>
               </div>
               <div className="bg-warm-100 border border-warm-300 rounded-3xl p-8 space-y-5">
                 <div className="flex items-center gap-3 mb-2">

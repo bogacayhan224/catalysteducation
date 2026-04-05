@@ -534,6 +534,13 @@
       "diploma": "Kanada Lise Diploması",
       "certificates": "Geleceğin Yetkinlikleri Programları"
     },
+    "guides": "Rehberler",
+    "guideLinks": {
+      "allGuides": "Tüm Rehberler",
+      "whatIsOssd": "OSSD Nedir?",
+      "howToGet": "Kanada Lise Diploması Nasıl Alınır?",
+      "ossdBenefits": "OSSD Avantajları"
+    },
     "pathway": "Eğitim Yolu",
     "links": {
       "theDiploma": "OSSD Diploması",
