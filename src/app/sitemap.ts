@@ -36,29 +36,75 @@ export default function sitemap(): MetadataRoute.Sitemap {
 
   // Blog pillar pages — locale-specific slugs (TR ≠ EN)
   const pillarPages: MetadataRoute.Sitemap = [
+    // Guide hubs
+    {
+      url: `${SITE_URL}/tr/rehberler`,
+      lastModified: new Date("2026-04-05"),
+      changeFrequency: "weekly",
+      priority: 0.8,
+      alternates: { languages: { tr: `${SITE_URL}/tr/rehberler`, en: `${SITE_URL}/en/guides` } },
+    },
+    {
+      url: `${SITE_URL}/en/guides`,
+      lastModified: new Date("2026-04-05"),
+      changeFrequency: "weekly",
+      priority: 0.8,
+      alternates: { languages: { tr: `${SITE_URL}/tr/rehberler`, en: `${SITE_URL}/en/guides` } },
+    },
+    // OSSD Nedir / What Is OSSD
     {
       url: `${SITE_URL}/tr/ossd-nedir`,
       lastModified: new Date("2026-04-05"),
       changeFrequency: "monthly",
       priority: 0.8,
-      alternates: {
-        languages: {
-          tr: `${SITE_URL}/tr/ossd-nedir`,
-          en: `${SITE_URL}/en/what-is-ossd`,
-        },
-      },
+      alternates: { languages: { tr: `${SITE_URL}/tr/ossd-nedir`, en: `${SITE_URL}/en/what-is-ossd` } },
     },
     {
       url: `${SITE_URL}/en/what-is-ossd`,
       lastModified: new Date("2026-04-05"),
       changeFrequency: "monthly",
       priority: 0.8,
+      alternates: { languages: { tr: `${SITE_URL}/tr/ossd-nedir`, en: `${SITE_URL}/en/what-is-ossd` } },
+    },
+    // Kanada Lise Diploması Nasıl Alınır / How to Get
+    {
+      url: `${SITE_URL}/tr/kanada-lise-diplomasi-nasil-alinir`,
+      lastModified: new Date("2026-04-05"),
+      changeFrequency: "monthly",
+      priority: 0.8,
       alternates: {
         languages: {
-          tr: `${SITE_URL}/tr/ossd-nedir`,
-          en: `${SITE_URL}/en/what-is-ossd`,
+          tr: `${SITE_URL}/tr/kanada-lise-diplomasi-nasil-alinir`,
+          en: `${SITE_URL}/en/how-to-get-canadian-high-school-diploma`,
         },
       },
+    },
+    {
+      url: `${SITE_URL}/en/how-to-get-canadian-high-school-diploma`,
+      lastModified: new Date("2026-04-05"),
+      changeFrequency: "monthly",
+      priority: 0.8,
+      alternates: {
+        languages: {
+          tr: `${SITE_URL}/tr/kanada-lise-diplomasi-nasil-alinir`,
+          en: `${SITE_URL}/en/how-to-get-canadian-high-school-diploma`,
+        },
+      },
+    },
+    // OSSD Avantajları / OSSD Benefits
+    {
+      url: `${SITE_URL}/tr/ossd-avantajlari`,
+      lastModified: new Date("2026-04-05"),
+      changeFrequency: "monthly",
+      priority: 0.8,
+      alternates: { languages: { tr: `${SITE_URL}/tr/ossd-avantajlari`, en: `${SITE_URL}/en/ossd-benefits` } },
+    },
+    {
+      url: `${SITE_URL}/en/ossd-benefits`,
+      lastModified: new Date("2026-04-05"),
+      changeFrequency: "monthly",
+      priority: 0.8,
+      alternates: { languages: { tr: `${SITE_URL}/tr/ossd-avantajlari`, en: `${SITE_URL}/en/ossd-benefits` } },
     },
   ];
 
