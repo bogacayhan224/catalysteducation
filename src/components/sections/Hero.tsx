@@ -45,7 +45,7 @@ export function Hero() {
 
             {/* Authority Badge */}
             <div className="inline-flex items-center self-start gap-2.5 rounded-full border border-warm-300 bg-white/80 px-4 py-1.5 shadow-sm backdrop-blur-sm">
-              <Image src="/tvo-ilc-logo.svg" alt="TVO ILC" width={56} height={25} className="flex-shrink-0" />
+              <Image src="/tvo-ilc-logo.svg" alt="TVO ILC" width={56} height={25} className="flex-shrink-0" loading="eager" priority />
               <span className="h-3 w-px bg-warm-400 flex-shrink-0" />
               <span className="text-xs text-warm-600">{t("badge")}</span>
             </div>

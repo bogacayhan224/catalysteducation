@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { Suspense } from "react";
 import { ogImage } from "@/lib/og";
 import { Hero } from "@/components/sections/Hero";
 import { TrustSection } from "@/components/sections/TrustSection";
@@ -82,7 +83,9 @@ export default function Home() {
         <Process />
 
         {/* 5. Student Outcomes / Testimonials — CMS-driven, fallback if empty */}
-        <TestimonialsSection />
+        <Suspense fallback={null}>
+          <TestimonialsSection />
+        </Suspense>
 
         {/* 6. Audience Pathways — 2-card segment selector */}
         <AudiencePathways />

@@ -12,7 +12,7 @@ export function TrustSection() {
         {/* Badge */}
         <div className="flex justify-center mb-5">
           <div className="inline-flex items-center gap-2.5 rounded-full border border-warm-200 bg-white px-4 py-1.5 shadow-sm">
-            <Image src="/tvo-ilc-logo.svg" alt="TVO ILC" width={48} height={22} className="flex-shrink-0" />
+            <Image src="/tvo-ilc-logo.svg" alt="TVO ILC" width={48} height={22} className="flex-shrink-0" loading="eager" />
             <span className="h-3 w-px bg-warm-200 flex-shrink-0" />
             <span className="text-xs text-warm-600 font-medium">{t("badge")}</span>
           </div>
