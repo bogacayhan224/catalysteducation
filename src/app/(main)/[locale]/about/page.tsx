@@ -184,7 +184,7 @@ export default async function AboutPage() {
         {/* ── TVO ILC SECTION ── */}
         <section className="py-20 bg-white border-b border-warm-200">
           <div className="container px-4 md:px-6 mx-auto max-w-[1280px]">
-            <div className="grid md:grid-cols-2 gap-12 lg:gap-20 items-center">
+            <div className="grid md:grid-cols-2 gap-12 lg:gap-20 items-start">
               {/* Left: Text */}
               <div>
                 <div className="inline-flex items-center gap-2 rounded-full border border-trust-200 bg-trust-50 px-4 py-1.5 mb-5">
@@ -246,18 +246,17 @@ export default async function AboutPage() {
                       </div>
                       <span className="text-xs text-warm-400">Aug 25, 2023</span>
                     </div>
-                    {/* Letter image */}
-                    <div className="relative w-full aspect-[794/600] overflow-hidden">
-                      <Image
-                        src="/Catalyst Affiliate Letter_for website.png"
-                        alt={isEn
-                          ? "TVO ILC Letter of Authorization confirming Catalyst Education as authorized representative"
-                          : "TVO ILC Yetki Belgesi — Catalyst Education'ın yetkili temsilci olduğunu teyit eden resmî mektup"}
-                        fill
-                        sizes="(max-width: 768px) 100vw, 560px"
-                        className="object-cover object-top"
-                      />
-                    </div>
+                    {/* Letter image — full document, natural ratio */}
+                    <Image
+                      src="/tvo-authorization-letter.webp"
+                      alt={isEn
+                        ? "TVO ILC Letter of Authorization confirming Catalyst Education as authorized representative"
+                        : "TVO ILC Yetki Belgesi — Catalyst Education'ın yetkili temsilci olduğunu teyit eden resmî mektup"}
+                      width={2188}
+                      height={2636}
+                      sizes="(max-width: 768px) 100vw, 560px"
+                      className="w-full h-auto"
+                    />
                   </div>
                   {/* Trust badge */}
                   <div className="absolute -bottom-3 -right-3 bg-trust-500 text-white rounded-xl px-3 py-2 shadow-md flex items-center gap-1.5">
