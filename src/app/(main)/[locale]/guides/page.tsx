@@ -65,6 +65,16 @@ export async function generateMetadata({
 
 const guides = [
   {
+    tag: "Dual Diploma",
+    title: "OSSD Dual Diploma Guide: Earn a Canadian High School Diploma from Turkey",
+    description:
+      "How to earn a Canadian high school diploma (OSSD) while studying in Turkey. Dual diploma model, process, and graduation requirements explained.",
+    href: "/en/ossd-dual-diploma",
+    readTime: "5 min read",
+    date: "April 7, 2026",
+    live: true,
+  },
+  {
     tag: "OSSD Basics",
     title: "What Is OSSD? Complete Guide to the Ontario Secondary School Diploma",
     description:

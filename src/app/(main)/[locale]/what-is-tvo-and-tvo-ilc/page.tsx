@@ -473,6 +473,14 @@ export default async function WhatIsTvoAndTvoIlcPage() {
                       This model provides a strong academic advantage for students with
                       international education goals.
                     </p>
+                    <p>
+                      <Link
+                        href="/en/ossd-dual-diploma"
+                        className="text-brand-500 underline underline-offset-2 hover:text-brand-600"
+                      >
+                        What is the OSSD dual diploma? →
+                      </Link>
+                    </p>
                   </div>
                   <div className="bg-trust-50 border border-trust-200 rounded-2xl p-6">
                     <h3 className="font-bold text-warm-800 mb-4">
@@ -702,6 +710,7 @@ export default async function WhatIsTvoAndTvoIlcPage() {
                   </h3>
                   <div className="space-y-3">
                     {[
+                      { href: "/en/ossd-dual-diploma", label: "OSSD Dual Diploma — Earn a Canadian Diploma While Studying in Turkey", live: true },
                       { href: "/en/what-is-ossd", label: "What Is OSSD? — Ontario Secondary School Diploma Guide", live: true },
                       { href: "/en/how-to-get-canadian-high-school-diploma", label: "How to Get a Canadian High School Diploma", live: true },
                       { href: "/en/ossd-benefits", label: "OSSD Benefits — Why Students Choose the Canadian Diploma", live: true },

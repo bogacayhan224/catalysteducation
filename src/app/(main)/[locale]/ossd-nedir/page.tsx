@@ -641,6 +641,14 @@ export default async function OssdNedirPage() {
                       öğrencinin akademik seçeneklerini genişletir ve
                       uluslararası eğitim fırsatlarına erişimini kolaylaştırır.
                     </p>
+                    <p>
+                      <Link
+                        href="/tr/ossd-cift-diploma"
+                        className="text-brand-500 underline underline-offset-2 hover:text-brand-600"
+                      >
+                        OSSD çift diploma nedir? Detaylı rehberi okuyun →
+                      </Link>
+                    </p>
                   </div>
                   <div className="bg-trust-50 border border-trust-200 rounded-2xl p-6">
                     <h3 className="font-bold text-warm-800 mb-4">
@@ -680,6 +688,11 @@ export default async function OssdNedirPage() {
                   </h3>
                   <div className="space-y-3">
                     {[
+                      {
+                        href: "/tr/ossd-cift-diploma",
+                        label: "OSSD Çift Diploma Nedir? — Türkiye'den Kanada Lise Diploması",
+                        live: true,
+                      },
                       {
                         href: "/tr/diploma",
                         label: "Kanada Lise Diploması Programı — Catalyst Education",

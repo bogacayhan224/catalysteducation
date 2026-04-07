@@ -648,6 +648,14 @@ export default async function WhatIsOssdPage() {
                       international education pathways — without interrupting
                       their existing schooling.
                     </p>
+                    <p>
+                      <Link
+                        href="/en/ossd-dual-diploma"
+                        className="text-brand-500 underline underline-offset-2 hover:text-brand-600"
+                      >
+                        Want to earn OSSD from Turkey? Read our dual diploma guide →
+                      </Link>
+                    </p>
                   </div>
                   <div className="bg-trust-50 border border-trust-200 rounded-2xl p-6">
                     <h3 className="font-bold text-warm-800 mb-4">
@@ -687,6 +695,11 @@ export default async function WhatIsOssdPage() {
                   </h3>
                   <div className="space-y-3">
                     {[
+                      {
+                        href: "/en/ossd-dual-diploma",
+                        label: "OSSD Dual Diploma — Earn a Canadian Diploma While Studying in Turkey",
+                        live: true,
+                      },
                       {
                         href: "/en/diploma",
                         label: "Canadian High School Diploma Program — Catalyst Education",

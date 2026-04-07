@@ -479,6 +479,14 @@ export default async function TvoVeTvoIlcNedirPage() {
                       Çift diploma programı, uluslararası eğitim hedefi olan öğrenciler için
                       güçlü bir akademik avantaj sağlar.
                     </p>
+                    <p>
+                      <Link
+                        href="/tr/ossd-cift-diploma"
+                        className="text-brand-500 underline underline-offset-2 hover:text-brand-600"
+                      >
+                        OSSD çift diploma nedir? →
+                      </Link>
+                    </p>
                   </div>
                   <div className="bg-trust-50 border border-trust-200 rounded-2xl p-6">
                     <h3 className="font-bold text-warm-800 mb-4">
@@ -707,6 +715,7 @@ export default async function TvoVeTvoIlcNedirPage() {
                   </h3>
                   <div className="space-y-3">
                     {[
+                      { href: "/tr/ossd-cift-diploma", label: "OSSD Çift Diploma Nedir? — Türkiye'den Kanada Lise Diploması", live: true },
                       { href: "/tr/ossd-nedir", label: "OSSD Nedir? — Kanada Lise Diploması Rehberi", live: true },
                       { href: "/tr/kanada-lise-diplomasi-nasil-alinir", label: "Kanada Lise Diploması Nasıl Alınır?", live: true },
                       { href: "/tr/ossd-avantajlari", label: "OSSD Avantajları — Kanada Diploması Neden Tercih Edilir?", live: true },

@@ -65,6 +65,16 @@ export async function generateMetadata({
 
 const guides = [
   {
+    tag: "Çift Diploma",
+    title: "OSSD Çift Diploma Nedir? Türkiye'de Okurken Kanada Lise Diploması Alma Rehberi",
+    description:
+      "Türkiye'de okurken Kanada lise diploması (OSSD) nasıl alınır? Çift diploma modeli, süreç ve mezuniyet şartları.",
+    href: "/tr/ossd-cift-diploma",
+    readTime: "5 dk okuma",
+    date: "7 Nisan 2026",
+    live: true,
+  },
+  {
     tag: "OSSD Temelleri",
     title: "OSSD Nedir? Kanada Lise Diploması Hakkında Detaylı Rehber",
     description:

@@ -91,6 +91,36 @@ export default function sitemap(): MetadataRoute.Sitemap {
         },
       },
     },
+    // TVO ve TVO ILC Nedir / What Is TVO and TVO ILC
+    {
+      url: `${SITE_URL}/tr/tvo-ve-tvo-ilc-nedir`,
+      lastModified: new Date("2026-04-07"),
+      changeFrequency: "monthly",
+      priority: 0.8,
+      alternates: { languages: { tr: `${SITE_URL}/tr/tvo-ve-tvo-ilc-nedir`, en: `${SITE_URL}/en/what-is-tvo-and-tvo-ilc` } },
+    },
+    {
+      url: `${SITE_URL}/en/what-is-tvo-and-tvo-ilc`,
+      lastModified: new Date("2026-04-07"),
+      changeFrequency: "monthly",
+      priority: 0.8,
+      alternates: { languages: { tr: `${SITE_URL}/tr/tvo-ve-tvo-ilc-nedir`, en: `${SITE_URL}/en/what-is-tvo-and-tvo-ilc` } },
+    },
+    // OSSD Çift Diploma / OSSD Dual Diploma
+    {
+      url: `${SITE_URL}/tr/ossd-cift-diploma`,
+      lastModified: new Date("2026-04-07"),
+      changeFrequency: "monthly",
+      priority: 0.8,
+      alternates: { languages: { tr: `${SITE_URL}/tr/ossd-cift-diploma`, en: `${SITE_URL}/en/ossd-dual-diploma` } },
+    },
+    {
+      url: `${SITE_URL}/en/ossd-dual-diploma`,
+      lastModified: new Date("2026-04-07"),
+      changeFrequency: "monthly",
+      priority: 0.8,
+      alternates: { languages: { tr: `${SITE_URL}/tr/ossd-cift-diploma`, en: `${SITE_URL}/en/ossd-dual-diploma` } },
+    },
     // OSSD Avantajları / OSSD Benefits
     {
       url: `${SITE_URL}/tr/ossd-avantajlari`,
