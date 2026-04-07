@@ -94,6 +94,16 @@ const guides = [
     date: "April 5, 2026",
     live: true,
   },
+  {
+    tag: "TVO ILC",
+    title: "What Is TVO and TVO ILC? OSSD and the Canadian Dual Diploma Guide",
+    description:
+      "What is TVO? What is TVO ILC? Is it reliable? A comprehensive guide to Ontario's official online high school, the OSSD diploma, and the Canadian dual diploma model.",
+    href: "/en/what-is-tvo-and-tvo-ilc",
+    readTime: "10 min read",
+    date: "April 7, 2026",
+    live: true,
+  },
 ];
 
 const breadcrumbSchema = {

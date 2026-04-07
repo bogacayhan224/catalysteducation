@@ -94,6 +94,16 @@ const guides = [
     date: "5 Nisan 2026",
     live: true,
   },
+  {
+    tag: "TVO ILC",
+    title: "TVO ve TVO ILC Nedir? OSSD ve Kanada Çift Diploma Rehberi",
+    description:
+      "TVO nedir, TVO ILC nedir, bu kurum güvenilir mi? Ontario'nun resmî online lisesini, OSSD diplomasını ve çift diploma programını detaylıca anlatan kapsamlı rehber.",
+    href: "/tr/tvo-ve-tvo-ilc-nedir",
+    readTime: "10 dk okuma",
+    date: "7 Nisan 2026",
+    live: true,
+  },
 ];
 
 const breadcrumbSchema = {

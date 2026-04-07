@@ -1,8 +1,9 @@
 import type { Metadata } from "next";
 import { ogImage } from "@/lib/og";
 import { getTranslations, getLocale } from "next-intl/server";
-import { Calendar, Users, MapPin, Check } from "lucide-react";
+import { Calendar, Users, MapPin, Check, ArrowRight, Shield, Globe, GraduationCap } from "lucide-react";
 import Image from "next/image";
+import Link from "next/link";
 
 const SITE_URL =
   process.env.NEXT_PUBLIC_SITE_URL ?? "https://catalyst-education-web.vercel.app";
@@ -175,6 +176,88 @@ export default async function AboutPage() {
                 <p className="text-3xl font-bold text-warm-800 mb-1">{t("stat3Value")}</p>
                 <p className="text-sm font-semibold text-warm-600 mb-3">{t("stat3Label")}</p>
                 <p className="text-sm text-warm-600 leading-relaxed">{t("stat3Desc")}</p>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        {/* ── TVO ILC SECTION ── */}
+        <section className="py-20 bg-white border-b border-warm-200">
+          <div className="container px-4 md:px-6 mx-auto max-w-[1280px]">
+            <div className="grid md:grid-cols-2 gap-12 lg:gap-20 items-center">
+              {/* Left: Text */}
+              <div>
+                <div className="inline-flex items-center gap-2 rounded-full border border-trust-200 bg-trust-50 px-4 py-1.5 mb-5">
+                  <Shield className="h-3.5 w-3.5 text-trust-500" />
+                  <span className="text-xs font-semibold text-trust-500">
+                    {isEn ? "Our Education Partner" : "Eğitim Ortağımız"}
+                  </span>
+                </div>
+                <h2 className="text-3xl font-bold text-warm-800 mb-5">
+                  {isEn
+                    ? "TVO ILC: Ontario's Official Online High School"
+                    : "TVO ILC: Ontario'nun Resmî Online Lisesi"}
+                </h2>
+                <div className="space-y-4 text-warm-700 leading-relaxed mb-8">
+                  <p>
+                    {isEn
+                      ? "TVO ILC (Independent Learning Centre) is an official online high school within Ontario's publicly governed education system. It provides secondary school credits and the Ontario Secondary School Diploma (OSSD) — the same diploma recognized by universities across Canada and the world."
+                      : "TVO ILC (Independent Learning Centre), Ontario eyaletinin kamuya bağlı eğitim sistemi bünyesinde faaliyet gösteren resmî bir online lise yapısıdır. Ontario müfredatına göre lise kredisi ve OSSD diploması verir; bu diploma Kanada ve dünya genelindeki üniversiteler tarafından tanınır."}
+                  </p>
+                  <p>
+                    {isEn
+                      ? "Catalyst Education acts as TVO's authorized administrative representative in Turkey — guiding students through enrollment, course planning, and the full diploma process with structured local support."
+                      : "Catalyst Education, TVO'nun Türkiye'deki yetkili idari temsilcisi olarak öğrencilere kayıt, ders planlaması ve diploma sürecinin tamamında yapılandırılmış yerel destek sağlar."}
+                  </p>
+                </div>
+                <div className="grid sm:grid-cols-3 gap-3 mb-8">
+                  {[
+                    { icon: Shield, label: isEn ? "Publicly governed" : "Kamuya bağlı kurum" },
+                    { icon: Globe, label: isEn ? "Students in 90+ countries" : "90+ ülkeden öğrenci" },
+                    { icon: GraduationCap, label: isEn ? "Official OSSD authority" : "Resmî diploma yetkisi" },
+                  ].map(({ icon: Icon, label }) => (
+                    <div key={label} className="flex items-center gap-2 bg-trust-50 border border-trust-100 rounded-xl px-4 py-3">
+                      <Icon className="h-4 w-4 text-trust-500 flex-shrink-0" />
+                      <span className="text-xs font-medium text-warm-700">{label}</span>
+                    </div>
+                  ))}
+                </div>
+                <Link
+                  href={isEn ? "/en/what-is-tvo-and-tvo-ilc" : "/tr/tvo-ve-tvo-ilc-nedir"}
+                  className="inline-flex items-center gap-2 rounded-full bg-brand-500 px-6 py-3 text-sm font-semibold text-white hover:bg-brand-600 transition-colors"
+                >
+                  {isEn ? "Read the full TVO ILC guide" : "TVO ILC hakkında detaylı rehberi okuyun"}
+                  <ArrowRight className="h-4 w-4" />
+                </Link>
+              </div>
+              {/* Right: Key facts */}
+              <div className="bg-warm-50 border border-warm-300 rounded-3xl p-8">
+                <h3 className="font-bold text-warm-800 mb-6 text-lg">
+                  {isEn ? "Why TVO ILC Is Trusted" : "TVO ILC Neden Güvenilir?"}
+                </h3>
+                <div className="space-y-4">
+                  {(isEn ? [
+                    { title: "Established in 1926", desc: "One of Ontario's oldest distance learning institutions with a century of educational history." },
+                    { title: "Ontario Ministry of Education", desc: "Part of Ontario's official education system, not a private certificate provider." },
+                    { title: "Largest online high school in Ontario", desc: "Serves thousands of students annually across more than 90 countries." },
+                    { title: "OSSD diploma authority", desc: "Authorized to issue the Ontario Secondary School Diploma — government-recognized worldwide." },
+                  ] : [
+                    { title: "1926'dan bu yana", desc: "Ontario'nun en köklü uzaktan eğitim kurumlarından biri; asrı aşan eğitim geleneği." },
+                    { title: "Ontario Eğitim Bakanlığı bünyesinde", desc: "Özel bir sertifika platformu değil, resmî Ontario eğitim sisteminin parçası." },
+                    { title: "Ontario'nun en büyük online lisesi", desc: "90'dan fazla ülkede yılda binlerce öğrenciye ulaşmaktadır." },
+                    { title: "Resmî OSSD diploma yetkisi", desc: "Dünya genelinde tanınan Ontario Lise Diplomasını verme yetkisine sahiptir." },
+                  ]).map(({ title, desc }) => (
+                    <div key={title} className="flex items-start gap-3">
+                      <div className="h-6 w-6 rounded-full bg-trust-100 flex items-center justify-center flex-shrink-0 mt-0.5">
+                        <Check className="h-3.5 w-3.5 text-trust-500" />
+                      </div>
+                      <div>
+                        <p className="font-semibold text-warm-800 text-sm">{title}</p>
+                        <p className="text-xs text-warm-600 leading-relaxed mt-0.5">{desc}</p>
+                      </div>
+                    </div>
+                  ))}
+                </div>
               </div>
             </div>
           </div>

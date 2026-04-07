@@ -59,6 +59,12 @@ export function Footer() {
           >
             {t("guideLinks.ossdBenefits")}
           </Link>
+          <Link
+            href={locale === "tr" ? "/tr/tvo-ve-tvo-ilc-nedir" : "/en/what-is-tvo-and-tvo-ilc"}
+            className="text-sm text-warm-600 hover:text-brand-500 transition-colors"
+          >
+            {t("guideLinks.tvoGuide")}
+          </Link>
         </div>
 
         {/* Organization */}
