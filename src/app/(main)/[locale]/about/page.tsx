@@ -185,86 +185,51 @@ export default async function AboutPage() {
         <section className="py-20 bg-white border-b border-warm-200">
           <div className="container px-4 md:px-6 mx-auto max-w-[1280px]">
             <div className="grid md:grid-cols-2 gap-12 lg:gap-20 items-start">
-              {/* Left: Text */}
-              <div>
-                <div className="inline-flex items-center gap-2 rounded-full border border-trust-200 bg-trust-50 px-4 py-1.5 mb-5">
-                  <Shield className="h-3.5 w-3.5 text-trust-500" />
-                  <span className="text-xs font-semibold text-trust-500">
-                    {isEn ? "Our Education Partner" : "Eğitim Ortağımız"}
-                  </span>
-                </div>
-                <h2 className="text-3xl font-bold text-warm-800 mb-5">
-                  {isEn
-                    ? "TVO ILC: Ontario's Official Online High School"
-                    : "TVO ILC: Ontario'nun Resmî Online Lisesi"}
-                </h2>
-                <div className="space-y-4 text-warm-700 leading-relaxed mb-8">
-                  <p>
-                    {isEn
-                      ? "TVO ILC (Independent Learning Centre) is an official online high school within Ontario's publicly governed education system. It provides secondary school credits and the Ontario Secondary School Diploma (OSSD) — the same diploma recognized by universities across Canada and the world."
-                      : "TVO ILC (Independent Learning Centre), Ontario eyaletinin kamuya bağlı eğitim sistemi bünyesinde faaliyet gösteren resmî bir online lise yapısıdır. Ontario müfredatına göre lise kredisi ve OSSD diploması verir; bu diploma Kanada ve dünya genelindeki üniversiteler tarafından tanınır."}
-                  </p>
-                  <p>
-                    {isEn
-                      ? "Catalyst Education acts as TVO's authorized administrative representative in Turkey — guiding students through enrollment, course planning, and the full diploma process with structured local support."
-                      : "Catalyst Education, TVO'nun Türkiye'deki yetkili idari temsilcisi olarak öğrencilere kayıt, ders planlaması ve diploma sürecinin tamamında yapılandırılmış yerel destek sağlar."}
-                  </p>
-                </div>
-                <div className="grid sm:grid-cols-3 gap-3 mb-8">
-                  {[
-                    { icon: Shield, label: isEn ? "Publicly governed" : "Kamuya bağlı kurum" },
-                    { icon: Globe, label: isEn ? "Students in 90+ countries" : "90+ ülkeden öğrenci" },
-                    { icon: GraduationCap, label: isEn ? "Official OSSD authority" : "Resmî diploma yetkisi" },
-                  ].map(({ icon: Icon, label }) => (
-                    <div key={label} className="flex items-center gap-2 bg-trust-50 border border-trust-100 rounded-xl px-4 py-3">
-                      <Icon className="h-4 w-4 text-trust-500 flex-shrink-0" />
-                      <span className="text-xs font-medium text-warm-700">{label}</span>
-                    </div>
-                  ))}
-                </div>
-                <Link
-                  href={isEn ? "/en/what-is-tvo-and-tvo-ilc" : "/tr/tvo-ve-tvo-ilc-nedir"}
-                  className="inline-flex items-center gap-2 rounded-full bg-brand-500 px-6 py-3 text-sm font-semibold text-white hover:bg-brand-600 transition-colors"
-                >
-                  {isEn ? "Read the full TVO ILC guide" : "TVO ILC hakkında detaylı rehberi okuyun"}
-                  <ArrowRight className="h-4 w-4" />
-                </Link>
-              </div>
-              {/* Right: Authorization letter + Key facts */}
-              <div className="flex flex-col gap-6">
-
-                {/* Authorization Letter */}
-                <div className="relative">
-                  <div className="bg-white border border-warm-300 rounded-2xl shadow-md overflow-hidden">
-                    {/* Header bar */}
-                    <div className="flex items-center justify-between px-5 py-3 bg-warm-50 border-b border-warm-200">
-                      <div className="flex items-center gap-2">
-                        <div className="h-2 w-2 rounded-full bg-brand-400" />
-                        <span className="text-xs font-semibold text-warm-600">
-                          {isEn ? "Letter of Authorization — TVO ILC" : "Yetki Belgesi — TVO ILC"}
-                        </span>
-                      </div>
-                      <span className="text-xs text-warm-400">Aug 25, 2023</span>
-                    </div>
-                    {/* Letter image — full document, natural ratio */}
-                    <Image
-                      src="/tvo-authorization-letter.webp"
-                      alt={isEn
-                        ? "TVO ILC Letter of Authorization confirming Catalyst Education as authorized representative"
-                        : "TVO ILC Yetki Belgesi — Catalyst Education'ın yetkili temsilci olduğunu teyit eden resmî mektup"}
-                      width={2188}
-                      height={2636}
-                      sizes="(max-width: 768px) 100vw, 560px"
-                      className="w-full h-auto"
-                    />
-                  </div>
-                  {/* Trust badge */}
-                  <div className="absolute -bottom-3 -right-3 bg-trust-500 text-white rounded-xl px-3 py-2 shadow-md flex items-center gap-1.5">
-                    <Shield className="h-3.5 w-3.5" />
-                    <span className="text-xs font-semibold">
-                      {isEn ? "Verified" : "Resmî Belge"}
+              {/* Left: Text + facts */}
+              <div className="flex flex-col gap-8">
+                <div>
+                  <div className="inline-flex items-center gap-2 rounded-full border border-trust-200 bg-trust-50 px-4 py-1.5 mb-5">
+                    <Shield className="h-3.5 w-3.5 text-trust-500" />
+                    <span className="text-xs font-semibold text-trust-500">
+                      {isEn ? "Our Education Partner" : "Eğitim Ortağımız"}
                     </span>
                   </div>
+                  <h2 className="text-3xl font-bold text-warm-800 mb-5">
+                    {isEn
+                      ? "TVO ILC: Ontario's Official Online High School"
+                      : "TVO ILC: Ontario'nun Resmî Online Lisesi"}
+                  </h2>
+                  <div className="space-y-4 text-warm-700 leading-relaxed mb-8">
+                    <p>
+                      {isEn
+                        ? "TVO ILC (Independent Learning Centre) is an official online high school within Ontario's publicly governed education system. It provides secondary school credits and the Ontario Secondary School Diploma (OSSD) — the same diploma recognized by universities across Canada and the world."
+                        : "TVO ILC (Independent Learning Centre), Ontario eyaletinin kamuya bağlı eğitim sistemi bünyesinde faaliyet gösteren resmî bir online lise yapısıdır. Ontario müfredatına göre lise kredisi ve OSSD diploması verir; bu diploma Kanada ve dünya genelindeki üniversiteler tarafından tanınır."}
+                    </p>
+                    <p>
+                      {isEn
+                        ? "Catalyst Education acts as TVO's authorized administrative representative in Turkey — guiding students through enrollment, course planning, and the full diploma process with structured local support."
+                        : "Catalyst Education, TVO'nun Türkiye'deki yetkili idari temsilcisi olarak öğrencilere kayıt, ders planlaması ve diploma sürecinin tamamında yapılandırılmış yerel destek sağlar."}
+                    </p>
+                  </div>
+                  <div className="grid sm:grid-cols-3 gap-3 mb-8">
+                    {[
+                      { icon: Shield, label: isEn ? "Publicly governed" : "Kamuya bağlı kurum" },
+                      { icon: Globe, label: isEn ? "Students in 90+ countries" : "90+ ülkeden öğrenci" },
+                      { icon: GraduationCap, label: isEn ? "Official OSSD authority" : "Resmî diploma yetkisi" },
+                    ].map(({ icon: Icon, label }) => (
+                      <div key={label} className="flex items-center gap-2 bg-trust-50 border border-trust-100 rounded-xl px-4 py-3">
+                        <Icon className="h-4 w-4 text-trust-500 flex-shrink-0" />
+                        <span className="text-xs font-medium text-warm-700">{label}</span>
+                      </div>
+                    ))}
+                  </div>
+                  <Link
+                    href={isEn ? "/en/what-is-tvo-and-tvo-ilc" : "/tr/tvo-ve-tvo-ilc-nedir"}
+                    className="inline-flex items-center gap-2 rounded-full bg-brand-500 px-6 py-3 text-sm font-semibold text-white hover:bg-brand-600 transition-colors"
+                  >
+                    {isEn ? "Read the full TVO ILC guide" : "TVO ILC hakkında detaylı rehberi okuyun"}
+                    <ArrowRight className="h-4 w-4" />
+                  </Link>
                 </div>
 
                 {/* Key facts */}
@@ -296,7 +261,40 @@ export default async function AboutPage() {
                     ))}
                   </div>
                 </div>
+              </div>
 
+              {/* Right: Authorization letter only */}
+              <div className="relative">
+                <div className="bg-white border border-warm-300 rounded-2xl shadow-md overflow-hidden">
+                  {/* Header bar */}
+                  <div className="flex items-center justify-between px-5 py-3 bg-warm-50 border-b border-warm-200">
+                    <div className="flex items-center gap-2">
+                      <div className="h-2 w-2 rounded-full bg-brand-400" />
+                      <span className="text-xs font-semibold text-warm-600">
+                        {isEn ? "Letter of Authorization — TVO ILC" : "Yetki Belgesi — TVO ILC"}
+                      </span>
+                    </div>
+                    <span className="text-xs text-warm-400">Aug 25, 2023</span>
+                  </div>
+                  {/* Letter image — full document, natural ratio */}
+                  <Image
+                    src="/tvo-authorization-letter.webp"
+                    alt={isEn
+                      ? "TVO ILC Letter of Authorization confirming Catalyst Education as authorized representative"
+                      : "TVO ILC Yetki Belgesi — Catalyst Education'ın yetkili temsilci olduğunu teyit eden resmî mektup"}
+                    width={2188}
+                    height={2636}
+                    sizes="(max-width: 768px) 100vw, 560px"
+                    className="w-full h-auto"
+                  />
+                </div>
+                {/* Trust badge */}
+                <div className="absolute -bottom-3 -right-3 bg-trust-500 text-white rounded-xl px-3 py-2 shadow-md flex items-center gap-1.5">
+                  <Shield className="h-3.5 w-3.5" />
+                  <span className="text-xs font-semibold">
+                    {isEn ? "Verified" : "Resmî Belge"}
+                  </span>
+                </div>
               </div>
             </div>
           </div>
