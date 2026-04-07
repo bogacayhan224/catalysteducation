@@ -230,34 +230,74 @@ export default async function AboutPage() {
                   <ArrowRight className="h-4 w-4" />
                 </Link>
               </div>
-              {/* Right: Key facts */}
-              <div className="bg-warm-50 border border-warm-300 rounded-3xl p-8">
-                <h3 className="font-bold text-warm-800 mb-6 text-lg">
-                  {isEn ? "Why TVO ILC Is Trusted" : "TVO ILC Neden Güvenilir?"}
-                </h3>
-                <div className="space-y-4">
-                  {(isEn ? [
-                    { title: "Established in 1926", desc: "One of Ontario's oldest distance learning institutions with a century of educational history." },
-                    { title: "Ontario Ministry of Education", desc: "Part of Ontario's official education system, not a private certificate provider." },
-                    { title: "Largest online high school in Ontario", desc: "Serves thousands of students annually across more than 90 countries." },
-                    { title: "OSSD diploma authority", desc: "Authorized to issue the Ontario Secondary School Diploma — government-recognized worldwide." },
-                  ] : [
-                    { title: "1926'dan bu yana", desc: "Ontario'nun en köklü uzaktan eğitim kurumlarından biri; asrı aşan eğitim geleneği." },
-                    { title: "Ontario Eğitim Bakanlığı bünyesinde", desc: "Özel bir sertifika platformu değil, resmî Ontario eğitim sisteminin parçası." },
-                    { title: "Ontario'nun en büyük online lisesi", desc: "90'dan fazla ülkede yılda binlerce öğrenciye ulaşmaktadır." },
-                    { title: "Resmî OSSD diploma yetkisi", desc: "Dünya genelinde tanınan Ontario Lise Diplomasını verme yetkisine sahiptir." },
-                  ]).map(({ title, desc }) => (
-                    <div key={title} className="flex items-start gap-3">
-                      <div className="h-6 w-6 rounded-full bg-trust-100 flex items-center justify-center flex-shrink-0 mt-0.5">
-                        <Check className="h-3.5 w-3.5 text-trust-500" />
+              {/* Right: Authorization letter + Key facts */}
+              <div className="flex flex-col gap-6">
+
+                {/* Authorization Letter */}
+                <div className="relative">
+                  <div className="bg-white border border-warm-300 rounded-2xl shadow-md overflow-hidden">
+                    {/* Header bar */}
+                    <div className="flex items-center justify-between px-5 py-3 bg-warm-50 border-b border-warm-200">
+                      <div className="flex items-center gap-2">
+                        <div className="h-2 w-2 rounded-full bg-brand-400" />
+                        <span className="text-xs font-semibold text-warm-600">
+                          {isEn ? "Letter of Authorization — TVO ILC" : "Yetki Belgesi — TVO ILC"}
+                        </span>
                       </div>
-                      <div>
-                        <p className="font-semibold text-warm-800 text-sm">{title}</p>
-                        <p className="text-xs text-warm-600 leading-relaxed mt-0.5">{desc}</p>
-                      </div>
+                      <span className="text-xs text-warm-400">Aug 25, 2023</span>
                     </div>
-                  ))}
+                    {/* Letter image */}
+                    <div className="relative w-full aspect-[794/600] overflow-hidden">
+                      <Image
+                        src="/Catalyst Affiliate Letter_for website.png"
+                        alt={isEn
+                          ? "TVO ILC Letter of Authorization confirming Catalyst Education as authorized representative"
+                          : "TVO ILC Yetki Belgesi — Catalyst Education'ın yetkili temsilci olduğunu teyit eden resmî mektup"}
+                        fill
+                        sizes="(max-width: 768px) 100vw, 560px"
+                        className="object-cover object-top"
+                      />
+                    </div>
+                  </div>
+                  {/* Trust badge */}
+                  <div className="absolute -bottom-3 -right-3 bg-trust-500 text-white rounded-xl px-3 py-2 shadow-md flex items-center gap-1.5">
+                    <Shield className="h-3.5 w-3.5" />
+                    <span className="text-xs font-semibold">
+                      {isEn ? "Verified" : "Resmî Belge"}
+                    </span>
+                  </div>
                 </div>
+
+                {/* Key facts */}
+                <div className="bg-warm-50 border border-warm-300 rounded-2xl p-6">
+                  <h3 className="font-bold text-warm-800 mb-5 text-base">
+                    {isEn ? "Why TVO ILC Is Trusted" : "TVO ILC Neden Güvenilir?"}
+                  </h3>
+                  <div className="space-y-3.5">
+                    {(isEn ? [
+                      { title: "Established in 1926", desc: "One of Ontario's oldest distance learning institutions." },
+                      { title: "Ontario Ministry of Education", desc: "Part of Ontario's official education system." },
+                      { title: "Largest online high school in Ontario", desc: "Serves students across more than 90 countries." },
+                      { title: "OSSD diploma authority", desc: "Authorized to issue the Ontario Secondary School Diploma." },
+                    ] : [
+                      { title: "1926'dan bu yana", desc: "Ontario'nun en köklü uzaktan eğitim kurumlarından biri." },
+                      { title: "Ontario Eğitim Bakanlığı bünyesinde", desc: "Resmî Ontario eğitim sisteminin parçası." },
+                      { title: "Ontario'nun en büyük online lisesi", desc: "90'dan fazla ülkede öğrencilere ulaşmaktadır." },
+                      { title: "Resmî OSSD diploma yetkisi", desc: "Ontario Lise Diplomasını verme yetkisine sahiptir." },
+                    ]).map(({ title, desc }) => (
+                      <div key={title} className="flex items-start gap-3">
+                        <div className="h-5 w-5 rounded-full bg-trust-100 flex items-center justify-center flex-shrink-0 mt-0.5">
+                          <Check className="h-3 w-3 text-trust-500" />
+                        </div>
+                        <div>
+                          <p className="font-semibold text-warm-800 text-sm">{title}</p>
+                          <p className="text-xs text-warm-500 leading-relaxed mt-0.5">{desc}</p>
+                        </div>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+
               </div>
             </div>
           </div>
