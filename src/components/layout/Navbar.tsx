@@ -93,6 +93,24 @@ export function Navbar() {
             {diplomaOpen && (
               <div className="absolute top-full left-1/2 -translate-x-1/2 mt-3 w-64 rounded-2xl bg-white border border-warm-200 shadow-xl p-2 z-50">
                 <Link
+                  href={locale === "en" ? "/en/canadian-high-school-diploma" : "/tr/kanada-lise-diplomasi"}
+                  onClick={() => setDiplomaOpen(false)}
+                  className="flex items-center gap-3 p-3 rounded-xl bg-brand-50 hover:bg-brand-100 transition-colors group mb-1"
+                >
+                  <div className="h-8 w-8 rounded-lg bg-brand-500 flex items-center justify-center flex-shrink-0 group-hover:scale-105 transition-transform">
+                    <GraduationCap className="h-4 w-4 text-white" />
+                  </div>
+                  <div className="flex flex-col">
+                    <span className="text-sm font-semibold text-brand-600 leading-tight">
+                      {locale === "en" ? "Canadian High School Diploma" : "Kanada Lise Diploması"}
+                    </span>
+                    <span className="text-xs text-brand-400 mt-0.5">
+                      {locale === "en" ? "Program Overview" : "Programa Genel Bakış"}
+                    </span>
+                  </div>
+                </Link>
+                <div className="border-t border-warm-100 mb-1" />
+                <Link
                   href={localePath("/diploma#what-is-ossd")}
                   onClick={() => setDiplomaOpen(false)}
                   className="flex items-center gap-3 p-3 rounded-xl hover:bg-warm-100 transition-colors group"
@@ -243,6 +261,13 @@ export function Navbar() {
 
           {mobileDiplomaOpen && (
             <div className="pl-4 flex flex-col gap-1 pb-1 border-b border-warm-300">
+              <Link
+                href={locale === "en" ? "/en/canadian-high-school-diploma" : "/tr/kanada-lise-diplomasi"}
+                className="py-2.5 text-sm font-semibold text-brand-600 hover:text-brand-700"
+                onClick={() => { setIsOpen(false); setMobileDiplomaOpen(false); }}
+              >
+                {locale === "en" ? "Canadian High School Diploma" : "Kanada Lise Diploması"} →
+              </Link>
               <Link href={localePath("/diploma#what-is-ossd")} className="py-2.5 text-sm text-warm-700 hover:text-warm-800" onClick={() => { setIsOpen(false); setMobileDiplomaOpen(false); }}>{t("whatIsOssd")}</Link>
               <Link href={localePath("/diploma#how-it-works")} className="py-2.5 text-sm text-warm-700 hover:text-warm-800" onClick={() => { setIsOpen(false); setMobileDiplomaOpen(false); }}>{t("howItWorks")}</Link>
               <Link href={localePath("/diploma#why-ossd-matters")} className="py-2.5 text-sm text-warm-700 hover:text-warm-800" onClick={() => { setIsOpen(false); setMobileDiplomaOpen(false); }}>{t("whyOssdMatters")}</Link>
