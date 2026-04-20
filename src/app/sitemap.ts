@@ -34,6 +34,34 @@ export default function sitemap(): MetadataRoute.Sitemap {
     }))
   );
 
+  // Landing pages — locale-specific slugs (TR ≠ EN)
+  const landingPages: MetadataRoute.Sitemap = [
+    {
+      url: `${SITE_URL}/tr/kanada-lise-diplomasi`,
+      lastModified: new Date("2026-04-20"),
+      changeFrequency: "monthly",
+      priority: 0.9,
+      alternates: {
+        languages: {
+          tr: `${SITE_URL}/tr/kanada-lise-diplomasi`,
+          en: `${SITE_URL}/en/canadian-high-school-diploma`,
+        },
+      },
+    },
+    {
+      url: `${SITE_URL}/en/canadian-high-school-diploma`,
+      lastModified: new Date("2026-04-20"),
+      changeFrequency: "monthly",
+      priority: 0.9,
+      alternates: {
+        languages: {
+          tr: `${SITE_URL}/tr/kanada-lise-diplomasi`,
+          en: `${SITE_URL}/en/canadian-high-school-diploma`,
+        },
+      },
+    },
+  ];
+
   // Blog pillar pages — locale-specific slugs (TR ≠ EN)
   const pillarPages: MetadataRoute.Sitemap = [
     // Guide hubs
@@ -138,5 +166,5 @@ export default function sitemap(): MetadataRoute.Sitemap {
     },
   ];
 
-  return [...symmetric, ...pillarPages];
+  return [...symmetric, ...landingPages, ...pillarPages];
 }
