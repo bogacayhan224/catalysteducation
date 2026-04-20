@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import { useTranslations, useLocale } from "next-intl";
+import { useRouter } from "next/navigation";
 import { CheckCircle, MessageCircle, AlertCircle } from "lucide-react";
 
 const COUNTRY_CODES = [
@@ -55,19 +56,35 @@ interface FormErrors {
   phone?: string;
   programType?: string;
   email?: string;
+  grade?: string;
   privacyConsent?: string;
 }
 
-export function LeadForm({ compact = false }: { compact?: boolean }) {
+interface LeadFormProps {
+  compact?: boolean;
+  redirectTo?: string;
+  defaultProgramType?: string;
+  requireEmail?: boolean;
+  requireGrade?: boolean;
+}
+
+export function LeadForm({
+  compact = false,
+  redirectTo,
+  defaultProgramType = "",
+  requireEmail = false,
+  requireGrade = false,
+}: LeadFormProps) {
   const t = useTranslations("leadForm");
   const locale = useLocale();
   const whatsapp = useTranslations("whatsapp");
+  const router = useRouter();
 
   const [formData, setFormData] = useState<FormData>({
     parentName: "",
     countryCode: "+90",
     phone: "",
-    programType: "",
+    programType: defaultProgramType,
     email: "",
     grade: "",
     privacyConsent: false,
@@ -92,9 +109,14 @@ export function LeadForm({ compact = false }: { compact?: boolean }) {
 
     if (!formData.programType) errs.programType = t("programRequired");
 
-    if (formData.email.trim() && !isValidEmail(formData.email.trim())) {
+    if (requireEmail) {
+      if (!formData.email.trim()) errs.email = t("required");
+      else if (!isValidEmail(formData.email.trim())) errs.email = t("emailInvalid");
+    } else if (formData.email.trim() && !isValidEmail(formData.email.trim())) {
       errs.email = t("emailInvalid");
     }
+
+    if (requireGrade && !formData.grade) errs.grade = t("required");
 
     if (!formData.privacyConsent) errs.privacyConsent = t("privacyRequired");
     return errs;
@@ -132,6 +154,11 @@ export function LeadForm({ compact = false }: { compact?: boolean }) {
         grade: formData.grade,
         whatsapp_consent: formData.whatsappConsent,
       });
+
+      if (redirectTo) {
+        router.push(redirectTo);
+        return;
+      }
 
       setStatus("success");
     } catch {
@@ -228,11 +255,23 @@ export function LeadForm({ compact = false }: { compact?: boolean }) {
             <option value="undecided">{t("programTypeUndecided")}</option>
           </select>
           {errors.programType && <p className="text-xs text-brand-600 mt-1">{errors.programType}</p>}
+          {formData.programType === "diploma" && (
+            <div className="mt-2 flex items-start gap-2.5 rounded-xl bg-trust-50 border border-trust-200 px-3.5 py-2.5">
+              <span className="text-base leading-none mt-0.5">🇨🇦</span>
+              <p className="text-xs text-trust-700 leading-relaxed">
+                <span className="font-semibold">Çift diploma fırsatı:</span>{" "}
+                Türkiye'deki lise eğitimine devam ederken Kanada diploması kazanılır. Her iki diploma da geçerli kalır.
+              </p>
+            </div>
+          )}
         </div>
 
         {/* Email */}
         <div>
-          <label className="block text-sm font-medium text-warm-700 mb-1">{t("email")}</label>
+          <label className="block text-sm font-medium text-warm-700 mb-1">
+            {requireEmail ? t("email").replace(" (isteğe bağlı)", "") : t("email")}
+            {requireEmail && <span className="text-brand-500"> *</span>}
+          </label>
           <input
             type="email"
             placeholder={t("emailPlaceholder")}
@@ -245,11 +284,14 @@ export function LeadForm({ compact = false }: { compact?: boolean }) {
 
         {/* Grade */}
         <div>
-          <label className="block text-sm font-medium text-warm-700 mb-1">{t("grade")}</label>
+          <label className="block text-sm font-medium text-warm-700 mb-1">
+            {requireGrade ? t("grade").replace(" (isteğe bağlı)", "") : t("grade")}
+            {requireGrade && <span className="text-brand-500"> *</span>}
+          </label>
           <select
             value={formData.grade}
             onChange={(e) => setFormData((f) => ({ ...f, grade: e.target.value }))}
-            className="w-full h-11 rounded-xl border border-warm-300 bg-warm-100/80 px-4 text-sm text-warm-800 focus:outline-none focus:ring-2 focus:ring-brand-300 focus:border-brand-400 transition"
+            className={`w-full h-11 rounded-xl border px-4 text-sm text-warm-800 focus:outline-none focus:ring-2 focus:ring-brand-300 focus:border-brand-400 transition ${errors.grade ? "border-brand-300 bg-brand-50/50" : "border-warm-300 bg-warm-100/80"}`}
           >
             <option value="">{t("gradePlaceholder")}</option>
             <option value="9">{t("grade9")}</option>
@@ -257,6 +299,7 @@ export function LeadForm({ compact = false }: { compact?: boolean }) {
             <option value="11">{t("grade11")}</option>
             <option value="12">{t("grade12")}</option>
           </select>
+          {errors.grade && <p className="text-xs text-brand-600 mt-1">{errors.grade}</p>}
         </div>
 
         {/* Consents */}
