@@ -44,6 +44,20 @@ export async function generateMetadata({
     description: locale === "en"
       ? "Earn an Ontario Secondary School Diploma (OSSD) from Turkey. Official TVO ILC support, 100% online."
       : "Türkiye'den Ontario Secondary School Diploma (OSSD) alın. TVO ILC yetkili temsilcisi, %100 online.",
+    openGraph: {
+      images: [
+        {
+          url: `${SITE_URL}/og/kanada-lise-diplomasi.jpg`,
+          width: 1200,
+          height: 633,
+          alt: "Catalyst Education — Kanada Lise Diploması (OSSD)",
+        },
+      ],
+    },
+    twitter: {
+      card: "summary_large_image",
+      images: [`${SITE_URL}/og/kanada-lise-diplomasi.jpg`],
+    },
   };
 }
 

@@ -1,5 +1,4 @@
 import type { Metadata } from "next";
-import { ogImage } from "@/lib/og";
 import Link from "next/link";
 import Image from "next/image";
 import { redirect } from "next/navigation";
@@ -59,13 +58,20 @@ export async function generateMetadata({
       siteName: "Catalyst Education",
       type: "website",
       locale: "tr_TR",
-      images: ogImage(title),
+      images: [
+        {
+          url: `${SITE_URL}/og/kanada-lise-diplomasi.jpg`,
+          width: 1200,
+          height: 633,
+          alt: "Kanada Lise Diploması — Türkiye'den Online OSSD Programı | Catalyst Education",
+        },
+      ],
     },
     twitter: {
       card: "summary_large_image",
       title,
       description,
-      images: [ogImage(title)[0].url],
+      images: [`${SITE_URL}/og/kanada-lise-diplomasi.jpg`],
     },
   };
 }
