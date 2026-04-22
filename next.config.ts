@@ -29,7 +29,7 @@ const nextConfig: NextConfig = {
       { source: "/corporate",    destination: "/tr/corporate",    permanent: true },
       { source: "/about",        destination: "/tr/about",        permanent: true },
       { source: "/faq",          destination: "/tr/faq",          permanent: true },
-      { source: "/apply",        destination: "/tr/apply",        permanent: true },
+      { source: "/apply",        destination: "/tr/bilgi-al",     permanent: true },
       { source: "/contact",      destination: "/tr/contact",      permanent: true },
 
       // ── Ana sayfa ──────────────────────────────────────────────
@@ -76,15 +76,18 @@ const nextConfig: NextConfig = {
       { source: "/tr/help-center",             destination: "/tr/faq",     permanent: true },
       { source: "/en/help-center",             destination: "/en/faq",     permanent: true },
 
-      // ── Başvuru ────────────────────────────────────────────────
-      { source: "/how-to-apply",               destination: "/tr/apply",   permanent: true },
-      { source: "/how-to-apply/",              destination: "/tr/apply",   permanent: true },
-      { source: "/tr/how-to-apply",            destination: "/tr/apply",   permanent: true },
-      { source: "/en/how-to-apply",            destination: "/en/apply",   permanent: true },
-      { source: "/apply-now",                  destination: "/tr/apply",   permanent: true },
-      { source: "/apply-now/",                 destination: "/tr/apply",   permanent: true },
-      { source: "/tr/apply-now",               destination: "/tr/apply",   permanent: true },
-      { source: "/en/apply-now",               destination: "/en/apply",   permanent: true },
+      // ── Başvuru → Bilgi Al yönlendirmeleri ────────────────────
+      { source: "/tr/apply",                   destination: "/tr/bilgi-al", permanent: true },
+      { source: "/en/apply",                   destination: "/en/get-info", permanent: true },
+      { source: "/en/bilgi-al",                destination: "/en/get-info", permanent: true },
+      { source: "/how-to-apply",               destination: "/tr/bilgi-al", permanent: true },
+      { source: "/how-to-apply/",              destination: "/tr/bilgi-al", permanent: true },
+      { source: "/tr/how-to-apply",            destination: "/tr/bilgi-al", permanent: true },
+      { source: "/en/how-to-apply",            destination: "/en/get-info", permanent: true },
+      { source: "/apply-now",                  destination: "/tr/bilgi-al", permanent: true },
+      { source: "/apply-now/",                 destination: "/tr/bilgi-al", permanent: true },
+      { source: "/tr/apply-now",               destination: "/tr/bilgi-al", permanent: true },
+      { source: "/en/apply-now",               destination: "/en/get-info", permanent: true },
 
       // ── Gizlilik ───────────────────────────────────────────────
       { source: "/privacy-policy",             destination: "/tr/privacy", permanent: true },

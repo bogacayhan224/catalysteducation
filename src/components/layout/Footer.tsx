@@ -19,8 +19,9 @@ export function Footer() {
           <Image
             src="/logo.png"
             alt="Catalyst Education"
-            width={180}
-            height={54}
+            width={360}
+            height={108}
+            sizes="180px"
             className="h-16 w-auto"
           />
           <p className="text-sm text-warm-600 max-w-xs leading-relaxed">
@@ -72,7 +73,7 @@ export function Footer() {
           <h3 className="font-semibold text-warm-800">{t("organization")}</h3>
           <Link href={localePath("/about")} className="text-sm text-warm-600 hover:text-brand-500 transition-colors">{t("orgLinks.about")}</Link>
           <Link href={localePath("/contact")} className="text-sm text-warm-600 hover:text-brand-500 transition-colors">{t("orgLinks.contact")}</Link>
-          <Link href={localePath("/apply")} className="text-sm text-warm-600 hover:text-brand-500 transition-colors">{t("links.university")}</Link>
+          <Link href={locale === "tr" ? "/tr/bilgi-al" : "/en/get-info"} className="text-sm text-warm-600 hover:text-brand-500 transition-colors">{t("links.university")}</Link>
         </div>
 
         {/* Legal */}

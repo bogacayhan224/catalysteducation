@@ -5,7 +5,6 @@ import Image from "next/image";
 import { useState, useEffect, useRef } from "react";
 import { Menu, X, Globe, ChevronDown, GraduationCap, ArrowRight } from "lucide-react";
 import { cn } from "@/lib/utils";
-import { event } from "@/lib/gtm";
 import { useTranslations, useLocale } from "next-intl";
 import { useRouter, usePathname } from "next/navigation";
 
@@ -67,8 +66,9 @@ export function Navbar() {
           <Image
             src="/logo.png"
             alt="Catalyst Education"
-            width={180}
-            height={54}
+            width={360}
+            height={108}
+            sizes="180px"
             className="h-16 w-auto"
             priority
           />
@@ -211,17 +211,10 @@ export function Navbar() {
         {/* Right: CTA + locale */}
         <div className="hidden md:flex items-center gap-2.5">
           <Link
-            href={localePath("/contact#contact-form")}
+            href={locale === "tr" ? "/tr/bilgi-al" : "/en/get-info"}
             className="inline-flex h-10 items-center justify-center rounded-full border border-warm-400 bg-transparent px-4 text-sm font-semibold text-warm-700 transition-all hover:bg-warm-200 whitespace-nowrap"
           >
             {t("getInfo")}
-          </Link>
-          <Link
-            href={localePath("/apply")}
-            onClick={() => event({ action: 'apply_click', button_text: t('applyNow'), section_name: 'Navbar' })}
-            className="inline-flex h-10 items-center justify-center rounded-full bg-brand-500 px-4 text-sm font-semibold text-white shadow-sm transition-all hover:bg-brand-600 hover:shadow-md whitespace-nowrap"
-          >
-            {t("applyNow")}
           </Link>
           <button
             onClick={switchLocale}
@@ -299,14 +292,7 @@ export function Navbar() {
 
           <div className="flex flex-col gap-3 mt-3">
             <Link
-              href={localePath("/apply")}
-              className="inline-flex h-11 w-full items-center justify-center rounded-full bg-brand-500 px-4 text-sm font-semibold text-white shadow transition-colors hover:bg-brand-600"
-              onClick={() => { setIsOpen(false); event({ action: 'apply_click', button_text: t('applyNow'), section_name: 'Navbar Mobile' }); }}
-            >
-              {t("applyNow")}
-            </Link>
-            <Link
-              href={localePath("/contact#contact-form")}
+              href={locale === "tr" ? "/tr/bilgi-al" : "/en/get-info"}
               className="inline-flex h-11 w-full items-center justify-center rounded-full border border-warm-400 bg-transparent px-4 text-sm font-semibold text-warm-700 transition-colors hover:bg-warm-200"
               onClick={() => setIsOpen(false)}
             >

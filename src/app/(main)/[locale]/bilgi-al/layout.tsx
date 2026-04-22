@@ -4,11 +4,22 @@ import { ogImage } from "@/lib/og";
 const SITE_URL =
   process.env.NEXT_PUBLIC_SITE_URL ?? "https://catalyst-education-web.vercel.app";
 
-export async function generateMetadata(): Promise<Metadata> {
-  const title = "Kanada Lise Diploması Hakkında Bilgi Al | Catalyst Education";
-  const description =
-    "Kanada Lise Diploması ve çift diploma programı hakkında bilgi almak için formu doldurun. Ekibimiz sizinle en kısa sürede iletişime geçsin.";
-  const url = `${SITE_URL}/tr/bilgi-al`;
+export async function generateMetadata({
+  params,
+}: {
+  params: Promise<{ locale: string }>;
+}): Promise<Metadata> {
+  const { locale } = await params;
+  const isTR = locale === "tr";
+
+  const title = isTR
+    ? "Kanada Lise Diploması Hakkında Bilgi Al | Catalyst Education"
+    : "Get Information About the Canadian High School Diploma | Catalyst Education";
+  const description = isTR
+    ? "Kanada Lise Diploması ve çift diploma programı hakkında bilgi almak için formu doldurun. Ekibimiz sizinle en kısa sürede iletişime geçsin."
+    : "Fill in the form to receive information about the Canadian High School Diploma programme. Our team will get in touch with you as soon as possible.";
+  const url = isTR ? `${SITE_URL}/tr/bilgi-al` : `${SITE_URL}/en/bilgi-al`;
+  const ogLocale = isTR ? "tr_TR" : "en_US";
 
   return {
     title,
@@ -21,7 +32,7 @@ export async function generateMetadata(): Promise<Metadata> {
       url,
       siteName: "Catalyst Education",
       type: "website",
-      locale: "tr_TR",
+      locale: ogLocale,
       images: ogImage(title),
     },
     twitter: {
