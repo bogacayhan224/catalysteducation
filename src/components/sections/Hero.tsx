@@ -2,6 +2,39 @@
 
 import Image from "next/image";
 import { useTranslations, useLocale } from "next-intl";
+
+const flagStyle = {
+  display: 'inline-block',
+  width: '52px',
+  height: '35px',
+  overflow: 'hidden',
+  borderRadius: '6px',
+  boxShadow: '0 2px 6px rgba(0,0,0,0.18), inset 0 0 0 1px rgba(0,0,0,0.08)',
+  flexShrink: 0,
+  alignSelf: 'center',
+};
+
+function TurkeyFlag({ className }: { className?: string }) {
+  return (
+    <span className={className} style={flagStyle}>
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -30000 90000 60000" width="52" height="35" preserveAspectRatio="none" aria-label="Türk Bayrağı" role="img">
+        <path fill="#e30a17" d="m0-30000h90000v60000H0z"/>
+        <path fill="#fff" d="m41750 0 13568-4408-8386 11541V-7133l8386 11541zm925 8021a15000 15000 0 1 1 0-16042 12000 12000 0 1 0 0 16042z"/>
+      </svg>
+    </span>
+  );
+}
+
+function CanadaFlag({ className }: { className?: string }) {
+  return (
+    <span className={className} style={flagStyle}>
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 9600 4800" width="52" height="35" preserveAspectRatio="none" aria-label="Kanada Bayrağı" role="img">
+        <path fill="#d52b1e" d="m0 0h2400l99 99h4602l99-99h2400v4800h-2400l-99-99h-4602l-99 99H0z"/>
+        <path fill="#fff" d="m2400 0h4800v4800h-4800zm2490 4430-45-863a95 95 0 0 1 111-98l859 151-116-320a65 65 0 0 1 20-73l941-762-212-99a65 65 0 0 1-34-79l186-572-542 115a65 65 0 0 1-73-38l-105-247-423 454a65 65 0 0 1-111-57l204-1052-327 189a65 65 0 0 1-91-27l-332-652-332 652a65 65 0 0 1-91 27l-327-189 204 1052a65 65 0 0 1-111 57l-423-454-105 247a65 65 0 0 1-73 38l-542-115 186 572a65 65 0 0 1-34 79l-212 99 941 762a65 65 0 0 1 20 73l-116 320 859-151a95 95 0 0 1 111 98l-45 863z"/>
+      </svg>
+    </span>
+  );
+}
 import { MessageCircle, ChevronDown, ShieldCheck, Globe, Monitor, GraduationCap } from "lucide-react";
 
 function trackEvent(name: string, properties?: Record<string, unknown>) {
@@ -52,10 +85,14 @@ export function Hero() {
 
             {/* Headline */}
             <h1 className="text-4xl md:text-5xl lg:text-[3.25rem] font-bold tracking-tight leading-[1.15] text-warm-800">
-              {t("title")}
+              <span className="inline-flex items-center gap-3">
+                <TurkeyFlag className="animate-[flagFloat_3s_ease-in-out_infinite] hover:scale-110 transition-transform duration-300" />
+                {t("title")}
+              </span>
               <br />
-              <span className="text-brand-500">
-                🇨🇦 {t("titleHighlight")}
+              <span className="text-brand-500 inline-flex items-center gap-3">
+                <CanadaFlag className="animate-[flagFloat_3s_ease-in-out_infinite_0.4s] hover:scale-110 transition-transform duration-300" />
+                {t("titleHighlight")}
               </span>
             </h1>
 
