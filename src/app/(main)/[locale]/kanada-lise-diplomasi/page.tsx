@@ -107,7 +107,7 @@ const faqItems = [
   {
     question: "Program ücreti nedir?",
     answer:
-      "Program maliyeti 15.000 CAD'dir. Bu ücret dersler, akademik değerlendirme ve diploma sürecini kapsar. Ödeme planı kayıt sürecinde paylaşılır.",
+      "Program maliyeti, öğrencinin mevcut kredi durumuna ve tamamlanması gereken ders sayısına göre değişkenlik gösterir. Kesin fiyat bilgisi ücretsiz değerlendirme görüşmesinin ardından paylaşılır.",
   },
 ];
 
@@ -130,8 +130,8 @@ const courseSchema = {
   url: PAGE_URL_TR,
   offers: {
     "@type": "Offer",
-    price: "15000",
-    priceCurrency: "CAD",
+    availability: "https://schema.org/InStock",
+    url: PAGE_URL_TR,
   },
 };
 
@@ -576,8 +576,8 @@ export default async function KanadaLiseDiplomasiPage() {
               <div className="bg-warm-100 border border-warm-300 rounded-3xl p-8 flex flex-col gap-6">
                 <h3 className="font-bold text-warm-800 text-lg">Program Ücreti</h3>
                 <div className="text-center py-6 border border-warm-300 rounded-2xl bg-white">
-                  <p className="text-4xl font-bold text-warm-800">15.000 CAD</p>
-                  <p className="text-warm-500 text-sm mt-2">Yaklaşık program maliyeti</p>
+                  <p className="text-xl font-bold text-warm-800">Öğrenciye Özel Fiyatlandırma</p>
+                  <p className="text-warm-500 text-sm mt-2">Program maliyeti, öğrencinin mevcut kredi durumu ve tamamlanması gereken ders sayısına göre belirlenir.</p>
                 </div>
                 <div className="space-y-3">
                   <p className="font-semibold text-warm-800 text-sm">Bu ücret kapsamında:</p>

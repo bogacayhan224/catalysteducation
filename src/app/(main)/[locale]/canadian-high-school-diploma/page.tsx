@@ -101,7 +101,7 @@ const faqItems = [
   {
     question: "What is the cost of the program?",
     answer:
-      "The program cost is 15,000 CAD. This covers all courses, academic evaluation, and the diploma process. A detailed payment plan is shared during the enrollment process. Book a free initial consultation to learn more.",
+      "Program cost varies based on the student's existing credits and the number of courses required to complete the diploma. The exact price is shared after a free evaluation consultation.",
   },
 ];
 
@@ -124,8 +124,8 @@ const courseSchema = {
   url: PAGE_URL_EN,
   offers: {
     "@type": "Offer",
-    price: "15000",
-    priceCurrency: "CAD",
+    availability: "https://schema.org/InStock",
+    url: PAGE_URL_EN,
   },
 };
 
@@ -572,8 +572,8 @@ export default async function CanadianHighSchoolDiplomaPage() {
               <div className="bg-warm-100 border border-warm-300 rounded-3xl p-8 flex flex-col gap-6">
                 <h3 className="font-bold text-warm-800 text-lg">Program Fee</h3>
                 <div className="text-center py-6 border border-warm-300 rounded-2xl bg-white">
-                  <p className="text-4xl font-bold text-warm-800">15,000 CAD</p>
-                  <p className="text-warm-500 text-sm mt-2">Approximate total program cost</p>
+                  <p className="text-xl font-bold text-warm-800">Personalized Pricing</p>
+                  <p className="text-warm-500 text-sm mt-2">Program cost is determined based on the student's existing credits and the number of courses required to complete the diploma.</p>
                 </div>
                 <div className="space-y-3">
                   <p className="font-semibold text-warm-800 text-sm">This fee covers:</p>
