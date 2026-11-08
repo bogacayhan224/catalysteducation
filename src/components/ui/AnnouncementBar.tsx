@@ -6,8 +6,8 @@ const WHATSAPP_URL =
   "https://wa.me/905334702735?text=Merhaba,%20Catalyst%20Education%20programlar%C4%B1%20hakk%C4%B1nda%20bilgi%20almak%20istiyorum.";
 
 const TEXTS = {
-  tr: "🎓 2026–2027 Kayıt Dönemi Açıldı  •  Erken kayıt avantajlarından yararlanmak için hemen bizimle iletişime geçin",
-  en: "🎓 2026–2027 Enrollment Period Is Now Open  •  Contact us today to benefit from early registration advantages",
+  tr: "🎓 2026–2027 kayıt dönemi devam ediyor  •  Global eğitim sisteminin bir parçası olmak için şimdi bize ulaşın",
+  en: "🎓 2026–2027 enrolment is ongoing  •  Contact us today to become part of a global education system",
 };
 
 const ARIA_LABELS = {
