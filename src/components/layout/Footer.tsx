@@ -3,6 +3,7 @@ import Link from "next/link";
 import Image from "next/image";
 import { useTranslations, useLocale } from "next-intl";
 import { useConsent } from "@/contexts/ConsentContext";
+import { financialLiteracyPaths } from "@/lib/financial-literacy-paths";
 
 export function Footer() {
   const t = useTranslations("footer");
@@ -65,6 +66,12 @@ export function Footer() {
             className="text-sm text-warm-600 hover:text-brand-500 transition-colors"
           >
             {t("guideLinks.tvoGuide")}
+          </Link>
+          <Link
+            href={locale === "tr" ? financialLiteracyPaths.tr : financialLiteracyPaths.en}
+            className="text-sm text-warm-600 hover:text-brand-500 transition-colors"
+          >
+            {t("guideLinks.financialLiteracy")}
           </Link>
         </div>
 

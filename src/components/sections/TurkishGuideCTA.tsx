@@ -9,15 +9,17 @@ export function TurkishGuideCTA({
   description = "Ekibimizden ücretsiz değerlendirme alın ve OSSD programının öğrencinizin mevcut eğitimine nasıl uyduğunu öğrenin.",
   whatsappLabel = "WhatsApp'tan Yazın",
   trackWhatsApp = false,
+  locale = "tr",
 }: {
   title?: string;
   description?: string;
   whatsappLabel?: string;
   trackWhatsApp?: boolean;
+  locale?: "tr" | "en";
 }) {
   const whatsappNumber = process.env.NEXT_PUBLIC_WHATSAPP_NUMBER ?? "905334702735";
   const whatsappUrl = `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(
-    "Merhaba, OSSD hakkında bilgi almak istiyorum."
+    locale === "tr" ? "Merhaba, OSSD hakkında bilgi almak istiyorum." : "Hi, I would like to learn more about the OSSD."
   )}`;
 
   return (
@@ -36,7 +38,7 @@ export function TurkishGuideCTA({
           <div className="flex flex-col sm:flex-row gap-3">
             <a
               href={whatsappUrl}
-              onClick={trackWhatsApp ? () => event({ action: "whatsapp_click", button_text: whatsappLabel, source: "guide_cta", locale: "tr" }) : undefined}
+              onClick={trackWhatsApp ? () => event({ action: "whatsapp_click", button_text: whatsappLabel, source: "guide_cta", locale }) : undefined}
               target="_blank"
               rel="noopener noreferrer"
               className="inline-flex h-12 items-center justify-center gap-2 rounded-full bg-brand-500 px-8 text-base font-semibold text-white hover:bg-brand-600 transition-colors shadow-sm"
@@ -45,10 +47,10 @@ export function TurkishGuideCTA({
               {whatsappLabel}
             </a>
             <Link
-              href="/tr/diploma"
+              href={`/${locale}/diploma`}
               className="inline-flex h-12 items-center justify-center gap-2 rounded-full border border-warm-400 bg-white px-8 text-base font-medium text-warm-800 hover:bg-warm-100 transition-colors"
             >
-              Programı İncele
+              {locale === "tr" ? "Programı İncele" : "Explore the Program"}
               <ArrowRight className="h-4 w-4" />
             </Link>
           </div>

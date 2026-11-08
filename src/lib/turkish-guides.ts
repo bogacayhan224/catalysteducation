@@ -1,9 +1,11 @@
+import { financialLiteracyPaths } from "./financial-literacy-paths";
+
 export const financialLiteracyGuide = {
   tag: "OSSD Müfredatı",
   title: "Kanada'da Finansal Okuryazarlık Eğitimi: OSSD'nin Yeni Gerekliliği",
   description:
     "Ontario'da 2026–2027 ile gelen finansal okuryazarlık mezuniyet gerekliliğini, TVO'nun resmi rolünü ve öğrencilerin kazandığı becerileri keşfedin.",
-  href: "/tr/kanada-finansal-okuryazarlik-egitimi",
+  href: financialLiteracyPaths.tr,
   readTime: "6 dk okuma",
   date: "29 Ekim 2026",
   datePublished: "2026-10-29",

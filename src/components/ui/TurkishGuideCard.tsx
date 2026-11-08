@@ -5,9 +5,11 @@ import type { turkishGuides } from "@/lib/turkish-guides";
 export function TurkishGuideCard({
   guide,
   heading: Heading = "h2",
+  locale = "tr",
 }: {
   guide: (typeof turkishGuides)[number];
   heading?: "h2" | "h3";
+  locale?: "tr" | "en";
 }) {
   return (
     <Link
@@ -36,7 +38,7 @@ export function TurkishGuideCard({
       <div className="flex items-center flex-wrap gap-2 justify-between pt-5 border-t border-warm-200">
         <span className="text-xs text-warm-700">{guide.date}</span>
         <span className="inline-flex items-center gap-1 text-sm font-semibold text-brand-500 group-hover:gap-2 transition-all">
-          Rehberi oku
+          {locale === "tr" ? "Rehberi oku" : "Read guide"}
           <ArrowRight className="h-3.5 w-3.5" />
         </span>
       </div>

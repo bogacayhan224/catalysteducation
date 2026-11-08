@@ -5,7 +5,7 @@ import Image from "next/image";
 import { useState, useEffect, useRef } from "react";
 import { Menu, X, Globe, ChevronDown, GraduationCap, ArrowRight } from "lucide-react";
 import { cn } from "@/lib/utils";
-import { financialLiteracyGuide } from "@/lib/turkish-guides";
+import { financialLiteracyPaths } from "@/lib/financial-literacy-paths";
 import { useTranslations, useLocale } from "next-intl";
 import { useRouter, usePathname } from "next/navigation";
 
@@ -14,8 +14,8 @@ export function Navbar() {
   const locale = useLocale();
   const router = useRouter();
   const pathname = usePathname();
-  const isFinancialLiteracyGuide = pathname === financialLiteracyGuide.href;
-  // Keep the compact menu on this guide until the full Turkish menu fits.
+  const isFinancialLiteracyGuide = pathname === financialLiteracyPaths.tr || pathname === financialLiteracyPaths.en;
+  // Keep the compact menu on this guide until the full menu fits.
   const showDesktop = isFinancialLiteracyGuide ? "xl:flex" : "md:flex";
   const hideMobile = isFinancialLiteracyGuide ? "xl:hidden" : "md:hidden";
   const [isOpen, setIsOpen] = useState(false);
@@ -48,7 +48,7 @@ export function Navbar() {
 
   const switchLocale = () => {
     const nextLocale = locale === "en" ? "tr" : "en";
-    const newPath = isFinancialLiteracyGuide ? "/en/guides" : pathname.replace(`/${locale}`, `/${nextLocale}`);
+    const newPath = isFinancialLiteracyGuide ? financialLiteracyPaths[nextLocale] : pathname.replace(`/${locale}`, `/${nextLocale}`);
     router.push(newPath);
   };
 
