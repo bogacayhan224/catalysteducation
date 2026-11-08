@@ -368,6 +368,12 @@ export default async function OssdNedirPage() {
                       gelecekteki eğitim seçeneklerini genişleten stratejik bir
                       akademik adımdır.
                     </p>
+                    <p>
+                      Ontario’daki güncel mezuniyet şartlarından biri hakkında bilgi almak için{" "}
+                      <Link href="/tr/kanada-finansal-okuryazarlik-egitimi" className="font-semibold text-brand-500 underline underline-offset-4">
+                        Kanada’da Finansal Okuryazarlık Eğitimi
+                      </Link>{" "}rehberimize bakabilirsiniz.
+                    </p>
                   </div>
                 </div>
 

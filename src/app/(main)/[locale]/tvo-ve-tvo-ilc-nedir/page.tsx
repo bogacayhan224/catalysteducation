@@ -352,6 +352,12 @@ export default async function TvoVeTvoIlcNedirPage() {
                       hizmetlerin en önemlilerinden biri, lise düzeyindeki eğitim
                       modeli olan <strong>TVO ILC</strong>&apos;dir.
                     </p>
+                    <p>
+                      TVO’nun öğrenme ve değerlendirme modüllerindeki rolü hakkında bilgi almak için{" "}
+                      <Link href="/tr/kanada-finansal-okuryazarlik-egitimi" className="font-semibold text-brand-500 underline underline-offset-4">
+                        Kanada’da Finansal Okuryazarlık Eğitimi
+                      </Link>{" "}rehberimize bakabilirsiniz.
+                    </p>
                   </div>
                 </div>
 

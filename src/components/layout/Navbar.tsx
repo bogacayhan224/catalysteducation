@@ -5,6 +5,7 @@ import Image from "next/image";
 import { useState, useEffect, useRef } from "react";
 import { Menu, X, Globe, ChevronDown, GraduationCap, ArrowRight } from "lucide-react";
 import { cn } from "@/lib/utils";
+import { financialLiteracyGuide } from "@/lib/turkish-guides";
 import { useTranslations, useLocale } from "next-intl";
 import { useRouter, usePathname } from "next/navigation";
 
@@ -13,6 +14,10 @@ export function Navbar() {
   const locale = useLocale();
   const router = useRouter();
   const pathname = usePathname();
+  const isFinancialLiteracyGuide = pathname === financialLiteracyGuide.href;
+  // Keep the compact menu on this guide until the full Turkish menu fits.
+  const showDesktop = isFinancialLiteracyGuide ? "xl:flex" : "md:flex";
+  const hideMobile = isFinancialLiteracyGuide ? "xl:hidden" : "md:hidden";
   const [isOpen, setIsOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
   const [diplomaOpen, setDiplomaOpen] = useState(false);
@@ -43,7 +48,7 @@ export function Navbar() {
 
   const switchLocale = () => {
     const nextLocale = locale === "en" ? "tr" : "en";
-    const newPath = pathname.replace(`/${locale}`, `/${nextLocale}`);
+    const newPath = isFinancialLiteracyGuide ? "/en/guides" : pathname.replace(`/${locale}`, `/${nextLocale}`);
     router.push(newPath);
   };
 
@@ -75,7 +80,7 @@ export function Navbar() {
         </Link>
 
         {/* Desktop Nav */}
-        <nav className="hidden md:flex items-center gap-6 text-sm font-medium">
+        <nav className={cn("hidden items-center gap-6 text-sm font-medium", showDesktop)}>
 
           {/* Kanada Lise Diploması dropdown */}
           <div className="relative" ref={dropdownRef}>
@@ -209,7 +214,7 @@ export function Navbar() {
         </nav>
 
         {/* Right: CTA + locale */}
-        <div className="hidden md:flex items-center gap-2.5">
+        <div className={cn("hidden items-center gap-2.5", showDesktop)}>
           <Link
             href={locale === "tr" ? "/tr/bilgi-al" : "/en/get-info"}
             className="inline-flex h-10 items-center justify-center rounded-full border border-warm-400 bg-transparent px-4 text-sm font-semibold text-warm-700 transition-all hover:bg-warm-200 whitespace-nowrap"
@@ -227,7 +232,7 @@ export function Navbar() {
 
         {/* Mobile Toggle */}
         <button
-          className="md:hidden p-2 text-warm-700 focus:outline-none"
+          className={cn("p-2 text-warm-700 focus:outline-none", hideMobile)}
           onClick={() => setIsOpen(!isOpen)}
         >
           {isOpen ? <X size={24} /> : <Menu size={24} />}
@@ -237,7 +242,8 @@ export function Navbar() {
       {/* Mobile Nav */}
       <div
         className={cn(
-          "md:hidden overflow-hidden transition-all duration-300 ease-in-out",
+          "overflow-hidden transition-all duration-300 ease-in-out",
+          hideMobile,
           isOpen ? "max-h-[800px] border-t border-warm-300 opacity-100 bg-white" : "max-h-0 opacity-0 bg-transparent"
         )}
       >

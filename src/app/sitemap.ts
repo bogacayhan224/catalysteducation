@@ -1,4 +1,5 @@
 import { MetadataRoute } from "next";
+import { financialLiteracyGuide } from "@/lib/turkish-guides";
 
 const SITE_URL =
   process.env.NEXT_PUBLIC_SITE_URL ?? "https://www.catalysteducation.ca";
@@ -63,6 +64,11 @@ export default function sitemap(): MetadataRoute.Sitemap {
 
   // Blog pillar pages — locale-specific slugs (TR ≠ EN)
   const pillarPages: MetadataRoute.Sitemap = [
+    {
+      url: `${SITE_URL}${financialLiteracyGuide.href}`,
+      changeFrequency: "monthly",
+      priority: 0.8,
+    },
     // Guide hubs
     {
       url: `${SITE_URL}/tr/rehberler`,
